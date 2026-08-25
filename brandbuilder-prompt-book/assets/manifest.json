@@ -1,0 +1,45 @@
+{
+  "canonicalUrl": "https://brandbuilder-coder.github.io/branbuilder/brandbuilder-prompt-book/",
+  "images": [
+    {
+      "fileName": "brandbuilder-logo.jpg",
+      "bytes": 38939,
+      "sha256": "f8587a0bdcb09a74bd68daf0a2086dc9f4ed0d530f7b5350d74cbbc84e73dd66"
+    },
+    {
+      "fileName": "01-minimal-silhouette.jpg",
+      "bytes": 193817,
+      "sha256": "7888547001457e2f6d1e3edd5d346bd6c71bf96fd1a05b37d7fb281c02a67757"
+    },
+    {
+      "fileName": "02-mascot.jpg",
+      "bytes": 313612,
+      "sha256": "b4dae74807bed6b097130de10325afe4bbbf723b5f134894ae57854a1f98c2de"
+    },
+    {
+      "fileName": "03-cartoon.jpg",
+      "bytes": 323504,
+      "sha256": "2cd0b8ef7561947da5b113ce3dea93fc7843760b4aeec55ca3052b84a3c33200"
+    },
+    {
+      "fileName": "04-engraved.jpg",
+      "bytes": 793097,
+      "sha256": "a18246f69a04bb39b804be83feebf70534c236148296de370f0e5de33f9d97ba"
+    },
+    {
+      "fileName": "05-icon-emoji.jpg",
+      "bytes": 383423,
+      "sha256": "be77bd624e6e911249a0d85d350a71273e62aecffed1e49b405965274e77399e"
+    },
+    {
+      "fileName": "06-line-art.jpg",
+      "bytes": 347619,
+      "sha256": "7c8ed04821fe111ae0bb2a9788696cb46861ed380aefffc55eb01c1a2a92d6e7"
+    },
+    {
+      "fileName": "07-pictorial.jpg",
+      "bytes": 263757,
+      "sha256": "983a6d59b9ec7a463b37c95b7174b6f588ecaa81528c5e46e0d20707bb409138"
+    }
+  ]
+}

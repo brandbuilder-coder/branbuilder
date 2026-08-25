@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRANDBUILDER · PROMPT BOOK — Image to Character & Logo</title>
+<meta name="description" content="사진·동물·사물·제품 이미지를 캐릭터와 로고로 전환하는 7가지 실전 프롬프트 전자책">
+<link rel="canonical" href="https://brandbuilder-coder.github.io/branbuilder/brandbuilder-prompt-book/">
+<meta property="og:title" content="BRANDBUILDER · PROMPT BOOK">
+<meta property="og:description" content="Image to Character & Logo — 7 practical prompts">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brandbuilder-coder.github.io/branbuilder/brandbuilder-prompt-book/">
+<meta property="og:image" content="https://brandbuilder-coder.github.io/branbuilder/brandbuilder-prompt-book/assets/brandbuilder-logo.jpg">
+<style>
+:root {
+  --yellow:#FFC400;
+  --black:#0A0A0A;
+  --ink:#191919;
+  --paper:#F7F7F3;
+  --white:#FFFFFF;
+  --muted:#757575;
+  --line:#DADADA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.cover{
+  min-height:100vh;background:var(--yellow);padding:52px 6vw 44px;display:grid;
+  grid-template-rows:auto 1fr auto;position:relative;overflow:hidden;
+}
+.cover-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;letter-spacing:.08em}
+.cover-main{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:6vw;max-width:1500px;margin:auto;width:100%}
+.cover h1{font-size:clamp(54px,9vw,150px);line-height:.88;margin:0;letter-spacing:-.06em;font-weight:900;max-width:900px}
+.cover h1 span{display:block;color:var(--white);-webkit-text-stroke:2px var(--black);text-shadow:5px 5px 0 var(--black)}
+.cover-copy{margin-top:34px;max-width:650px;font-size:18px;line-height:1.7;font-weight:600}
+.cover-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.download-btn{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--black);background:var(--black);color:var(--white);padding:12px 18px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.08em;box-shadow:5px 5px 0 var(--white);transition:transform .18s ease,box-shadow .18s ease}
+.download-btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--white)}
+.logo-card{background:#fff;border:3px solid var(--black);box-shadow:18px 18px 0 var(--black);padding:10%;border-radius:32px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.logo-card img{width:100%;height:100%;object-fit:cover;border-radius:20px}
+.cover-bottom{display:flex;justify-content:space-between;align-items:end;gap:20px;font-size:14px;font-weight:700}
+.toc{display:flex;gap:8px;flex-wrap:wrap}
+.toc a{border:1.5px solid var(--black);background:rgba(255,255,255,.25);padding:8px 12px;border-radius:99px}
+.intro{
+  max-width:1200px;margin:0 auto;padding:110px 6vw 70px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end
+}
+.intro h3{font-size:clamp(38px,5vw,72px);line-height:1;letter-spacing:-.05em;margin:0}
+.intro p{font-size:18px;line-height:1.8;margin:0;color:#3e3e3e}
+.intro strong{background:var(--yellow);padding:0 .18em}
+.spread{
+  max-width:1400px;margin:0 auto 36px;background:var(--white);min-height:760px;
+  display:grid;grid-template-columns:1fr 1fr;position:relative;border:1px solid #e5e5e5;
+  box-shadow:0 20px 60px rgba(0,0,0,.06);overflow:hidden;
+}
+.page-label{position:absolute;top:24px;right:30px;z-index:4;font-size:12px;font-weight:800;letter-spacing:.12em;color:#666}
+.visual{background:#f0f0ed;padding:70px;display:flex;align-items:center;justify-content:center;min-width:0}
+.image-frame{width:100%;max-width:560px;aspect-ratio:1/1;background:white;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.10)}
+.image-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.content{padding:82px 68px 62px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:#777}
+.content h2{font-size:clamp(34px,4vw,58px);line-height:1.02;letter-spacing:-.045em;margin:12px 0 20px}
+.desc{font-size:16px;line-height:1.75;color:#555;margin:0 0 26px;max-width:640px}
+.prompt-card{border:2px solid var(--black);border-radius:18px;overflow:hidden;background:#111;color:#fff;box-shadow:8px 8px 0 var(--yellow)}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px 10px 18px;border-bottom:1px solid #333;font-size:11px;letter-spacing:.12em;font-weight:800;color:#bdbdbd}
+.copy-btn{appearance:none;border:0;background:var(--yellow);color:#111;font-size:11px;font-weight:900;padding:9px 14px;border-radius:99px;cursor:pointer}
+.copy-btn.copied{background:#fff}
+pre{margin:0;padding:22px 24px 26px;white-space:pre-wrap;word-break:break-word;font:500 14px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.use-note{display:flex;justify-content:space-between;gap:20px;margin-top:25px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:#666}
+.use-note b{color:#111}
+.strategy{max-width:1400px;margin:70px auto 0;padding:90px 7vw;background:var(--black);color:#fff;display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center}
+.strategy .logo-mini{background:var(--yellow);padding:28px;border-radius:28px}
+.strategy img{display:block;width:100%;border-radius:18px}
+.strategy h3{font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.05em;margin:0 0 26px}
+.strategy p{font-size:18px;line-height:1.75;color:#d2d2d2;margin:0 0 24px}
+.rank{padding:22px;border:1px solid #333;border-radius:18px;font:700 15px/1.7 ui-monospace,monospace;background:#151515}
+.rank strong{color:var(--yellow)}
+.footer{max-width:1400px;margin:0 auto 70px;padding:42px 7vw;background:var(--yellow);display:flex;justify-content:space-between;gap:30px;align-items:center;font-weight:800}
+.footer .contact{text-align:right}
+@media(max-width:900px){
+  .cover-main,.intro,.spread,.strategy{grid-template-columns:1fr}
+  .cover{padding:30px 24px}
+  .cover-main{padding:50px 0}
+  .logo-card{max-width:460px}
+  .intro{padding:72px 24px 40px;gap:28px}
+  .spread{margin:0 16px 24px;min-height:0}
+  .visual{padding:28px}
+  .content{padding:44px 28px 36px}
+  .strategy{margin:44px 16px 0;padding:42px 28px;gap:30px}
+  .footer{margin:0 16px 28px;padding:28px;align-items:flex-start;flex-direction:column}
+  .footer .contact{text-align:left}
+  .cover-bottom{align-items:flex-start;flex-direction:column}
+}
+@page{size:A4 landscape;margin:0}
+@media print{
+  html,body{width:297mm;margin:0;background:#fff}
+  .copy-btn,.toc,.cover-actions{display:none!important}
+  .cover,.intro,.spread,.strategy,.footer{width:297mm;height:210mm;max-width:none;margin:0;overflow:hidden;break-after:page;box-shadow:none}
+  .cover{min-height:210mm;padding:14mm 16mm 12mm}
+  .cover-main{max-width:none;grid-template-columns:1.25fr .75fr;gap:14mm}
+  .cover h1{font-size:27mm}
+  .cover-copy{font-size:4.5mm;line-height:1.55;max-width:155mm}
+  .logo-card{max-width:67mm;border-radius:7mm;box-shadow:5mm 5mm 0 var(--black)}
+  .intro{padding:34mm 24mm;display:grid;grid-template-columns:1fr 1fr;gap:18mm;align-items:center}
+  .intro h3{font-size:15mm}
+  .intro p{font-size:4.4mm;line-height:1.7}
+  .spread{min-height:0;grid-template-columns:1fr 1fr;border:0}
+  .visual{padding:16mm}
+  .image-frame{max-width:82mm;border-radius:7mm}
+  .content{padding:18mm 16mm 14mm}
+  .content h2{font-size:12mm;margin:3mm 0 5mm}
+  .desc{font-size:3.8mm;line-height:1.55;margin-bottom:5mm}
+  .prompt-card{border-radius:4mm;box-shadow:2mm 2mm 0 var(--yellow)}
+  .prompt-head{padding:3mm 4mm}
+  pre{padding:5mm 6mm;font-size:2.95mm;line-height:1.55}
+  .use-note{margin-top:5mm;padding-top:4mm;font-size:2.8mm}
+  .strategy{padding:22mm;display:grid;grid-template-columns:.8fr 1.2fr;gap:18mm;align-items:center}
+  .strategy .logo-mini{padding:7mm;max-width:70mm}
+  .strategy h3{font-size:15mm}
+  .strategy p{font-size:4.1mm;line-height:1.6}
+  .rank{font-size:3.4mm}
+  .footer{padding:24mm;background:var(--yellow);display:flex;align-items:center;justify-content:space-between;font-size:7mm}
+  .footer .contact{font-size:4mm}
+}
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="cover-top">
+    <span>BRANDBUILDER · PROMPT BOOK 01</span>
+    <span>IMAGE → LOGO</span>
+  </div>
+  <div class="cover-main">
+    <div>
+      <h1>Image to <span>Character & Logo</span></h1>
+      <p class="cover-copy">첨부 이미지 한 장과 프롬프트만으로 인물뿐 아니라 동물·사물·제품을 캐릭터와 로고 형태로 전환하는 7가지 실전 스타일 가이드.</p>
+      <div class="cover-actions"><a class="download-btn" href="Brandbuilder_Image_to_Character_Logo_PromptBook.pdf" download>PDF DOWNLOAD</a></div>
+    </div>
+    <div class="logo-card"><img src="assets/brandbuilder-logo.jpg" alt="Brandbuilder logo"></div>
+  </div>
+  <div class="cover-bottom">
+    <div class="toc">
+      <a href="#p01">01</a><a href="#p02">02</a><a href="#p03">03</a><a href="#p04">04</a>
+      <a href="#p05">05</a><a href="#p06">06</a><a href="#p07">07</a>
+    </div>
+    <div>-by Brandbuilder-<br>contact us · b612pink@naver.com</div>
+  </div>
+</header>
+
+<section class="intro">
+  <h3>사진을 그대로 그리지 말고,<br><strong>기억되는 요소</strong>만 남깁니다.</h3>
+  <p>캐릭터·로고 제작에서는 원본의 모든 디테일을 복제하는 것보다, 헤어스타일·안경·표정·대표 의상·제품 실루엣처럼 인지에 결정적인 요소 2–3개를 남기는 방식이 더 강합니다. 아래 7개 프롬프트는 동일한 원본 이미지를 서로 다른 시각 언어로 변환할 수 있도록 설계했습니다.</p>
+</section>
+
+
+    <section class="spread" id="p01">
+      <div class="page-label">01 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/01-minimal-silhouette.jpg" alt="Minimal Silhouette Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>01. Minimal Silhouette Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-01" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-01">Use the uploaded image as the main reference.
+Transform the subject into a bold minimalist silhouette logo.
+Preserve the key facial features, hairstyle, pose, and recognizable identity.
+Use simple black shapes, strong negative space, and clean vector-style geometry.
+No text, no background details, no gradients.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+    <section class="spread" id="p02">
+      <div class="page-label">02 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/02-mascot.jpg" alt="Mascot Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>02. Mascot Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-02" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-02">Use the uploaded image as the exact character reference.
+Transform the subject into a bold professional mascot logo.
+Preserve the most recognizable facial features, hairstyle, expression, and accessories.
+Use strong outlines, simplified shapes, limited colors, and clean vector graphics.
+Centered composition, logo-ready, no text.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+    <section class="spread" id="p03">
+      <div class="page-label">03 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/03-cartoon.jpg" alt="Cartoon Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>03. Cartoon Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-03" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-03">Use the uploaded image as reference.
+Turn the subject into a friendly cartoon-style logo character.
+Keep the recognizable face, hairstyle, clothing, and key characteristics.
+Use rounded shapes, bold outlines, simple colors, and clean vector illustration.
+Minimal background, centered composition, no text.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+    <section class="spread" id="p04">
+      <div class="page-label">04 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/04-engraved.jpg" alt="Engraved Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>04. Engraved Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-04" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-04">Use the uploaded image as reference.
+Transform the subject into a vintage engraved portrait logo.
+Preserve the facial structure, hairstyle, expression, and recognizable details.
+Use black ink lines, cross-hatching, woodcut-style texture, and strong contrast.
+Monochrome vector look, white background, no text.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+    <section class="spread" id="p05">
+      <div class="page-label">05 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/05-icon-emoji.jpg" alt="Icon / Emoji Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>05. Icon / Emoji Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-05" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-05">Use the uploaded image as reference.
+Transform the subject into a simple icon or emoji-style logo.
+Keep only the most distinctive facial features, hairstyle, accessories, and colors.
+Use flat geometric shapes, minimal details, bold outlines, and a limited color palette.
+Centered, clean, friendly, no text.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+    <section class="spread" id="p06">
+      <div class="page-label">06 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/06-line-art.jpg" alt="Line Art Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>06. Line Art Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-06" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-06">Use the uploaded image as reference.
+Convert the subject into an elegant minimalist line art logo.
+Preserve the recognizable silhouette, facial features, hairstyle, and key details.
+Use clean continuous lines, consistent stroke weight, and simple geometric curves.
+Single-color vector style, no shading, no text.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+    <section class="spread" id="p07">
+      <div class="page-label">07 / 07</div>
+      <div class="visual">
+        <div class="image-frame">
+          <img src="assets/07-pictorial.jpg" alt="Pictorial Logo example">
+        </div>
+      </div>
+      <div class="content">
+        <span class="eyebrow">IMAGE → CHARACTER / LOGO</span>
+        <h2>07. Pictorial Logo</h2>
+        <p class="desc">첨부 이미지를 기준으로 핵심 인상을 유지하면서 로고 시스템에 맞게 단순화하는 범용 프롬프트입니다.</p>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span>PROMPT</span>
+            <button class="copy-btn" data-target="prompt-07" onclick="copyPrompt(this)">COPY</button>
+          </div>
+          <pre id="prompt-07">Use the uploaded image as the main reference.
+Transform the subject into a simplified pictorial logo mark.
+Preserve the most iconic shapes, silhouette, hairstyle, expression, and visual identity.
+Reduce unnecessary details into strong graphic forms and negative space.
+Flat vector design, bold contrast, scalable, memorable, no text.</pre>
+        </div>
+        <div class="use-note">
+          <b>Use for</b>
+          <span>People · Animals · Objects · Products</span>
+        </div>
+      </div>
+    </section>
+
+<section class="strategy">
+  <div class="logo-mini"><img src="assets/brandbuilder-logo.jpg" alt="Brandbuilder logo"></div>
+  <div>
+    <span class="eyebrow" style="color:#999">BRANDBUILDER RECOMMENDATION</span>
+    <h3>어떤 스타일부터 써야 할까?</h3>
+    <p>캐릭터 로고 제작용으로는 먼저 인지성과 확장성을 확보하고, 이후 세부 표현을 조절하는 순서가 효율적입니다.</p>
+    <div class="rank"><strong>Mascot</strong> → Pictorial → Minimal Silhouette → Line Art → Cartoon → Engraved → Icon / Emoji</div>
+    <p style="margin-top:26px">퍼스널 브랜딩에서는 얼굴을 그대로 복제하기보다 헤어스타일·안경·수염·표정·대표 의상처럼 ‘기억 요소’를 2–3개만 남겨 로고화하는 편이 더 선명합니다.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>-by Brandbuilder-</div>
+  <div class="contact"><a href="Brandbuilder_Image_to_Character_Logo_PromptBook.pdf" download>PDF DOWNLOAD</a><br>contact us · <a href="mailto:b612pink@naver.com">b612pink@naver.com</a></div>
+</footer>
+
+<script>
+async function copyPrompt(btn){
+  const id=btn.getAttribute('data-target');
+  const text=document.getElementById(id).innerText;
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent='COPIED';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='COPY';btn.classList.remove('copied')},1400);
+  } catch(e) {
+    const range=document.createRange();
+    range.selectNodeContents(document.getElementById(id));
+    const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);
+    btn.textContent='SELECTED';
+  }
+}
+</script>
+</body>
+</html>

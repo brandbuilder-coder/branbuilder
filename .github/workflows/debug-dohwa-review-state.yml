@@ -10,19 +10,21 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect review page
+      - name: Inspect review query cache
         run: |
           node - <<'NODE'
           (async()=>{
             const id='2083311596';
             const url=`https://m.place.naver.com/restaurant/${id}/review/visitor?reviewSort=recent`;
             const r=await fetch(url,{headers:{'user-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1','accept-language':'ko-KR,ko;q=0.9'}});
-            console.log('status',r.status,'url',r.url);
-            const html=await r.text(); console.log('html length',html.length);
-            for(const pat of ['VisitorReview','visitorReviews','reviewSort','qualityScore','pagination','pageInfo','hasNext','cursor','item']){
-              const i=html.indexOf(pat); console.log('PAT',pat,'IDX',i, i>=0?html.slice(Math.max(0,i-500),i+1500):'');
-            }
-            const marker='window.__APOLLO_STATE__'; const idx=html.indexOf(marker); console.log('apollo idx',idx);
-            if(idx>=0){const eq=html.indexOf('=',idx); let start=html.indexOf('{',eq),depth=0,inStr=false,esc=false,end=-1; for(let i=start;i<html.length;i++){const ch=html[i]; if(inStr){if(esc)esc=false;else if(ch==='\\')esc=true;else if(ch==='"')inStr=false;continue;} if(ch==='"'){inStr=true;continue;} if(ch==='{')depth++; else if(ch==='}' && --depth===0){end=i+1;break;}}; if(end>0){const s=html.slice(start,end); console.log('apollo len',s.length); const a=JSON.parse(s); const keys=Object.keys(a).filter(k=>/review/i.test(k)); console.log('review keys',keys.slice(0,100)); for(const k of keys.slice(0,30)){const v=a[k]; const txt=JSON.stringify(v); console.log('KEY',k,'LEN',txt.length,'SNIP',txt.slice(0,1800));}}}
+            const html=await r.text();
+            const marker='window.__APOLLO_STATE__'; const idx=html.indexOf(marker); if(idx<0) throw Error('apollo missing');
+            const eq=html.indexOf('=',idx); let start=html.indexOf('{',eq),depth=0,inStr=false,esc=false,end=-1;
+            for(let i=start;i<html.length;i++){const ch=html[i];if(inStr){if(esc)esc=false;else if(ch==='\\')esc=true;else if(ch==='"')inStr=false;continue;}if(ch==='"'){inStr=true;continue;}if(ch==='{')depth++;else if(ch==='}'&&--depth===0){end=i+1;break;}}
+            const a=JSON.parse(html.slice(start,end)); const root=a.ROOT_QUERY||{};
+            for(const [k,v] of Object.entries(root)){if(/visitorReviews|VisitorReview/i.test(k)||/VisitorReview/i.test(JSON.stringify(v))){console.log('ROOTKEY',k);console.log('ROOTVAL',JSON.stringify(v).slice(0,12000));}}
+            const reviewKeys=Object.keys(a).filter(k=>/^VisitorReview:/.test(k)); console.log('review count state',reviewKeys.length);
+            const rows=reviewKeys.map(k=>a[k]).filter(Boolean).map(x=>({id:x.id,cursor:x.cursor,body:x.body||'',created:x.created||'',visited:x.visited||'',rating:x.rating}));
+            console.log('first',JSON.stringify(rows[0]));console.log('last',JSON.stringify(rows[rows.length-1]));
           })().catch(e=>{console.error(e);process.exit(1)})
           NODE

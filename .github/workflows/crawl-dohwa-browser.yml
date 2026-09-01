@@ -1,0 +1,97 @@
+name: Crawl Dohwa All Reviews Browser
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/crawl-dohwa-browser.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install playwright-core
+        run: npm install playwright-core@latest --no-save
+      - name: Crawl all Naver visitor reviews
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const {chromium}=require('playwright-core');
+          const {execSync}=require('child_process');
+          function chromePath(){for(const c of ['google-chrome','google-chrome-stable','chromium','chromium-browser']){try{return execSync(`which ${c}`).toString().trim()}catch{}} throw Error('chrome not found')}
+          (async()=>{
+            const id='2083311596', type='restaurant';
+            const url=`https://m.place.naver.com/${type}/${id}/review/visitor?reviewSort=recent`;
+            const browser=await chromium.launch({headless:true,executablePath:chromePath(),args:['--no-sandbox','--disable-dev-shm-usage']});
+            const context=await browser.newContext({locale:'ko-KR',userAgent:'Mozilla/5.0 (Linux; Android 13; SM-S918N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Mobile Safari/537.36',viewport:{width:430,height:932}});
+            const page=await context.newPage();
+            const responses=[];
+            page.on('response',async res=>{
+              try{
+                const req=res.request();
+                if(req.method()==='POST' && /graphql/.test(req.url())){
+                  const post=req.postData()||'';
+                  if(post.includes('getVisitorReviews')){
+                    const txt=await res.text(); responses.push({url:req.url(),post,status:res.status(),text:txt});
+                    console.log('GRAPHQL',res.status(),req.url(),'bodylen',post.length,'reslen',txt.length);
+                  }
+                }
+              }catch(e){}
+            });
+            await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
+            await page.waitForTimeout(3000);
+            console.log('title',await page.title());
+            // Repeatedly click the visible load-more button. Naver uses cursor-based fetchMore internally.
+            let clicks=0, stagnant=0, prevCount=0;
+            for(let i=0;i<80;i++){
+              const text=await page.locator('body').innerText().catch(()=> '');
+              const count=(text.match(/반응 남기기/g)||[]).length;
+              console.log('iter',i,'visible cards approx',count,'clicks',clicks);
+              if(count===prevCount) stagnant++; else stagnant=0; prevCount=count;
+              if(stagnant>=5) break;
+              const candidates=[
+                page.getByRole('button',{name:/더보기|리뷰 더보기|펼쳐서 더보기/i}),
+                page.locator('button').filter({hasText:/더보기/i}),
+                page.locator('a').filter({hasText:/더보기/i})
+              ];
+              let clicked=false;
+              for(const loc of candidates){
+                try{
+                  const n=await loc.count();
+                  for(let j=n-1;j>=0;j--){
+                    const el=loc.nth(j); if(await el.isVisible().catch(()=>false)){await el.scrollIntoViewIfNeeded();await el.click({timeout:3000}).catch(()=>{});clicked=true;clicks++;break;}
+                  }
+                  if(clicked)break;
+                }catch(e){}
+              }
+              if(!clicked){await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));}
+              await page.waitForTimeout(1200);
+            }
+            console.log('total captured GraphQL responses',responses.length,'clicks',clicks);
+            // Parse GraphQL response items; also parse SSR Apollo state so first page is guaranteed.
+            const all=[];
+            const add=x=>{if(x&&x.id&&!all.some(y=>y.id===x.id))all.push(x)};
+            for(const R of responses){
+              try{const j=JSON.parse(R.text);const root=Array.isArray(j)?j[0]:j;const items=root?.data?.visitorReviews?.items||[];items.forEach(add);}catch(e){}
+            }
+            const state=await page.evaluate(()=>window.__APOLLO_STATE__||null).catch(()=>null);
+            if(state){Object.entries(state).filter(([k])=>k.startsWith('VisitorReview:')).forEach(([k,v])=>add(v));}
+            console.log('unique response reviews',all.length);
+            // DOM snapshot as fallback/verification
+            const bodyText=await page.locator('body').innerText();
+            fs.mkdirSync('naver-place-dohwa',{recursive:true});
+            fs.writeFileSync('naver-place-dohwa/browser_body.txt',bodyText,'utf8');
+            fs.writeFileSync('naver-place-dohwa/reviews_browser_raw.json',JSON.stringify(all,null,2),'utf8');
+            fs.writeFileSync('naver-place-dohwa/graphql_capture.json',JSON.stringify(responses.map(r=>({url:r.url,post:r.post,status:r.status,text:r.text})),null,2),'utf8');
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)})
+          NODE
+      - name: Commit crawl outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add naver-place-dohwa/browser_body.txt naver-place-dohwa/reviews_browser_raw.json naver-place-dohwa/graphql_capture.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Capture full Dohwa review browser session [skip crawl]"
+          git push

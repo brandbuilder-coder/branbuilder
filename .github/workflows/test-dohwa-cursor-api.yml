@@ -1,0 +1,38 @@
+name: Test Dohwa Cursor API
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/test-dohwa-cursor-api.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test exact request
+        run: |
+          node - <<'NODE'
+          const id='2083311596', type='restaurant';
+          const pageUrl=`https://m.place.naver.com/${type}/${id}/review/visitor?reviewSort=recent`;
+          const ua='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1';
+          const query=`query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { items { id cursor reviewId rating author { id nickname } body visitCount visited created reply { body created } originType item { name code options } votedKeywords { code name } } total } }`;
+          function extractState(html){const marker='window.__APOLLO_STATE__',idx=html.indexOf(marker),eq=html.indexOf('=',idx);let start=html.indexOf('{',eq),depth=0,inStr=false,esc=false,end=-1;for(let i=start;i<html.length;i++){const ch=html[i];if(inStr){if(esc)esc=false;else if(ch==='\\')esc=true;else if(ch==='"')inStr=false;continue;}if(ch==='"'){inStr=true;continue;}if(ch==='{')depth++;else if(ch==='}'&&--depth===0){end=i+1;break;}}return JSON.parse(html.slice(start,end));}
+          (async()=>{
+            const first=await fetch(pageUrl,{headers:{'user-agent':ua,'accept-language':'ko-KR,ko;q=0.9'}}); const html=await first.text();
+            const cookies=typeof first.headers.getSetCookie==='function'?first.headers.getSetCookie():[]; console.log('cookies',cookies.map(x=>x.split(';')[0]));
+            const st=extractState(html); const root=st.ROOT_QUERY||{}; const key=Object.keys(root).find(k=>k.startsWith('visitorReviews(')&&k.includes('includeContent')&&k.includes('true'));
+            const refs=root[key].items.map(x=>x.__ref); const initial=refs.map(r=>st[r]); const after=initial.at(-1).cursor; console.log('initial ids',initial.map(x=>x.id)); console.log('after',after);
+            const input={businessId:id,businessType:type,item:'0',bookingBusinessId:null,size:10,isPhotoUsed:false,theme:null,menu:null,sort:'recent',includeContent:true,getUserStats:true,includeReceiptPhotos:true,cidList:['220036','220037','220075','220733'],getReactions:true,getTrailer:true,after};
+            const payload={operationName:'getVisitorReviews',variables:{input,id},query};
+            const wtm=Buffer.from(JSON.stringify({arg:id,type,source:'place'}),'utf8').toString('base64');
+            for(const url of ['https://pcmap-api.place.naver.com/place/graphql','https://pcmap-api.place.naver.com/graphql','https://api.place.naver.com/graphql']){
+              for(const useCookie of [false,true]){
+                const headers={'user-agent':ua,'accept':'application/json, text/plain, */*','accept-language':'ko-KR,ko;q=0.9','content-type':'application/json','origin':'https://m.place.naver.com','referer':pageUrl,'x-wtm-graphql':wtm};
+                if(useCookie&&cookies.length)headers.cookie=cookies.map(x=>x.split(';')[0]).join('; ');
+                try{const r=await fetch(url,{method:'POST',headers,body:JSON.stringify(payload)});const t=await r.text();console.log('\nURL',url,'cookie',useCookie,'status',r.status,'ctype',r.headers.get('content-type'));console.log(t.slice(0,3000));}catch(e){console.log('ERR',url,e.message)}
+                await new Promise(r=>setTimeout(r,1500));
+              }
+            }
+          })().catch(e=>{console.error(e);process.exit(1)})
+          NODE

@@ -28,6 +28,7 @@ jobs:
           const types = ['restaurant', 'place', 'cafe'];
           const sleep = ms => new Promise(r => setTimeout(r, ms));
           const query = 'query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { total items { id rating author { id nickname } body media { type thumbnail } visitCount viewCount visited created reply { body created } votedKeywords { code displayName } originType } } }';
+          const DISPLAY = 100;
 
           async function request(type, page) {
             const payload = {
@@ -39,7 +40,7 @@ jobs:
                   bookingBusinessId: 'null',
                   businessId: placeId,
                   businessType: type,
-                  display: 20,
+                  display: DISPLAY,
                   getAuthorInfo: true,
                   includeContent: true,
                   includeReceiptPhotos: true,
@@ -50,76 +51,33 @@ jobs:
                 }
               }
             };
-            const urls = [
-              'https://pcmap-api.place.naver.com/place/graphql',
-              'https://pcmap-api.place.naver.com/graphql'
-            ];
-            let errs = [];
+            const urls = ['https://pcmap-api.place.naver.com/place/graphql','https://pcmap-api.place.naver.com/graphql'];
+            let errs=[];
             for (const url of urls) {
-              const res = await fetch(url, {
-                method: 'POST',
-                headers: {
-                  'content-type': 'application/json',
-                  'accept': 'application/json, text/plain, */*',
-                  'accept-language': 'ko-KR,ko;q=0.9',
-                  'referer': `https://pcmap.place.naver.com/${type}/${placeId}/review/visitor`,
-                  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36'
-                },
-                body: JSON.stringify(payload)
-              });
-              const text = await res.text();
-              if (!res.ok) { errs.push(`${url} HTTP ${res.status} ${text.slice(0,120)}`); continue; }
-              try {
-                const json = JSON.parse(text);
-                if (json?.errors?.length) { errs.push(`${url} ${JSON.stringify(json.errors).slice(0,250)}`); continue; }
-                const vr = json?.data?.visitorReviews;
-                if (vr) return vr;
-                errs.push(`${url} missing visitorReviews ${text.slice(0,200)}`);
-              } catch(e) { errs.push(`${url} invalid JSON ${text.slice(0,150)}`); }
+              const res=await fetch(url,{method:'POST',headers:{'content-type':'application/json','accept':'application/json, text/plain, */*','accept-language':'ko-KR,ko;q=0.9','referer':`https://pcmap.place.naver.com/${type}/${placeId}/review/visitor`,'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36'},body:JSON.stringify(payload)});
+              const text=await res.text();
+              if(!res.ok){errs.push(`${url} HTTP ${res.status} ${text.slice(0,120)}`);continue;}
+              try{const json=JSON.parse(text);if(json?.errors?.length){errs.push(`${url} ${JSON.stringify(json.errors).slice(0,250)}`);continue;}const vr=json?.data?.visitorReviews;if(vr)return vr;errs.push(`${url} missing visitorReviews`);}catch(e){errs.push(`${url} invalid JSON ${text.slice(0,120)}`);}
             }
             throw new Error(`${type} page ${page}: ${errs.join(' | ')}`);
           }
 
-          (async () => {
-            let selectedType = null;
-            let all = [];
-            let total = 0;
-            const attempts = [];
-            for (const type of types) {
-              try {
-                const first = await request(type, 1);
-                selectedType = type;
-                total = Number(first.total || 0);
-                all.push(...(first.items || []));
-                const pages = Math.max(1, Math.min(20, Math.ceil(total / 20)));
-                for (let p = 2; p <= pages; p++) {
-                  await sleep(900);
-                  const part = await request(type, p);
-                  all.push(...(part.items || []));
-                }
+          (async()=>{
+            let selectedType=null, all=[], total=0; const attempts=[];
+            for(const type of types){
+              try{
+                const first=await request(type,1); selectedType=type; total=Number(first.total||0); all.push(...(first.items||[]));
+                const pages=Math.max(1,Math.min(10,Math.ceil(total/DISPLAY)));
+                for(let p=2;p<=pages;p++){await sleep(1200); const part=await request(type,p); all.push(...(part.items||[]));}
                 break;
-              } catch (e) { attempts.push({type, error:String(e.message || e)}); }
+              }catch(e){attempts.push({type,error:String(e.message||e)});}
             }
-            if (!selectedType) {
-              console.error(JSON.stringify(attempts, null, 2));
-              process.exit(1);
-            }
-            const seen = new Set();
-            all = all.filter(r => {
-              const key = r?.id || `${r?.created||''}|${r?.body||''}|${r?.author?.id||''}`;
-              if (seen.has(key)) return false;
-              seen.add(key); return true;
-            });
-            const out = {
-              placeId, placeName, sourceUrl, businessType:selectedType,
-              naverTotal:total, fetchedCount:all.length,
-              textReviewCount:all.filter(x => (x.body||'').trim()).length,
-              fetchedAt:new Date().toISOString(), attempts, reviews:all
-            };
-            fs.mkdirSync('naver-place-nangman', {recursive:true});
-            fs.writeFileSync('naver-place-nangman/reviews.json', JSON.stringify(out,null,2), 'utf8');
-            console.log(`Fetched ${all.length}/${total} visitor reviews (${out.textReviewCount} with text), type=${selectedType}`);
-          })().catch(e => { console.error(e); process.exit(1); });
+            if(!selectedType){console.error(JSON.stringify(attempts,null,2));process.exit(1);}
+            const seen=new Set(); all=all.filter(r=>{const key=r?.id||`${r?.created||''}|${r?.body||''}|${r?.author?.id||''}`; if(seen.has(key))return false;seen.add(key);return true;});
+            const out={placeId,placeName,sourceUrl,businessType:selectedType,naverTotal:total,fetchedCount:all.length,textReviewCount:all.filter(x=>(x.body||'').trim()).length,fetchedAt:new Date().toISOString(),attempts,reviews:all};
+            fs.mkdirSync('naver-place-nangman',{recursive:true}); fs.writeFileSync('naver-place-nangman/reviews.json',JSON.stringify(out,null,2),'utf8');
+            console.log(`Fetched ${all.length}/${total} visitor reviews (${out.textReviewCount} with text), type=${selectedType}, display=${DISPLAY}`);
+          })().catch(e=>{console.error(e);process.exit(1);});
           NODE
 
       - name: Commit crawl result
@@ -128,5 +86,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add naver-place-nangman/reviews.json
           git diff --cached --quiet && exit 0
-          git commit -m "Add 낭만식탁 Naver review crawl data [skip scrape]"
+          git commit -m "Update 낭만식탁 Naver review crawl data [skip scrape]"
           git push

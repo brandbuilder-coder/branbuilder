@@ -1,0 +1,119 @@
+name: Crawl Dohwa Galbi Full Reviews
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/crawl-dohwa-full.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Crawl all visible visitor reviews
+        run: |
+          python - <<'PY'
+          import json, hashlib, re, time
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+
+          place_id='2083311596'
+          url=f'https://pcmap.place.naver.com/restaurant/{place_id}/review/visitor?entry=pll&reviewSort=recent'
+          outdir=Path('naver-place-dohwa-full'); outdir.mkdir(exist_ok=True)
+
+          def norm(s): return re.sub(r'\s+',' ',s or '').strip()
+          def make_id(a,b,d): return hashlib.sha256(f'{a}|{b}|{d}'.encode()).hexdigest()
+
+          with sync_playwright() as p:
+            browser=p.chromium.launch(headless=True,args=['--no-sandbox','--disable-dev-shm-usage','--disable-blink-features=AutomationControlled','--disable-features=IsolateOrigins,site-per-process','--disable-gpu'])
+            ctx=browser.new_context(viewport={'width':1920,'height':1080},user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',locale='ko-KR',timezone_id='Asia/Seoul')
+            page=ctx.new_page()
+            page.goto('https://httpbin.org/headers',wait_until='domcontentloaded',timeout=30000)
+            page.wait_for_timeout(1200)
+            page.goto(url,wait_until='domcontentloaded',timeout=60000)
+            page.wait_for_selector('ul#_review_list',timeout=30000)
+            page.wait_for_timeout(2000)
+
+            reviews=[]; seen=set(); cycles=0; no_new=0
+            while cycles < 40:
+              cycles += 1
+              items=page.query_selector_all('ul#_review_list > li.EjjAW')
+              if not items:
+                items=page.query_selector_all('ul#_review_list > li')
+              new=0
+              for elem in items:
+                try:
+                  author_el=elem.query_selector('span.pui__NMi-Dp')
+                  content_el=elem.query_selector('div.pui__vn15t2 > a') or elem.query_selector('div.pui__vn15t2')
+                  times=elem.query_selector_all('time')
+                  author=norm(author_el.inner_text()) if author_el else '익명'
+                  body=norm(content_el.inner_text()) if content_el else ''
+                  date=' | '.join([norm(t.inner_text()) for t in times if norm(t.inner_text())])
+                  raw=norm(elem.inner_text())
+                  if not body and not date: continue
+                  rid=make_id(author,body,date)
+                  if rid in seen: continue
+                  seen.add(rid); new+=1
+                  rating=''
+                  m=re.search(r'별점\s*([0-5](?:\.5)?)점',raw)
+                  if not m: m=re.search(r'([0-5](?:\.5)?)점',raw)
+                  if m: rating=m.group(1)
+                  reviews.append({'no':len(reviews)+1,'id':rid,'author':author,'date':date,'rating':rating,'body':body,'raw':raw})
+                except Exception:
+                  pass
+              print('cycle',cycles,'dom',len(items),'new',new,'total',len(reviews),flush=True)
+              # Remove processed cards so DOM stays light and next batch is easy to detect.
+              try:
+                page.eval_on_selector_all('ul#_review_list > li', '(els)=>els.forEach(e=>e.remove())')
+              except Exception:
+                pass
+              if new==0: no_new+=1
+              else: no_new=0
+              if len(reviews)>=260 or no_new>=4: break
+
+              btn=page.query_selector('div.NSTUp a.fvwqf')
+              if not btn:
+                # Fallback by visible text/role, excluding content-expansion buttons when possible.
+                candidates=page.locator('a,button').filter(has_text='더보기')
+                btn=None
+                for i in range(min(candidates.count(),20)):
+                  c=candidates.nth(i)
+                  try:
+                    if c.is_visible():
+                      txt=norm(c.inner_text())
+                      if txt=='더보기' or '리뷰 더보기' in txt:
+                        btn=c; break
+                  except Exception: pass
+              if btn:
+                try:
+                  btn.scroll_into_view_if_needed(); btn.click(); page.wait_for_timeout(1500)
+                except Exception as e:
+                  print('click fail',e,flush=True); page.evaluate('window.scrollTo(0,document.body.scrollHeight)'); page.wait_for_timeout(1400)
+              else:
+                page.evaluate('window.scrollTo(0,document.body.scrollHeight)'); page.wait_for_timeout(1600)
+
+            # Capture final debugging state
+            meta={'placeId':place_id,'url':url,'count':len(reviews),'cycles':cycles,'fetchedAt':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())}
+            (outdir/'reviews.json').write_text(json.dumps({'meta':meta,'reviews':reviews},ensure_ascii=False,indent=2),encoding='utf-8')
+            (outdir/'reviews.ndjson').write_text('\n'.join(json.dumps(x,ensure_ascii=False) for x in reviews)+'\n',encoding='utf-8')
+            (outdir/'meta.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
+            page.screenshot(path=str(outdir/'final.png'),full_page=False)
+            browser.close()
+          PY
+      - name: Commit crawl output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add naver-place-dohwa-full/
+          git diff --cached --quiet && exit 0
+          git commit -m "Crawl full Dohwa Galbi visitor reviews"
+          git push

@@ -1,0 +1,43 @@
+name: Test Dohwa Croxy Browser
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/test-dohwa-croxy.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install browser tools
+        run: npm install playwright-core@latest --no-save
+      - name: Test proxy browsing
+        run: |
+          node - <<'NODE'
+          const {chromium}=require('playwright-core'); const {execSync}=require('child_process');
+          function cp(){for(const c of ['google-chrome','google-chrome-stable','chromium']){try{return execSync(`which ${c}`).toString().trim()}catch{}}throw Error('chrome')}
+          (async()=>{
+            const browser=await chromium.launch({headless:true,executablePath:cp(),args:['--no-sandbox','--disable-dev-shm-usage']});
+            const page=await browser.newPage({viewport:{width:1280,height:900}});
+            await page.goto('https://www.croxyproxy.com/',{waitUntil:'domcontentloaded',timeout:60000}); await page.waitForTimeout(3000);
+            console.log('HOME',await page.title(),page.url());
+            const inputs=page.locator('input'); console.log('inputs',await inputs.count());
+            for(let i=0;i<await inputs.count();i++){console.log('input',i,await inputs.nth(i).getAttribute('placeholder'),await inputs.nth(i).getAttribute('name'),await inputs.nth(i).getAttribute('type'));}
+            const target='https://m.place.naver.com/restaurant/2083311596/review/visitor?reviewSort=recent';
+            let inp=page.locator('input[placeholder*="URL" i], input[placeholder*="address" i], input[type="text"]').first();
+            await inp.fill(target);
+            const btn=page.getByRole('button',{name:/go|시작|검색/i}).first(); console.log('button count',await btn.count());
+            await btn.click(); await page.waitForTimeout(12000);
+            console.log('PROXY URL',page.url(),'TITLE',await page.title());
+            const text=(await page.locator('body').innerText().catch(()=>'')); console.log('TEXT',text.slice(0,8000));
+            console.log('reaction count',(text.match(/반응 남기기/g)||[]).length);
+            for(let k=0;k<4;k++){
+              const more=page.getByText(/더보기|리뷰 더보기/).last();
+              console.log('more',k,await more.count(),await more.isVisible().catch(()=>false));
+              if(await more.isVisible().catch(()=>false)){await more.scrollIntoViewIfNeeded();await more.click().catch(()=>{});await page.waitForTimeout(4000);} else {await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));await page.waitForTimeout(2500);}
+              const tx=await page.locator('body').innerText().catch(()=>''); console.log('count',k,(tx.match(/반응 남기기/g)||[]).length,'url',page.url());
+            }
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)})
+          NODE

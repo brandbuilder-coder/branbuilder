@@ -1,0 +1,42 @@
+name: Debug Dohwa JS Pagination
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/debug-dohwa-js.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect frontend bundles
+        run: |
+          node - <<'NODE'
+          (async()=>{
+            const base='https://m.place.naver.com/restaurant/2083311596/review/visitor?reviewSort=recent';
+            const ua='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1';
+            const r=await fetch(base,{headers:{'user-agent':ua,'accept-language':'ko-KR,ko;q=0.9'}}); const html=await r.text();
+            const srcs=[...html.matchAll(/<script[^>]+src=["']([^"']+)["']/g)].map(m=>m[1]);
+            console.log('scripts',srcs.length);
+            let hits=0;
+            for(const raw of srcs){
+              let url=raw.startsWith('//')?'https:'+raw:raw.startsWith('/')?'https://m.place.naver.com'+raw:raw;
+              if(!/^https?:/.test(url)) continue;
+              try{
+                const rr=await fetch(url,{headers:{'user-agent':ua,'referer':base}}); if(!rr.ok) continue; const t=await rr.text();
+                const pats=['getVisitorReviews','visitorReviews','includeContent','includeReceiptPhotos','getReactions','getUserStats','reviewSort','cursor'];
+                let relevant=false;
+                for(const p of pats){if(t.includes(p)){relevant=true;break;}}
+                if(!relevant) continue;
+                console.log('\nBUNDLE',url,'LEN',t.length); hits++;
+                for(const p of pats){
+                  let pos=0,c=0;
+                  while((pos=t.indexOf(p,pos))>=0 && c<4){console.log('PAT',p,'POS',pos,'CTX',t.slice(Math.max(0,pos-800),pos+1800).replace(/\n/g,' '));pos+=p.length;c++;}
+                }
+              }catch(e){}
+              if(hits>=8) break;
+            }
+            console.log('relevant bundles',hits);
+          })().catch(e=>{console.error(e);process.exit(1)})
+          NODE

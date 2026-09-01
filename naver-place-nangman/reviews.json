@@ -1,0 +1,967 @@
+{
+  "placeId": "1731676306",
+  "placeName": "낭만식탁",
+  "sourceUrl": "https://naver.me/xDJdkulM",
+  "businessType": "restaurant",
+  "naverTotal": 159,
+  "fetchedCount": 20,
+  "textReviewCount": 19,
+  "fetchedAt": "2026-09-01T04:53:58.656Z",
+  "attempts": [],
+  "reviews": [
+    {
+      "id": "6a925c81163db1c8fe847794",
+      "rating": 5,
+      "author": {
+        "id": "3khjb",
+        "nickname": "지인노무법인 이대리"
+      },
+      "body": "매장이 은근 넓고 쾌적해요 유모차 가지고 잘 먹었습니다\n\n라자냐 진짜 맛있어요 !",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjlfMjUw/MDAxNzg3OTc2ODMxNTk1.imsbdd2EexunG80pXcO5ZkuRY9jrNBIg-f20k4H-8Zcg.yT9253d7l7qW8ptMxY-ozRTQoDwdVz3HGQSpQQhV1-wg.JPEG/171207EB-4B5B-42AD-9068-9E427DB10D6E.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 16,
+      "visited": "8.29.토",
+      "created": "8.29.토",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "special_menu",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a8821ab99ce22913186e7ca",
+      "rating": 5,
+      "author": {
+        "id": "2jcbl",
+        "nickname": "biz****"
+      },
+      "body": "라쟈냐  돈가스 치킨스테이크 하이볼 시켜서 푸짐하게 먹었습니다. 사이드 샐러드까지 양도 푸짐하고 맛있어요! 특히 기대안한 돈가스가 정말 맛있어요. 하이볼은 그전에도 마셔봐서 역시는 역시다~! ㅎㅎ",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjFfMzUg/MDAxNzg3MzA2NDA2NDY3.uO7qYZHxYdjaRFaif4GAZCWQI8NMbPveN48WRMTXi3wg.UDsRo0AiUyZfnCUE5VG5tgcRRXU6ndycLTSJ0T6aWhsg.JPEG/A4F57635-4203-4A46-A4D0-2CEBAF87888D.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjFfMTA5/MDAxNzg3MzA2NDAyMTI1.GsPfZzmFJMqK53TKfyEXwaI0UrIXEx3urjqTQJ5xDkAg.SMkeTUeGXSfdZuLCT8x3vqXScu649uOTE2uE0qzHFAcg.JPEG/D918059D-7120-4435-8C71-47867DCAC596.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjFfMTcy/MDAxNzg3MzA2NDA5Nzg5.JbtxzP-RaO-DBuZinMcVndML39y-ZB70-SnzNO9-Vm8g.MKvxpeI1eJFwSw2tqDHYKxZH1gBXHGM2EoCprYz1Lc4g.JPEG/73D86DE4-7A40-4728-BC03-4373ACAA9A25.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 121,
+      "visited": "8.21.금",
+      "created": "8.21.금",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a83e194c29095282f04ef88",
+      "rating": 5,
+      "author": {
+        "id": "1ybuw",
+        "nickname": "rh2****"
+      },
+      "body": "재방문했는데 오늘도 역시 맛있게 잘먹고가요~~",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MThfMTY2/MDAxNzg3MDI3ODU5MjQ1.uzoUVvxcSN4hypTJAjknHMA46f7i_oLVkNTAbG6IJDIg.N3yMTm677GluryjM2dKGCXZRjrOHEvlEY0DXhAG6mtog.JPEG/20260818_131446.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MThfMjEy/MDAxNzg3MDI3ODU5MTk1.y-YkJNWEhl_62AaC1lAI0ezTujb6TwNMRKQkZAB-nEkg.p5wd-t1UFev09IjapfRBE7uhG1_dYs1glTufWBf_m-gg.JPEG/20260818_131735.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MThfMjcw/MDAxNzg3MDI3ODU4Njk2.sfrixXew3bcBZdJIpLGdUOgOcZz3SrHfZLQhWWpGWmcg.cBtc_m0XyX_Z0XYUKi1DytAF18vX_UFu0wsELHi5zXQg.JPEG/20260818_132007.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 2,
+      "viewCount": 108,
+      "visited": "8.18.화",
+      "created": "8.18.화",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a7edc85391d4c863b6af1c1",
+      "rating": 5,
+      "author": {
+        "id": "6oh7",
+        "nickname": "kus****"
+      },
+      "body": "음식 하나하나 너무 맛있고 플레이팅도 예뻐서 먹기 전부터 기분이 좋았어요 😊 전체적으로 음식도 정갈하고 맛도 좋아서 만족스러운 식사였습니다. 다음에 또 방문하고 싶어요!",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MTRfMTQy/MDAxNzg2Njk4ODgyNDEy.xBsW2Y6THancZnhTqx-Gw1AxxCFm5VhVMT601rClSRog.XQ40U5AYmBa5EgHqiN57BNyLfUM4HkmupH_02c2prqwg.JPEG/20260814_173844.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MTRfMTA3/MDAxNzg2Njk4ODgyOTU0.YNpUKwWiDPFfjT8_GJDuDd8Fq5Jk9MdXKhn6mql6Jtog._K3Yt5lnsjTEscOYFH8GVjbLeFebp5zG8x4D2LHxrBEg.JPEG/20260814_173158.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 351,
+      "visited": "8.14.금",
+      "created": "8.14.금",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        },
+        {
+          "code": "store_clean",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a7c37bb6938d941f7bff05f",
+      "rating": 4.5,
+      "author": {
+        "id": "dDKrP",
+        "nickname": "heh****"
+      },
+      "body": "",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MTJfNzMg/MDAxNzg2NTI1NjI0OTc2.jSKCfYeD_8XbBVifE8QnV75YhdUPgvTYDcEXqpANcAgg.rdLZRMMk8Mr0yr_tPrg2LodPiyxxacJ_2L0Q4q-tkhEg.JPEG/20260812_180644.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 50,
+      "visited": "8.12.수",
+      "created": "8.12.수",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a7c37610d9b78b3d25d6657",
+      "rating": 4.5,
+      "author": {
+        "id": "ueEx",
+        "nickname": "헤라52"
+      },
+      "body": "처음방문인데 분위기도 좋고 양도많아서 아주만족스러워요 꼭예약하는걸추천합니다",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MTJfMTQx/MDAxNzg2NTI1NTMzODY1.biPIbnYqPJ1fHFlILzNIL8E2eWJ_GC0r1O7q3atFamgg.fh-nWTYfCRupt-rd7sEe8x0CYURoClehLbhBX0hLxVQg.JPEG/1000036069.heic.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MTJfMjQy/MDAxNzg2NTI1NTM0OTI5.c1jgNaZ-Ux-BB-G4DaTOhPbIucU1O-txI3npOqMOLLcg.raytRsK701CNcS2D4f4bce_0AhKmZ9pguK8hD9_4hrog.JPEG/1000036068.heic.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 206,
+      "visited": "8.12.수",
+      "created": "8.12.수",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "price_cheap",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a700d1f748910776fd02240",
+      "rating": 5,
+      "author": {
+        "id": "1lvha",
+        "nickname": "wlg****"
+      },
+      "body": "라자냐, 치킨스테이크, 감바스 먹는데 맛있고 가격도 적당하고 좋네요!\n강화읍에 이런 식당이 생겨서 좋아요 ~ 추천해요 ~",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MDNfMjkg/MDAxNzg1NzI4MzkzNjI1.2bIhFmm47n9wOBn2gFM_FEESz2aQQ_LPWyL7oSCojBIg.rjMy9trNs8awDF26hMl_RDM4rYaLr1GTzVUnGlrj2Dog.JPEG/20260803_123305.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MDNfNjQg/MDAxNzg1NzI4MzkzMzMz.oZw-b0BB8KsB9TDqZa7878pJlgNfrbfT3Aq-sm1mcFUg.fTy84jLx9RDM2WzksaVKLOhtcYcvT9Cal9DbXLtQP1Eg.JPEG/20260803_123100.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 353,
+      "visited": "8.3.월",
+      "created": "8.3.월",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        },
+        {
+          "code": "store_clean",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a6d6b4bece175c7cded413b",
+      "rating": 5,
+      "author": {
+        "id": "2EbIW",
+        "nickname": "금붕어즙"
+      },
+      "body": "파스타, 라자냐, 돈가스를 주문해서 먹었는데 음식이 하나같이 정말 맛있었어요! 특히 재료도 신선하고 맛의 밸런스가 좋아서 만족스럽게 식사했습니다.\n\n직원분들도 친절하게 응대해 주셔서 기분 좋게 식사할 수 있었고, 매장 분위기도 아늑하고 편안해서 데이트나 가족 외식 장소로 추천하고 싶어요.\n\n이번이 벌써 두 번째 방문인데 역시나 기대를 저버리지 않네요. 음식, 서비스, 분위기까지 모두 만족스러워서 재방문 의사 100%입니다. 주변에도 적극 추천하고 싶은 곳이고, 저도 또 방문할 예정이에요. 완전 강추합니다!🥰🥰",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MDFfNTQg/MDAxNzg1NTU1NzgxNDc2.RlQ_vCve4BFQmUaj9KgpHq5a4Hv8tJ9HuGPQrYZNwOQg.SHLwKNhwSs0Mar34WLrPbwoOEtKdkNtqoFj3Q6DpE4Mg.JPEG/8DC60DE7-1F25-46D9-9BCE-2EB068E890EA.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MDFfMTcy/MDAxNzg1NTU1Nzg1NTI1.OD_YIp1heqQmD_N_e0muP-fkwX8Ts_2F1PAsdeP2Misg.47Nsdv5qt7RFVVooRSnVI4Qm1Qk5BTaXcDdiSWkHJSUg.JPEG/07AF5310-4881-45EF-AD2B-140C0840EDF7.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 552,
+      "visited": "8.1.토",
+      "created": "8.1.토",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "menu_good",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        },
+        {
+          "code": "store_clean",
+          "displayName": null
+        },
+        {
+          "code": "cozy",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a6c206ad3dc5c53931e92bc",
+      "rating": 5,
+      "author": {
+        "id": "3IDHf",
+        "nickname": "booboo4"
+      },
+      "body": "가족들과 방문했는데 양이 적을거라 생각하고 메뉴를 많이 시켰는데 전체적으로 양이 엄청 많고 다 맛이 좋아요\n다음 여행때 또 방문할게요",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MzFfMjMy/MDAxNzg1NDcxMDc2Nzgx.UU9Skribh015HQbLRldmIkj8imj2mwiYKlzDMhUAopAg.6-N3fUxQvGQZMrQlpljFz5rJHMhrB7CLYczON7Yk97sg.JPEG/3B55084D-5E39-497E-A05F-D96C88ACFC3B.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MzFfMTgw/MDAxNzg1NDcxMDc4NTI1.fPxZy0ePv4ioGzEkw_W3N3D_6MYrBIS4QcnPoaXsbRcg.M7It8hAbYpXA69fl3C9MMtSXs8MpBiQy1qOp8efhqxog.JPEG/D4312678-F20C-453F-B2C2-97F6BE9DA54F.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MzFfMTY0/MDAxNzg1NDcxMDgxMTg2.PEMUAkr_zISnYzSwqdj0FxTHFIWQyNi9XanDYuyQCc4g.4YpnfGpKLGB8u3UbXOMitrL3Xl0Xq-iLsVq4Hftdnrsg.JPEG/4B7D8121-12BF-4F80-807A-F4A710B822A1.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 461,
+      "visited": "7.31.금",
+      "created": "7.31.금",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "special_menu",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a575caf29d841fc0136caf3",
+      "rating": 5,
+      "author": {
+        "id": "7KDT3",
+        "nickname": "큐7777"
+      },
+      "body": "오늘도 역시 맛있게 먹고 갑니다💙\n돈까스는 낭만식탁이 제일 맛있어요!\n다음에는 라구라이스 먹어볼 거에요 크크",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTVfMjk3/MDAxNzg0MTEwMTgyMjUw.14XNsbkSzHyPH2gOOhC3XUmE4DmiUfD8pN7TBoimWocg.n06HrGHy9SRlc7vEYc6H3lmJUfDqH_81SkOjkhO9E1cg.JPEG/IMG_4695.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTVfMTEy/MDAxNzg0MTEwMTgzNTU2.4Mp90Bcn4y56Qzp8M3LlwnondjRCJGufPhh48Q-e6vcg.4wWVAD_AQP8eUX4oe7Q7xRNgOgNNnHjOFvli42MMB-Ug.JPEG/IMG_4696.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 2,
+      "viewCount": 653,
+      "visited": "7.15.수",
+      "created": "7.15.수",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a5771d66d6bcbaf0a9471b3",
+      "rating": 5,
+      "author": {
+        "id": "5W1R5",
+        "nickname": "이럭스타"
+      },
+      "body": "이번주에 두번 다녀온 매장.\n가까운 곳에 양식 맛집을 발견한게 너무 좋네요. \n꼭 가보세요!",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTVfMTE1/MDAxNzg0MTE1NjY4MzU0.mG6cbXp7pdbDeyd-Mq81gbBDD4s-6fJ9sHfn-utAS3Ug.fVieJBLV6H-RuVOc9eV-_N6fekrd1vmGtShWfijX-Wgg.JPEG/20260713_121229.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 185,
+      "visited": "7.15.수",
+      "created": "7.15.수",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        },
+        {
+          "code": "store_clean",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a54a4daa2e78f08454d4be1",
+      "rating": 5,
+      "author": {
+        "id": "26Y1v",
+        "nickname": "즐거운디자이너"
+      },
+      "body": "강화도에서 분위기 좋은 식당을 찾다가 방문한 낭만식탁. 크리스피라자냐는 겉면은 바삭하고 속은 라구소스와 치즈가 촉촉하게 어우러져 식감이 좋았어요. 칠리라구라이스는 매콤한 수제 라구소스에 치즈돈까스가 더해져 든든하면서도 색다른 맛이었습니다. 메뉴마다 재료를 정성스럽게 준비한 느낌이 들고, 플레이팅도 깔끔해 사진 찍기 좋았어요. 강화도 데이트나 가족 외식 장소로 추천합니다.",
+      "media": [
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfOTEg/MDAxNzgzOTMyMTEwMDM0.eTyEPrBFOZxMWv3DGOE6_ZrtJNfOBiBOmo77XGnXrewg.sSgoEleVCZG6c1sgxv7WlsCS_B2tyi8qZYBJysTQTosg.JPEG/BFF12BAF-BB4E-44C9-AE74-5CC197AE6A93.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfNTYg/MDAxNzgzOTMyMTEwMDA4.DS6KzLVuZa2dX5CqAeZu_iIjxpW2dNZAoi3m447VSasg.1DBVGHxij6USngMHIzkGqVdgvp6AI1Uckw4hxDavTQ4g.JPEG/77058F5D-3565-4F61-A712-FC23A4BD2C6B.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMjE0/MDAxNzgzOTMyMTA5OTU1.Lh0qpTOVmUczexWFRrev97HmkFBYgi0-ndXLhzahhSgg._pujakVaL6NvTu2ryY13ZWsIfnfBq9qSHG5FTIS6hbkg.JPEG/BEE86055-9728-49A2-B867-55A859F26F30.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfNjUg/MDAxNzgzOTMyMTEwMTk5.2bouXNJyM-K2wELlwMDM33juqVIlxgBTMOluazlJf0cg.YzhFPYDCe69rW1ocW1v0FILJxod1NHCFP2JzHg7-YIMg.JPEG/FCB9A6CE-1A8C-4E84-9EA7-5F2D4F481696.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMjYw/MDAxNzgzOTMyMTEwMjAx.SdMYzTVVMbKxKMmAtv_Tr-YrAkLaJIqgcFUOkQzVfikg.K_jKRa7zMvlj6aSnZZav1gZBtk0jj_lCCUh4-pfaN9Yg.JPEG/5168EBBD-0C98-4266-9B4E-D21300BEB6AD.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMjMg/MDAxNzgzOTMyMTE1MTE3.h8BXW-mdbeZo84LJydZ5u8BnMigl8gApnhmOVcE6B5cg.G2NOCGrD-mFpygw0iqj9sirqVQpydIqdJ4T08JlfmVkg.JPEG/7F45E9BA-561E-4952-9421-48B638D416BF.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMyAg/MDAxNzgzOTMyMTE1MTY3.GnFX8c2THrCUq_T5VigiikpsPf6R2Nkl_3Wd3svtUVEg.8whECLNjL_Kyr05QHRoe6knaKCV6M0XGCXcgIbQu5u0g.JPEG/6006AD09-B63C-43EE-97DD-B9EC72AEC978.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMTUg/MDAxNzgzOTMyMTE1MTgy.dVWc4a_j2Fqp1kn4LpvofkpcY9ouZejbBgdQ_YE9BH4g.e9LEU9_JXJ2i4tViss7_9X5XETiKzuq_WpvVtpdh7Iwg.JPEG/6D6E9187-80D4-4BEF-A2AD-72C7EABC4012.jpeg"
+        },
+        {
+          "type": "video",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfOSAg/MDAxNzgzOTMyMTE1MjI1.mK8IZZauCX8CBEYwhPyjxeQv6xQP6jk-uYraZrIp-vUg.tSaAXmdeDrDQJzN6Z7QAaxxuZ-Q0gkvOrlx5nZ9OS6og.JPEG/829B90D7-035C-48AB-8FE5-6A26D8E25E41.jpeg"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMTE0/MDAxNzgzOTMyMTE2MDk1.R3ZEiTaGHPqiAoLbtLaAlzb1oS3Lx5nJa6pYb8YRWpwg.pGOHaNB1tOgxdrFVTw5X-oJqxf9eCuBRvPMW8pm3obkg.JPEG/9502BA22-8B69-4C0B-A7D0-6A6A86937B99.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMTEw/MDAxNzgzOTMyMTE5OTI0.cThG8Cr9tt5Rhl01-GeXnF7dlwgj6u_7cml-6acA9zog.nqYoSXNGlqlAkWEjnqZRT7LVsPR3G4DG3tCvj6CA5jcg.JPEG/C193DBAC-E8F0-41BF-BB4A-5F81DD3F1552.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMjY3/MDAxNzgzOTMyMTIwMzky.TelM0rX__CHYTi-XEhb9d5vUEo2hR4MW7etQCxd3tGMg.iyxVF-f9slQdqPoqIXsWYuFnCTVcnO2R9Bc7ZOmlmWIg.JPEG/15FDCF7F-0A64-4C23-B097-1A76A6BB8527.jpeg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTNfMTE1/MDAxNzgzOTMyMTIwNzkz.ZRYipXVyY0cdIE7s2i1FsmVzzJRXQ4DvyW4lK3EsoGsg.VkkDfqjb-QmV8uiG-l3ANEvuIDmOASYbgzPpL95mokYg.JPEG/D5B50F32-0AE9-47EA-AE9C-94282C2058C2.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 1160,
+      "visited": "7.13.월",
+      "created": "7.13.월",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "special_menu",
+          "displayName": null
+        },
+        {
+          "code": "price_cheap",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a5060fe00f40a996cc38d61",
+      "rating": 5,
+      "author": {
+        "id": "2lyKE",
+        "nickname": "eek****"
+      },
+      "body": "낭만식탁 최고예요~\n강화도 최고맛집 추천입니다~\n사장님 완전 친절하심👍",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTBfMTE1/MDAxNzgzNjUyNjAwMzcz.8WJMJYERmo5ltmAweKYh1sVeP_DWkMF9x4vO5u82L1Eg.682AZ6yjYEfpkgbDz8kiBmqZ5pkUxtM8AOrN8q5mkwMg.JPEG/20260710_115640.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTBfNjIg/MDAxNzgzNjUyNjA0OTg4.-3uc_4-WkJgZTYQcxXJDpxVmz8iBOk8P65rLNSRPgDYg.tRmx5Jn2WAKe97gQWsKZf_IEaD6toPiVr9Y1RB-If1Yg.JPEG/20260710_115644.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTBfNDUg/MDAxNzgzNjUyNjA0NTgx.Pbro946CjEs9E-fvewyVz2Yecpw2rd-b673SpcLx23Ug.-WNgT5EO-nMGznRw4yHrPoum8UZ0BFGcnONOurYFWgUg.JPEG/20260710_115727.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTBfNjIg/MDAxNzgzNjUyNjA0NTg4.bfPf-WdKu6RGIjFDz74jdHxSBOIkLa_EinD6Y6UVmZMg.9vKhVuelln0isHHFV3atmvju40ZTvmLOlfi0QKDeY8og.JPEG/20260710_115735.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MTBfMjE3/MDAxNzgzNjUyNjA0NzU5.Hmv4OVx7tsoxuESumlRTnTUKsBzw5oREzfz-TpjzKPIg.1q-tPia1gRFOz6OUwwxuBIpjrupvdmXWzrxIaFNEP7gg.JPEG/20260710_115750.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 577,
+      "visited": "7.10.금",
+      "created": "7.10.금",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "price_cheap",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a4cdb5840f74ebefd4ac889",
+      "rating": 5,
+      "author": {
+        "id": "2hmfb",
+        "nickname": "달공원47"
+      },
+      "body": "강화 놀러온 친구와 꼭 같이가보고싶던 곳에 왔어요\n몇달전에왔었는데 메뉴가 조금바꼈네요.\n하지만 여전히 맛있어요~~",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDdfMTYx/MDAxNzgzNDIxNzgyOTQz.AHRaD3LBWrLaY53JylstYIzyOBIWMY8BaLm9GoTG6kUg.98qrCnpMR5TUZZuTGqjAmhsRTJb0bPmkTbRnnE-re-gg.JPEG/20260707_190755.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDdfMTk1/MDAxNzgzNDIxNzgyOTYy.-CR157jloy7_kE_ol247EvzD0eZYAls3BO9bJCMGyW8g._jC3-izScODhXAQfjj9JolbmyErcLMRsDZJJgf8gVMgg.JPEG/20260707_190802.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 2,
+      "viewCount": 485,
+      "visited": "7.7.화",
+      "created": "7.7.화",
+      "reply": {
+        "body": "친구분과 좋은 시간을 함께해 주셔서 감사합니다!!\n신메뉴를 준비하면서 일부 메뉴가 변경되었는데, 여전히 맛있게 드셔주시다닛!!!!🫶🏻\n또 뵐게요오~",
+        "created": "7.7.화"
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "cozy",
+          "displayName": null
+        },
+        {
+          "code": "store_clean",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a4b68bd06e0053964efb170",
+      "rating": 5,
+      "author": {
+        "id": "3GVAU",
+        "nickname": "세모35"
+      },
+      "body": "그냥 미친 맛 그 자체\n제가 이거 먹으려고 1시간 30 걸려서\n선넘고 물건너 왔답니다\n근데 베이글 메뉴가 사라졌어요..\n베이글 메뉴살려주세요 .. ( ´•̥̥̥ω•̥̥̥` )",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDZfMjEx/MDAxNzgzMzI2OTA4MTU1.58q2FObG3o2mVTep7wKkqUJEFGi-b8z_mkBOF1Pb218g.-Hn0MhmwxScoKnHmf7yfeDXcZ5-1hJQ3p_4EOhqC1n0g.JPEG/A7996A8C-BB12-4B2F-840B-DE59DF4160F2.jpeg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 2,
+      "viewCount": 127,
+      "visited": "7.6.월",
+      "created": "7.6.월",
+      "reply": {
+        "body": "헉헉 먼 길 와주신 것만으로도 너무 감사한데, 베이글까지 기억해 주시다니 감동 이백프로,,✨✨\n베이글 만들어서 드리고 싶을 정도였다구욧,,ㅠㅠ\n신메뉴를 준비하면서 아쉽게도 오픈토스트를 보내주게 되었어요,,,,흑흑 신메뉴도 좋아해주실꺼죵..?\n감사합니다!!",
+        "created": "7.7.화"
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a487edd27ae860c796304dc",
+      "rating": 5,
+      "author": {
+        "id": "zjx",
+        "nickname": "xyu****"
+      },
+      "body": "강화에 이런 맛집이!!?\n완젼 힐링 맛집이에요.\n돈까스,파스타도 넘 맛잇고 감성짱♡",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDRfMzcg/MDAxNzgzMTM1OTYzNDk0.eI-1UVTy4oxdnmkR2lYQBW8AlXkT3WgeDTPMxFNYlH0g.V0rVsFI9p57V4DnmGR_Re6tto4WijHyJ7Hs6P8h6x6sg.JPEG/20260704_122907.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDRfMTc2/MDAxNzgzMTM1OTYyNzIx.Mm5poMn8i4FUzZKYVBsdboV6bpcZQOcb-6OO0Hj33d4g.hkuVPgx9yIyzKpbyTXwyb4GkWJayDAoKyejWO6AmMeMg.JPEG/20260704_123037.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDRfMTI4/MDAxNzgzMTM1OTYzMDYx.1u25iuNda8fpDEt4mStUOhmmidMJFxo96cqY_khWl7Qg.YqaF1aOhg2L6J3uoQYygaWv3W8ahmdFM6O1TeKEkuGwg.JPEG/20260704_122454.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 342,
+      "visited": "7.4.토",
+      "created": "7.4.토",
+      "reply": {
+        "body": "골목안에 숨어있는 힐링 맛집입니다>_<\n정말 힘이 불끈💪🏻나는 리뷰입니다!\n다음에도 힐링하러 놀러오세요오",
+        "created": "7.7.화"
+      },
+      "votedKeywords": [
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "fresh",
+          "displayName": null
+        },
+        {
+          "code": "special_menu",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a45f3ffdb79c96588f7b4d4",
+      "rating": 5,
+      "author": {
+        "id": "5O4K8",
+        "nickname": "anf****"
+      },
+      "body": "너무맛있게먹어서 저녁에 또 먹으러 갑니다^^",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDJfNDYg/MDAxNzgyOTY5MzQyMTMx.pEaZ45Tew6RFsltkxclU2knP64nhhxRbZmMyNFJjIlEg.hSbKlKujk_JTBTgmbVlLDUvweqDrK4LltnXI5QLZgbAg.JPEG/1000044691.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA3MDJfMjU4/MDAxNzgyOTY5MzQyMDQ1.e2A0hOfvpkaLspNMR836jtYEZhmTYQMENvp7E6X7Tgog.TMJtfgj5R-vdgBciJkssQR9bH09k7psb3YRwSpdsdAUg.JPEG/1000044688.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 180,
+      "visited": "7.2.목",
+      "created": "7.2.목",
+      "reply": {
+        "body": "점심도 저녁도 낭만식탁과 함께해주셔서 \n넘모넘모 감사합니다🙈✨\n사진까지 완뱍하네요,,!!!!!!!\n다음에도 맛있게 준비해드릴게요🐶",
+        "created": "7.7.화"
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "large",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a439fe50e0d81ed3ac608c3",
+      "rating": 5,
+      "author": {
+        "id": "1PTnp",
+        "nickname": "사밍77"
+      },
+      "body": "집근처라 직장동료 들과 가끔 옵니다 주로 여자직원들이 좋아해요 감성이 제대로입니다 음식도 맛있어요 감성과 맛을 둘다 잡아여 최고",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA2MzBfMjgw/MDAxNzgyODE2NzM5Nzky.nuh5pJNYSJe8TO8yAGPREOLF0lA2y_dFUFmNRh0DUqUg.Dmkn8t8q99SuYPpKRq8OMXT9riVpwn9zZLMzkPjhd28g.JPEG/20260630_194822.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA2MzBfMTg0/MDAxNzgyODE2NzM5NzM1.NNU9hAm7YROI51H70cAzldhJuN-tXBO5-ExNdLcJD6Eg.KcCvvkqM6oxUZOAmzu3xXjG3JkfGK5qX-folVt6fnwIg.JPEG/20260630_195125.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 641,
+      "visited": "6.30.화",
+      "created": "6.30.화",
+      "reply": {
+        "body": null,
+        "created": null
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "interior_cool",
+          "displayName": null
+        },
+        {
+          "code": "kind",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a4a156f4dd85194d5c79021",
+      "rating": 3,
+      "author": {
+        "id": "2Lq4e",
+        "nickname": "성민 72"
+      },
+      "body": "긋      👍",
+      "media": [],
+      "visitCount": 1,
+      "viewCount": 4,
+      "visited": "6.30.화",
+      "created": "7.5.일",
+      "reply": {
+        "body": "감사합니다~~! 다음에 또 뵐게용🐱",
+        "created": "7.7.화"
+      },
+      "votedKeywords": [],
+      "originType": "영수증"
+    },
+    {
+      "id": "6a3b5f49fe210b6b8adbce63",
+      "rating": 4.5,
+      "author": {
+        "id": "2EbAS",
+        "nickname": "왕겨10"
+      },
+      "body": "밥집을 찾다 처음 가게 되었는데 여긴 술을 마시기에도 좋겠어요. 점심이니 경영식 돈가스 한 장. 고기도 잘 익고 직접 만든 티가 팍팍나는 소스도  맛있습니다.\n담엔 반려식물과 와야겠네요~",
+      "media": [
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA2MjRfMjYz/MDAxNzgyMjc1OTEyMjE0.RqM-XJBpxfSBntVJhMW9IAJbVYD9HcYxQHmA4KUDX6Eg.ex37ggMxoK-Cs7mpUFguvVyPh0gC0lAh_uylSvWuOF0g.JPEG/20260624_132547.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA2MjRfMjQ3/MDAxNzgyMjc1OTEyMjQy.Pbp5QHmDXrhKUk2MLoT2n6THzS3ys2x8PYstifFCZI8g.XSOMuniv43Ntfz75EdpDexmOo1kc7frHA-OzzwJiuM8g.JPEG/20260624_132031.jpg.jpg?type=w1500_60_sharpen"
+        },
+        {
+          "type": "image",
+          "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA2MjRfMjQx/MDAxNzgyMjc1OTExNzU3.jciNMZwO0gmFxelI-khpcCsd7yO9MRG9aiOeerLYAIMg.XM8sILMAfxW3GWqcj9iTjTkVADUQ57e4osEuk2YSd18g.JPEG/20260624_131414.jpg.jpg?type=w1500_60_sharpen"
+        }
+      ],
+      "visitCount": 1,
+      "viewCount": 477,
+      "visited": "6.24.수",
+      "created": "6.24.수",
+      "reply": {
+        "body": "반주하기도 좋고 2차로 오기도 좋습니댜🫶🏻\n언제든 환영입니다!!!!\n다음에 또 뵐게요! 리뷰 감사해요옹🧚🏻",
+        "created": "7.31.금"
+      },
+      "votedKeywords": [
+        {
+          "code": "food_good",
+          "displayName": null
+        },
+        {
+          "code": "price_cheap",
+          "displayName": null
+        },
+        {
+          "code": "eat_alone",
+          "displayName": null
+        },
+        {
+          "code": "atmosphere_calm",
+          "displayName": null
+        },
+        {
+          "code": "pet_good",
+          "displayName": null
+        }
+      ],
+      "originType": "영수증"
+    }
+  ]
+}

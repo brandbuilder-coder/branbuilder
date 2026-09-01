@@ -1,0 +1,374 @@
+{
+  "winner": "34.134.231.117:3129",
+  "sample": {
+    "proxy": "34.134.231.117:3129",
+    "status": 200,
+    "items": [
+      {
+        "id": "6a8e6b79cefe89ae5ad01c6e",
+        "cursor": "UStYWUdUTHpuUC91Vy9FcjFGNTNTT1B4Rjd0eEcvN095ZUtaNEthc0JlVDV1SHMvQkxkeWdEUkJReUNMcWM0UDRIMHJEWjUybXdsZTd5MGNFVnBjVm9LSUFFcjNPdS9WWTdCejJWQWVJc2pXcG1NZmFqNnIwY1R0Zy9VSjNndk1lN0xaWC94eTZvVW9FMkJTaFNYUzNSNjZSeVBnOFNrPQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "ecojigu"
+        },
+        "body": "도화갈비\n역시 맛있습니다\n담엔 예약하고 룸으로",
+        "visitCount": 1,
+        "visited": "8.26.수",
+        "created": "8.26.수",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "price_cheap",
+            "name": "가성비가 좋아요"
+          },
+          {
+            "code": "special_menu",
+            "name": "특별한 메뉴가 있어요"
+          },
+          {
+            "code": "large",
+            "name": "양이 많아요"
+          },
+          {
+            "code": "meat_good",
+            "name": "고기 질이 좋아요"
+          },
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          }
+        ]
+      },
+      {
+        "id": "6a8e6d499b547201c2a9689b",
+        "cursor": "czlGNTAvZ0g0OG1Rb1I1dVpvbkF5bElTWktKbDFWVWJEMHpmUUE3YkdTT0w3SEo1RkhLVHN2enlkU1FBMmcrSWVGbHhKNXpZOVp6RmhyRTFkTWw2MElwNE1DODdZZ0FONEN3azJvbEJXMktvOWNLVWErWEoyaGQ5UHZwUnBZdEdFQXFTK1lVWWdzUGdmMUtTbGd0TkdXd05LWXU5eEw4PQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "SM한1888"
+        },
+        "body": "소문난 갈비집\n도화갈비\n맛집입니다^^\n역시 소문대로 밑반찬두 다 맛있구\n간만에 찐맛집 이였네요^^",
+        "visitCount": 1,
+        "visited": "8.26.수",
+        "created": "8.26.수",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "large",
+            "name": "양이 많아요"
+          },
+          {
+            "code": "price_cheap",
+            "name": "가성비가 좋아요"
+          },
+          {
+            "code": "together",
+            "name": "단체모임 하기 좋아요"
+          },
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          },
+          {
+            "code": "view_good",
+            "name": "뷰가 좋아요"
+          }
+        ]
+      },
+      {
+        "id": "6a8d2e53d1ae57db85f21b3c",
+        "cursor": "ai9NREFXVmpFOW95S2NyT2ZmMHNyYlU0cEtUakxUaWJ6TlJSN2xqelNFcXJweHdEV3hlZWZDR25SN0hBa0RKM0kvTEk0c1JVS0VlaysyOXVKZmpEKzlqd0s4STNRMEdhazlZWGx3WkdDWnk2U1RST3ozMFByYXd3bGF2NnJOb1Jnc1c5OUNXM1B3NmhaUDFhZ2JnRFU3Y0JSNnRQYmJBPQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "sel****"
+        },
+        "body": "",
+        "visitCount": 1,
+        "visited": "8.25.화",
+        "created": "8.25.화",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          },
+          {
+            "code": "meat_good",
+            "name": "고기 질이 좋아요"
+          },
+          {
+            "code": "large",
+            "name": "양이 많아요"
+          },
+          {
+            "code": "price_cheap",
+            "name": "가성비가 좋아요"
+          },
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          }
+        ]
+      },
+      {
+        "id": "6a8d24f114bb80799bdfd453",
+        "cursor": "RmM4MVpxWmFRelNIdit0R2NHd0tRWCtYMERzem1xSDdHc2ozUVNQVnJGOTBiZzl0aktaNGxpWEF6anEyZFJGdVV2SCt3OVNNdDhnQjRxcUJQSGg5UC9EN3FaN1pTV0lOKzUxQzZxajlKK1FzU1hUaU5iK3FmOGt6TWN1MlRkajMvRHgzRktsYWlXV0tPd2hvYXVCYUExS2tMVzV2SDJrPQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "White Pelli"
+        },
+        "body": "너무 맛있는 인천 고기집이네요. 도화갈비에서 맛있는 추억 만들어보세요~^^",
+        "visitCount": 1,
+        "visited": "8.25.화",
+        "created": "8.25.화",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          },
+          {
+            "code": "meat_good",
+            "name": "고기 질이 좋아요"
+          },
+          {
+            "code": "interior_cool",
+            "name": "인테리어가 멋져요"
+          },
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          },
+          {
+            "code": "parking_easy",
+            "name": "주차하기 편해요"
+          }
+        ]
+      },
+      {
+        "id": "6a8d25d64af5118e91ae66d6",
+        "cursor": "TEhRYzVIWGRQaGRoZUJWME1RYkRyVkFuUGVvWkJscGMxU2xPWnJmUFhQcnBMYmwvQmhZQ2ptU3N5VFA1OUxwUFhndTA1Wk5oU0crMFU2a3Q5Z0trWkk3T3JISi94OGNuRnhuRHdBMmtFTk1qZjM2TEI4WGN3U01kbjhNRk9ZcmZiREFqWFVlTm44T2xqK3NQd1JONEFSMHZmeFdTQmt3PQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "lee****"
+        },
+        "body": "인천에 있는 도화갈비에서 소뼈맑은탕 한 그릇 먹었어요.  주차하기 편하고 매장도 넓고 바료 옆 투썸 카페와 연결되어 좋아요...^^",
+        "visitCount": 1,
+        "visited": "8.25.화",
+        "created": "8.25.화",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "interior_cool",
+            "name": "인테리어가 멋져요"
+          },
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          },
+          {
+            "code": "parking_easy",
+            "name": "주차하기 편해요"
+          },
+          {
+            "code": "kind",
+            "name": "친절해요"
+          },
+          {
+            "code": "store_clean",
+            "name": "매장이 청결해요"
+          }
+        ]
+      },
+      {
+        "id": "6a8d253d8586571126d08c8c",
+        "cursor": "bHdqRzN3SlNORHk3T1c2Z2MvNXdmd0M4WFVDa0VHeXVmOC9QcU8xbkltRUUwakZ1MXMvUGVpdmlOWEdxQWhlZS9INEp5UXlCdkRma25JQWFDckpkNlQ0ZUg2cndlUW1zdTY3cDYwZW5xMzF0dE5yLy9LUW9kMzJXa1N0YW42SFBXakhvSXdaU1BWdTJYbjRSMUZHaU94NkY4WFlHZStVPQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "도봉다람쥐"
+        },
+        "body": "인천 도화갈비에서 소뼈맑은탕 한 그릇 뚝딱 해치웠네요.  주차하기 편하고 매장도 넓고 바료 옆 투썸 카페와 연결되어 좋아요...^^",
+        "visitCount": 1,
+        "visited": "8.25.화",
+        "created": "8.25.화",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          },
+          {
+            "code": "kind",
+            "name": "친절해요"
+          },
+          {
+            "code": "parking_easy",
+            "name": "주차하기 편해요"
+          },
+          {
+            "code": "price_cheap",
+            "name": "가성비가 좋아요"
+          }
+        ]
+      },
+      {
+        "id": "6a8d2f3ea40aab359fbd73ed",
+        "cursor": "Nm9penhwdmtYaThBWWYwRWFzaW9lUmdwL29GbGhlSzlDdFhrdS9RNlh6RnRaMk4wTURzUldDVnlvMWJxbzRrbTd0VzZvMTFXZloxUmhzVnRCaDBDVGMxQnZnc2tMWm4zQzlxY1I5Q0xWUmwvdmNpY2tLUWZxVk5VQXJuQ3Y4L3loQ1cwa3lERmRrMS9pWXFUdXIramJMV2F4S1d0RDVJPQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "holee78552"
+        },
+        "body": "음식이 맛있고 여기 일하시는 분들이 너무 친절하십니다.",
+        "visitCount": 1,
+        "visited": "8.25.화",
+        "created": "8.25.화",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          },
+          {
+            "code": "meat_good",
+            "name": "고기 질이 좋아요"
+          },
+          {
+            "code": "large",
+            "name": "양이 많아요"
+          },
+          {
+            "code": "price_cheap",
+            "name": "가성비가 좋아요"
+          },
+          {
+            "code": "interior_cool",
+            "name": "인테리어가 멋져요"
+          }
+        ]
+      },
+      {
+        "id": "6a8d9102206f86f58eec63e1",
+        "cursor": "cjBtWTN2YWg2WnQ2OTVBRWhUNExkSVF3MWFuRVhRWWlBaitUUzFJRlU3UTRaTll4ZHRIcldYWWlDUVd2Mi9rTUdvL29Vd2JPcUNaRXVUVzNHWEVNT0NrNzIxdmlZR3hrMUx0OE96NmUzb0dxbys0MG96Tm9JNmdjZE5XM2FNaExscmwvSm13cnZZeXZUbGZKWGtxeUZDOTV5eDhQajh3PQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "룰루랄라라라라랄"
+        },
+        "body": "반찬 맛있고 런치 세트로 나와서 좋아요.\n우선 주차 편하고 깔끔한 곳 찾고싶으면 추천합니다.\n\n약간 과잉친절이긴한데... 친절합니다!",
+        "visitCount": 1,
+        "visited": "8.25.화",
+        "created": "8.25.화",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          },
+          {
+            "code": "kind",
+            "name": "친절해요"
+          },
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          }
+        ]
+      },
+      {
+        "id": "6a8bdae97025ff780a5988f1",
+        "cursor": "QWI5WnBBenIrckpoZ2tTT25vU2Z0ZEt1czVURGdmdjZDcXJqcWY1RmM3amlneGlSczQ3Y1NmOTlPY2g1RXE1aGM1aHI1d2pzQ0hrOTYwZjNSdTBacEs1N1BHcG5VZWp1M3kyekh4S3Vyd01tVjhnQkhyTDFRbGlEajd6UjdxSlhrR21SdExQcHE5aXpjSEhjSjdpaSt5bTN4dGhsUHk0PQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "앨리시아19"
+        },
+        "body": "잘 먹고 갑니다~!!!",
+        "visitCount": 3,
+        "visited": "8.24.월",
+        "created": "8.24.월",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          },
+          {
+            "code": "meat_good",
+            "name": "고기 질이 좋아요"
+          },
+          {
+            "code": "interior_cool",
+            "name": "인테리어가 멋져요"
+          },
+          {
+            "code": "spacious",
+            "name": "매장이 넓어요"
+          },
+          {
+            "code": "kind",
+            "name": "친절해요"
+          }
+        ]
+      },
+      {
+        "id": "6a8ab372d1b5988952218b0c",
+        "cursor": "M2t1VlRwalN2OEsvaWtFU3JWcGVOWDV6VFlvcHdGRWplcUsraEttRDBqZjF4azVvajNCOVJweWhWRFp4Z3BKbWFaeHAxZDcrQ2pyNVBxUkpTb1dLL29janZLa2I2TGFVQjEyQjdKSGYrMnNKU3NnNVNmSzJlNUNrMUVaYTlBR1cwbm54bGpIdjNQbVZmVXBhUlQrdmJyY3J3SmdDbVRRPQ==",
+        "rating": 5,
+        "author": {
+          "nickname": "YONNY90"
+        },
+        "body": "너무 맛있어서 자주 방문하고 있어요",
+        "visitCount": 1,
+        "visited": "8.23.일",
+        "created": "8.23.일",
+        "reply": {
+          "body": null
+        },
+        "originType": "영수증",
+        "votedKeywords": [
+          {
+            "code": "food_good",
+            "name": "음식이 맛있어요"
+          },
+          {
+            "code": "meat_good",
+            "name": "고기 질이 좋아요"
+          },
+          {
+            "code": "large",
+            "name": "양이 많아요"
+          },
+          {
+            "code": "special_menu",
+            "name": "특별한 메뉴가 있어요"
+          }
+        ]
+      }
+    ],
+    "text": "{\"data\":{\"visitorReviews\":{\"items\":[{\"id\":\"6a8e6b79cefe89ae5ad01c6e\",\"cursor\":\"UStYWUdUTHpuUC91Vy9FcjFGNTNTT1B4Rjd0eEcvN095ZUtaNEthc0JlVDV1SHMvQkxkeWdEUkJReUNMcWM0UDRIMHJEWjUybXdsZTd5MGNFVnBjVm9LSUFFcjNPdS9WWTdCejJWQWVJc2pXcG1NZmFqNnIwY1R0Zy9VSjNndk1lN0xaWC94eTZvVW9FMkJTaFNYUzNSNjZSeVBnOFNrPQ==\",\"rating\":5,\"author\":{\"nickname\":\"ecojigu\"},\"body\":\"도화갈비\\n역시 맛있습니다\\n담엔 예약하고 룸으로\",\"visitCount\":1,\"visited\":\"8.26.수\",\"created\":\"8.26.수\",\"reply\":{\"body\":null},\"originType\":\"영수증\",\"votedKeywords\":[{\"code\":\"price_cheap\",\"name\":\"가성비가 좋아요\"},{\"code\":\"special_menu\",\"name\":\"특별한 메뉴가 있어요\"},{\"code\":\"large\",\"name\":\"양이 많아요\"},{\"code\":\"meat_good\",\"name\":\"고기 질이 좋아요\"},{\"code\":\"food_good\",\"name\":\"음식이 맛있어요\"}]},{\"id\":\"6a8e6d499b547201c2a9689b\",\"cursor\":\"czlGNTAvZ0g0OG1Rb1I1dVpvbkF5bElTWktKbDFWVWJEMHpmUUE3YkdTT0w3SEo1RkhLVHN2enlkU1FBMmcrSWVGbHhKNXpZOVp6RmhyRTFkTWw2MElwNE1DODdZZ0FONEN3azJvbEJXMktvOWNLVWErWEoyaGQ5UHZwUnBZdEdFQXFTK1lVWWdzUGdmMUtTbGd0TkdXd05LWXU5eEw4PQ==\",\"rating\":5,\"author\":{\"nickname\":\"SM한1888\"},\"body\":\""
+  }
+}

@@ -1,0 +1,29 @@
+name: Scrape Dohwa Galbi Reviews
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/scrape-dohwa.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch reviews
+        run: |
+          node - <<'NODE'
+          const fs=require('fs'), id='2083311596';
+          const q='query getVisitorReviews($input: VisitorReviewsInput){visitorReviews(input:$input){total items{id rating body created visited visitCount reply{body} votedKeywords{code displayName} originType}}}';
+          async function req(page){const p={operationName:'getVisitorReviews',query:q,variables:{id,input:{bookingBusinessId:'null',businessId:id,businessType:'restaurant',display:20,getAuthorInfo:true,includeContent:true,isPhotoUsed:false,item:'0',sort:'recent',page}}};const r=await fetch('https://pcmap-api.place.naver.com/place/graphql',{method:'POST',headers:{'content-type':'application/json','accept':'application/json','referer':`https://pcmap.place.naver.com/restaurant/${id}/review/visitor`,'user-agent':'Mozilla/5.0'},body:JSON.stringify(p)});const t=await r.text();if(!r.ok)throw Error(r.status+' '+t.slice(0,150));const j=JSON.parse(t);if(!j?.data?.visitorReviews)throw Error('missing '+t.slice(0,200));return j.data.visitorReviews}
+          (async()=>{const f=await req(1),total=Number(f.total||0);let all=[...(f.items||[])];for(let p=2;p<=Math.min(12,Math.ceil(total/20));p++){await new Promise(r=>setTimeout(r,900));const x=await req(p);all.push(...(x.items||[]))}const seen=new Set();all=all.filter(r=>{let k=r.id||r.created+'|'+r.body;if(seen.has(k))return false;seen.add(k);return true});const c=all.map((r,i)=>({no:i+1,id:r.id||'',date:r.created||r.visited||'',rating:r.rating??'',body:r.body||'',visitCount:r.visitCount??'',keywords:(r.votedKeywords||[]).map(k=>k.displayName||k.code).filter(Boolean),reply:r.reply?.body||'',originType:r.originType||''}));fs.mkdirSync('naver-place-dohwa',{recursive:true});fs.writeFileSync('naver-place-dohwa/reviews_compact.ndjson',c.map(x=>JSON.stringify(x)).join('\n')+'\n');fs.writeFileSync('naver-place-dohwa/meta.json',JSON.stringify({placeId:id,naverTotal:total,fetchedCount:all.length,textReviewCount:c.filter(x=>x.body.trim()).length,fetchedAt:new Date().toISOString()},null,2));console.log('total',total,'unique',all.length,'text',c.filter(x=>x.body.trim()).length)})().catch(e=>{console.error(e);process.exit(1)})
+          NODE
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add naver-place-dohwa/
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Dohwa Galbi Naver reviews [skip scrape]"
+          git push

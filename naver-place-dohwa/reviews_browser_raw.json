@@ -1,0 +1,2195 @@
+[
+  {
+    "__typename": "VisitorReview",
+    "id": "6a9647f4a7e102c50b7aad3b",
+    "cursor": "SVU5TGNxbU1EYWsxNjNoMWlqMXhmcXc2RXl4eTUvY1h3Q1FNa241Z3hFTmtSZytWWHFiOVNMY0tQOURlY1dPb0VaY1RtTFJlZjFjMXZ0ekM2WDdRdGllNnh2NVZ6eFpyWTNlN2JZajJ5Mk82Z2ZidWxaeWsxRDZ3NW9zdlNlTVBTazJUR0xDdGo1aFJ2Zms1d2l3QmF5bE1OemR6OVNRPQ==",
+    "reviewId": "6a9647f4a7e102c50b7aad5c",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:7uDco"
+    },
+    "body": "맛있고 친잘하고 깨끗해요",
+    "thumbnail": null,
+    "media": [],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 0,
+    "visited": "9.1.화",
+    "created": "9.1.화",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a9647f4a7e102c50b7aad3b",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "도화 꽃갈비 한상 (1인분)",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "name": "친절해요"
+      }
+    ],
+    "userIdno": "7uDco",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a9647f4a7e102c50b7aad3b/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a9647f4a7e102c50b7aad3b"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a9647f4a7e102c50b7aad3b"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_social_bonding",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "친목",
+            "name": "친목"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_friend",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "친구",
+            "name": "친구"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-09-01T03:34:00.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a9560e5159a9af999214da9",
+    "cursor": "dkg4WjJVK0Y0NDF3VjljcjdJd0RPM1F1S3NQek5RcXJvUHo2NkxrL3UzOFhoYTRkK3NQYVRQNFVmL1MwUDZLc2wyRkRLQlhKYmh6VUhQVFRqT3hjdlhGajVmRzNSSUNiVkRNSE05cVBtY1FLUDZrTEZ4bXc2N2RlaG14OUdHT05XSFNncWZIbDd2MkYwWUhYVENCczVNSHVGWmRYMmpZPQ==",
+    "reviewId": "6a9560e5159a9af999214dad",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:2H4t9"
+    },
+    "body": "세번째 방문중 저녁은 오늘이 처음이네요!\n늘 먹던 도화 생갈비 대신 오늘은 도화 양념꽃갈비 주문했어요. 저녁메뉴는 밥이 포함되지 않는대신 고기양이 점심때보다 많아요. 생갈비가 제일 맛난줄 알았는데 양념꽃갈비는 입에서 사르르 녹아서 없어져요. 갓지은 솥밥 한숟가락에 고기 한점 얹어서 👍 양념꽃갈비는 사랑입니다^^",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfMTQx/MDAxNzg4MTc0NTY0MjEy.4I04TBhHK5QVJhQsikEDJ1aO0P0TDwg52gATYQV3ZAAg.nVCi8NAPtNa2uyww91juQPgWNmuix_MiNoxQOVpcu2Ig.JPEG/20260831_190152.jpg.jpg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfMTQx/MDAxNzg4MTc0NTY0MjEy.4I04TBhHK5QVJhQsikEDJ1aO0P0TDwg52gATYQV3ZAAg.nVCi8NAPtNa2uyww91juQPgWNmuix_MiNoxQOVpcu2Ig.JPEG/20260831_190152.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfMTE5/MDAxNzg4MTc0NTY0MTU5.AkPDHCqCrikiUoLT2wTudOOM3xV3XTBDH-UoMxzyZGsg.Ye-x0KEs4SNW_ICnGKMF8SbCLBRsxGBsU1GaRc1e8U4g.JPEG/20260831_191456.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfNTQg/MDAxNzg4MTc0NTY0MTUx.YGBEdZb_SgLg2fys4c4pShzGQlm-C9UuwgDkSTe4xtIg.nlERRMxYMLu701eVjNFrcvKjhxPIQKax7XnFrIZ7JRUg.JPEG/20260831_191527.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 3,
+    "viewCount": 204,
+    "visited": "8.31.월",
+    "created": "8.31.월",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a9560e5159a9af999214da9",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "도화 양념꽃갈비",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "together",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/busts_in_silhouette20220119222027.png",
+        "iconCode": "busts_in_silhouette",
+        "name": "단체모임 하기 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "parking_easy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/park_sign20220119222222.png",
+        "iconCode": "park_sign",
+        "name": "주차하기 편해요"
+      }
+    ],
+    "userIdno": "2H4t9",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a9560e5159a9af999214da9/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a9560e5159a9af999214da9"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a9560e5159a9af999214da9"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_family_gathering",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "가족모임",
+            "name": "가족모임"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_significant_other",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "연인・배우자",
+            "name": "연인・배우자"
+          },
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "아이",
+            "name": "아이"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-31T11:01:09.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a950a39c76689948032ec96",
+    "cursor": "L0twVUxpR0ViWlFSLytMbm13QmZzYnA4dEFMdUI0WXBXc20zZGNDdlBlbU5aUnoyTE5IS2tZUlEyMDRxK3BSai9FMzlsNFRrYURZVC9NQ1FBVTF3Qm4vKzE2L3dlbGZxWkpQZmxuUEtudU9iajZSTERoVUZwSENrTG9kMXFDcVNNMHZtcVVjMmFSbHdUVHlyRmdhSVYrM3pjSVJYMkkwPQ==",
+    "reviewId": "6a950a39c76689948032eca4",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:23qyS"
+    },
+    "body": "원래 가던 단골갈비집이 있었는데 도화갈비 생긴이후론 여기만 오게 되네요.\n매장도 넓고 깨끗하고 주차 편하고 서빙해주시는분들도 다 친절해서 기분좋게 먹고가요^^\n무엇보다 가격도 좋고 맛있어요",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfOTIg/MDAxNzg4MTUyMzc1Mzgz.SVLdRkbAWlRYf76-GtBt9Ys5rD4ywHqDtOLYEKSFaC4g.k1YzrRUrw_ysAMQigMdHVHNZnx3dQ7iQKrSgYnzvANEg.JPEG/20260831_131311.jpg.jpg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfOTIg/MDAxNzg4MTUyMzc1Mzgz.SVLdRkbAWlRYf76-GtBt9Ys5rD4ywHqDtOLYEKSFaC4g.k1YzrRUrw_ysAMQigMdHVHNZnx3dQ7iQKrSgYnzvANEg.JPEG/20260831_131311.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfNzgg/MDAxNzg4MTUyMzc1NDI0.TnXbOSC8X3qKnOm9V-JaxAWRNzcODZX8PgwVDUZLhEIg.7FBji2gRKzQxp1SD6kHdaHuoJDiBcJEZAsTEDkvIUbMg.JPEG/20260831_131716.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfMjUw/MDAxNzg4MTUyMzc1MzMw.Pd6LdDmIdywBQefS8gA0UTtYuQ8GfZiZllITUY0-ISYg.6HTGqhr1yFQIpB3nAAW5zUs96jiaoF5ZPbLFlLsgDqQg.JPEG/20260831_131713.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 306,
+    "visited": "8.31.월",
+    "created": "8.31.월",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a950a39c76689948032ec96",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "도화 양념꽃갈비 한상 (1인분)",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "interior_cool",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+        "iconCode": "couch_and_lamp",
+        "name": "인테리어가 멋져요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "name": "친절해요"
+      }
+    ],
+    "userIdno": "23qyS",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a950a39c76689948032ec96/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a950a39c76689948032ec96"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a950a39c76689948032ec96"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_romantic_date",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "데이트",
+            "name": "데이트"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_significant_other",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "연인・배우자",
+            "name": "연인・배우자"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-31T04:16:38.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a963d080f8d034a83ce2adf",
+    "cursor": "cjgwVy9NdGsyMStOQkxCQlNiNXFCQWZmSXhlamsvQWE4eEcwN0o5cXNNWGQ1SnRmRWU1M1RKUDE4dEkyMGFTK05KeHJaamRSdE9JZENOQXNvd2c4VmZ0TWwxS0VYdmREcmhzRndEUW5ReGFzSHBmeW9mcjNBOXE5Mm9nOG5RQ051ekU0N1k3UjdEVDNRUVFmVHpDa2lZNWlzbEdlRkF3PQ==",
+    "reviewId": "6a963d080f8d034a83ce2ae8",
+    "rating": 4,
+    "author": {
+      "__ref": "VisitorReviewAuthor:302CP"
+    },
+    "body": "직원분들 친절하시고 부모님모시고오기엔 정말 좋습니다. 인테리어도 훌륭!!\n다만 새건물이라 약간에 새건물냄새에 아쉽 ㅜㅜ..",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA5MDFfMjEw/MDAxNzg4MjMwOTE4Njc2.XBGw9y0eBUhbhYDHjJ9xcdRjSzJL4vfZMl7wCfSmNxEg.OKEAKZPZf7vVAiMvf0rAztvWsx7ZedpC7_Tuj-Z3plUg.JPEG/20260831_112523.jpg.jpg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA5MDFfMjEw/MDAxNzg4MjMwOTE4Njc2.XBGw9y0eBUhbhYDHjJ9xcdRjSzJL4vfZMl7wCfSmNxEg.OKEAKZPZf7vVAiMvf0rAztvWsx7ZedpC7_Tuj-Z3plUg.JPEG/20260831_112523.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA5MDFfMTkz/MDAxNzg4MjMwOTE4OTY5.ulLbXJjmHVSYD8yclg5EAAHFRGH0k3eqJdbuJszt-ZUg.m4hqOPrAvsM85IV8_VZ-F0tdbEyInaOBwU5ZEiNMUiQg.JPEG/20260831_112254.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA5MDFfMTUw/MDAxNzg4MjMwOTE4ODU5.7gw6OTDppynjtheVIfrzzpx3ZLefpEXGeBgQoHIMQEMg.NhLU68y1qNhEYo3JM7Qntt_uGDP_0e4Vgerz9lGx_C0g.JPEG/20260831_112714.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA5MDFfNCAg/MDAxNzg4MjMwOTE4OTQz.rx9mTO1n9LTA5lafdjUGRqJKCoxR4oT1KwRqpLkFJ0cg.qWxtgo5wpASt6Xz8EjwKtV0EmmCoirpyeUzgKzmMKWAg.JPEG/20260831_112840.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA5MDFfMTM0/MDAxNzg4MjMwOTE5MTU4.bFWcxKm5WMfNncGt-nFyt9GTtWaKk6gMOyI1FAurzoQg.RHuFM9OSow9wIJ4a5pEyycfSCcwrOLPUPT3UsLF5EIYg.JPEG/20260831_112702.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 0,
+    "visited": "8.31.월",
+    "created": "9.1.화",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a963d080f8d034a83ce2adf",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "돼지양념구이 한상(1인분)",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      }
+    ],
+    "userIdno": "302CP",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a963d080f8d034a83ce2adf/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a963d080f8d034a83ce2adf"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a963d080f8d034a83ce2adf"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_casual_outing",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "나들이",
+            "name": "나들이"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_parents",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "부모님",
+            "name": "부모님"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-31T03:00:38.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a93cbf0a9a0019c20c3739b",
+    "cursor": "bTd6OERCZlRETGtRME9Jb1hFNGc0U1NUUTlMc3NMcTVkb0M3ejVGa3BzUDllaFp6RUJ2TFhsMmdKaUZIdHY1dlREUFM5UDhMNk9tcTRGdFZ4RGh0ekxmRkg2eTA0b1ZhQWtnVzc4dnN3a3psV3ZGN0xrN0tyTTdUZEJRWExpbzQ1N0Jrc1dkbmhMamFKaEp3aExkbEY2NUV0NldzOE9FPQ==",
+    "reviewId": "6a93cbf0a9a0019c20c3739e",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:1sZNX"
+    },
+    "body": "직원분들도 친절하시고 음식도 너무 맛있어요",
+    "thumbnail": null,
+    "media": [],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 0,
+    "visited": "8.30.일",
+    "created": "8.30.일",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a93cbf0a9a0019c20c3739b",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "돼지 양념갈비",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "name": "친절해요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "store_clean",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/sparkles20220119222028.png",
+        "iconCode": "sparkles",
+        "name": "매장이 청결해요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "parking_easy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/park_sign20220119222222.png",
+        "iconCode": "park_sign",
+        "name": "주차하기 편해요"
+      }
+    ],
+    "userIdno": "1sZNX",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a93cbf0a9a0019c20c3739b/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a93cbf0a9a0019c20c3739b"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a93cbf0a9a0019c20c3739b"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_with_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 후 이용",
+            "name": "예약 후 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_family_gathering",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "가족모임",
+            "name": "가족모임"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_parents",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "부모님",
+            "name": "부모님"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-30T06:04:33.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a92536755197c56b6f73d76",
+    "cursor": "N0Q3MlNNTVZMenRFTm9wVFczT3Q5NEM3bzYzeFZvOWRKdENBRUVQakVhTzljOTFlbmIxMU9ZZWhzaG52YXRKeTg4MkJiNnVzblJEamQvYmRsUld3ei9sc29RTnh4VmdtZlZxQ0w0eXUwOXQydFhiQjR5bitqMUlPK21DOU1uUitPMmllR1NlNDlQdkF1SDRpQUVodWtjaEtLZlhQalZNPQ==",
+    "reviewId": "6a92536755197c56b6f73d7e",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:1kRfg"
+    },
+    "body": "매장이 넓고 가족모임하기 쾌적합니다 직원분들도 친절하고 고기 부드럽습니다. 배부르게 먹고 갑니다.",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjlfMTMw/MDAxNzg3OTc0NTAxOTg5.p3YXYr1CXMgG3EI-3hMMwrqvam28YTesJGba3eGzXB4g.c7Nlw4MRLk4HCgG3r1rhyp-cZB0PYrWoDLbbhwZlcG0g.JPEG/20260829_123340.jpg.jpg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjlfMTMw/MDAxNzg3OTc0NTAxOTg5.p3YXYr1CXMgG3EI-3hMMwrqvam28YTesJGba3eGzXB4g.c7Nlw4MRLk4HCgG3r1rhyp-cZB0PYrWoDLbbhwZlcG0g.JPEG/20260829_123340.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjlfMjY2/MDAxNzg3OTc0NTAyMDY0.0hDBJAmUMT8Ec1G7OI6hAfslJFBYiIOBa3oh07O5sVwg.xt3mOlzdhR89XBJkzvGOZ0KXh_rUWCRO-W_B5Cm3CJMg.JPEG/20260829_123335.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 252,
+    "visited": "8.29.토",
+    "created": "8.29.토",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a92536755197c56b6f73d76",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "돼지 양념갈비",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "together",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/busts_in_silhouette20220119222027.png",
+        "iconCode": "busts_in_silhouette",
+        "name": "단체모임 하기 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "store_clean",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/sparkles20220119222028.png",
+        "iconCode": "sparkles",
+        "name": "매장이 청결해요"
+      }
+    ],
+    "userIdno": "1kRfg",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a92536755197c56b6f73d76/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a92536755197c56b6f73d76"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a92536755197c56b6f73d76"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_social_bonding",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "친목",
+            "name": "친목"
+          },
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "기념일",
+            "name": "기념일"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_with_etc",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "기타",
+            "name": "기타"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-29T02:00:00.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a956bbf0d6a5f7f304bf6f0",
+    "cursor": "RmlIbzNWaVp6MHQ4cWtvTTBlc0s4NzVqcFljdlRPYU53SGhpWXNjMytDNk1qMjB2ejhrQSthLzRtYlIyc0VhUVVXU3k1V3d0YXBZNmhjRHE4NzcxRG82cW45UUtnVkRBOGtGZkRJN012SjdJV0drV1M4Vkt6T0hmcitBWlk2R3ZMQ3ZQRkEveU50ZkVqRUxEYWdqcGozdEVqTUg4UExNPQ==",
+    "reviewId": "6a956bbf0d6a5f7f304bf6f4",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:bFfFe"
+    },
+    "body": "고기 맛있고 솥밥도 강추입니다! 가족들과 모임하기 좋았어요!",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfMTE3/MDAxNzg4MTc3MzQxOTk1.Y7kqjwworccZVDyAc6g6mNhKgP8_fJC4tSM-MUjzl50g.jNQ6gHBNEc-JruIAuDOhB9SRWI2ICkNGVjoEPw6v5ccg.JPEG/A525A023-9497-47CA-8A42-A275F3AA5AB2.jpeg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MzFfMTE3/MDAxNzg4MTc3MzQxOTk1.Y7kqjwworccZVDyAc6g6mNhKgP8_fJC4tSM-MUjzl50g.jNQ6gHBNEc-JruIAuDOhB9SRWI2ICkNGVjoEPw6v5ccg.JPEG/A525A023-9497-47CA-8A42-A275F3AA5AB2.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 64,
+    "visited": "8.28.금",
+    "created": "8.31.월",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a956bbf0d6a5f7f304bf6f0",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "돼지 양념갈비",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "together",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/busts_in_silhouette20220119222027.png",
+        "iconCode": "busts_in_silhouette",
+        "name": "단체모임 하기 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      }
+    ],
+    "userIdno": "bFfFe",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a956bbf0d6a5f7f304bf6f0/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a956bbf0d6a5f7f304bf6f0"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a956bbf0d6a5f7f304bf6f0"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_with_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 후 이용",
+            "name": "예약 후 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_family_gathering",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "가족모임",
+            "name": "가족모임"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_parents",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "부모님",
+            "name": "부모님"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-28T11:41:13.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a91681084b98328d87ad237",
+    "cursor": "MjQrM2diUVpXSkdVODBLUVdJZksxZllwQ3pQRTJXeXdieXdHaE9ObzNJdVN6Rmt0OGZub0hkOE5XR0txMitnN0crVlpYenIrY3VhSG9abHZUcTJhdWphWEpldkozY3UvVEN1Qjg2MVRmbWg5ZlR5R1l4TjBHMGtjdnNxdjhra3FJajlZcDhjU0lYbGR1UzMwTGRXenhlWG1YMThuSXFjPQ==",
+    "reviewId": "6a91681084b98328d87ad23b",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:H7bj"
+    },
+    "body": "고기가 부드럽고 양념맛도 적당하니 맛있어요\n특히 된장찌개는 따로 끓일 수 있는게 너무 좋았어요",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfMjIw/MDAxNzg3OTE0MjUxOTQ3.piBwqYO9QG1WospRgw012kghEAm0X0U54LieQmVgfjcg.M7vOxgTyRBARa5P_B9YcawB_uMnIqutsvEARR4mVK1Ig.JPEG/3B373A9C-3FD6-49F5-87F3-6342FC573ED5.jpeg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfMjIw/MDAxNzg3OTE0MjUxOTQ3.piBwqYO9QG1WospRgw012kghEAm0X0U54LieQmVgfjcg.M7vOxgTyRBARa5P_B9YcawB_uMnIqutsvEARR4mVK1Ig.JPEG/3B373A9C-3FD6-49F5-87F3-6342FC573ED5.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfOTIg/MDAxNzg3OTE0MjUyNTg5.VkFq9mOGncnOQAWATbxYLD3whNd9m7EGWaMnEck0S4Ug.7LlcB4BCjmK9lEONAtAv6dDOS2M1T4G3nhhb7LsPXYYg.JPEG/9C261A2D-0D74-4432-9D8E-A7CF6B4FAE95.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfMTkx/MDAxNzg3OTE0MjUzOTk5.6uPbKi7TCaUViutAM5FeFYY-e2z_CzwreJm1FOg4FDIg.gAcSq7KijSa4Q6d83fJ0AQt9uA3ZoF0IMZHQJbcGxckg.JPEG/52980BF9-0A98-4805-9B03-803EBCA1D208.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 362,
+    "visited": "8.28.금",
+    "created": "8.28.금",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a91681084b98328d87ad237",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "돼지 양념갈비",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "together",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/busts_in_silhouette20220119222027.png",
+        "iconCode": "busts_in_silhouette",
+        "name": "단체모임 하기 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "name": "친절해요"
+      }
+    ],
+    "userIdno": "H7bj",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a91681084b98328d87ad237/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a91681084b98328d87ad237"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a91681084b98328d87ad237"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_daily_routine",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "일상",
+            "name": "일상"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_parents",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "부모님",
+            "name": "부모님"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-28T10:45:06.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a90ff94937611d58be780f3",
+    "cursor": "bXp1WjlWZmRiSjBDNStXT24xR2hPUFBBUE1BL2Q2NjhkUDM3Q1lGSnYybVltbGFQcXFOamlLZXdMcUgvM1dJVlNhcDhVMlN3bnRTZGxCMVVyNzMwMWxnR011MEU2c0FwNE9rTTBWQk1DcGg1OXM1a1Z3U3dhTG1pQU9xR1dJNlErVGJYNlU3YkJDQmVDcHFCdG1kUUFTOTZwRzF2ZVhFPQ==",
+    "reviewId": "6a90ff94937611d58be780fb",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:8vqgr"
+    },
+    "body": "고기가 진짜 너무 너무 좋고 맛있어요 반찬도 맛있고 매장이 엄청 넓고 고급스러운데 가격은 착해서 너무 좋아요 직원분들이 정말 친절 하시고 돌잔치 가족사진 스튜디오도 무료라서 가족 식사 하고 사진 찍기도 좋겠더라고요",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfNjMg/MDAxNzg3ODg3NTA1NDUx.DEhTOc0aK1mdIyQ_pAYWgsOHxPnzTrXZf-xq50vyzE8g.I0eVXh_CPWqOsnGBd56ci2MkCr7yBzWPJXKJ80rtnU8g.JPEG/DA1AC900-71E3-4B82-B73F-DCB3DA9AB084.jpeg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfNjMg/MDAxNzg3ODg3NTA1NDUx.DEhTOc0aK1mdIyQ_pAYWgsOHxPnzTrXZf-xq50vyzE8g.I0eVXh_CPWqOsnGBd56ci2MkCr7yBzWPJXKJ80rtnU8g.JPEG/DA1AC900-71E3-4B82-B73F-DCB3DA9AB084.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "square",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfNDcg/MDAxNzg3ODg3NTA1Mzc3.R_KLAiG-jjZxAMoyrjFGPPe8frf0JDHKVLXf7zlAB5Yg.aqevgB_9exk8E-XEgYKDtwrY5pZNO4rcRCHN0LhF5DEg.JPEG/0CFE3DE0-2394-4CA2-99B4-F07149B5662D.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjhfOSAg/MDAxNzg3ODg3NTA3MDA1.lThIzQkSeZ6GsXyYHBFKc-QQaI-1MFebYs-CJhk0v-wg.bHjtTwzVcl5MVoN0QvRyOiWRiENnYRoLEWIU_3osw_Eg.JPEG/649630D4-03F4-4CC0-AC80-6906F10F166F.jpeg?type=w1500_60_sharpen",
+        "thumbnailRatio": "portrait",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 322,
+    "visited": "8.28.금",
+    "created": "8.28.금",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a90ff94937611d58be780f3",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "도화 꽃갈비 한상(1인분)",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "large",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/steamed_rice20220119222024.png",
+        "iconCode": "steamed_rice",
+        "name": "양이 많아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "name": "친절해요"
+      }
+    ],
+    "userIdno": "8vqgr",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a90ff94937611d58be780f3/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a90ff94937611d58be780f3"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a90ff94937611d58be780f3"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_no_reservation",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "예약 없이 이용",
+            "name": "예약 없이 이용"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_significant_other",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "연인・배우자",
+            "name": "연인・배우자"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-28T03:07:13.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a8fb477fb9471992cd69f84",
+    "cursor": "WHVUU2VwOVNkcWlybFZlYmcwWUhGMi9wSDdoK0srWDQ1aENVMWVIRXB0SzAxRDdPM1JScFFmdDR3NWpKSWxVQ05ZRUtYM2xpRUdzR3RPNk5qMk4vLzF3YXNNdW0rUmJkMENkSTBNNnRnejRTTS8rcm5DYzRiSjhSTjJjZWJJWWsxUDNBTGRpQ0N6RmNqd0kzNHhweGRJWGRHbWJnZDZNPQ==",
+    "reviewId": "6a8fb477fb9471992cd69f8a",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:1VZ5e"
+    },
+    "body": "인천 최고의 갈비 맛집\n반찬 너무 훌륭하고\n직원분들 친절함에 감동했어요",
+    "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjdfMTAx/MDAxNzg3ODAyNzQxNTk0.ydWU6B9vZIcr9p2dAjhqhtp2JoWVlOgzbFkDu3gTelUg.UJ7f97FiON47TIeSAAGyET9x47-Amcyyyls8zreakFgg.JPEG/20260827_121818.jpg.jpg",
+    "media": [
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjdfMTAx/MDAxNzg3ODAyNzQxNTk0.ydWU6B9vZIcr9p2dAjhqhtp2JoWVlOgzbFkDu3gTelUg.UJ7f97FiON47TIeSAAGyET9x47-Amcyyyls8zreakFgg.JPEG/20260827_121818.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "landscape",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      },
+      {
+        "__typename": "VisitorReviewMedia",
+        "type": "image",
+        "thumbnail": "https://pup-review-phinf.pstatic.net/MjAyNjA4MjdfMjEz/MDAxNzg3ODAyNzQxNjY2.I-OetWTxb9EjHn-jdAkSGruiNWFqYhbTYXBXCR5f4Wkg.pIvY5UHssWEkqzzCb0mjP0xhL1sqMLA8cD1QGLidLrsg.JPEG/20260827_121814.jpg.jpg?type=w1500_60_sharpen",
+        "thumbnailRatio": "landscape",
+        "class": "notReceipt",
+        "videoId": null,
+        "videoUrl": null,
+        "trailerUrl": null
+      }
+    ],
+    "tags": null,
+    "status": "ACTIVE",
+    "visitCount": 1,
+    "viewCount": 209,
+    "visited": "8.27.목",
+    "created": "8.27.목",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a8fb477fb9471992cd69f84",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "originType": "영수증",
+    "item": {
+      "__typename": "VisitorReviewItem",
+      "name": "돼지양념구이 한상(1인분)",
+      "code": null,
+      "options": null
+    },
+    "language": "ko",
+    "highlightRanges": null,
+    "apolloCacheId": "true",
+    "translatedText": null,
+    "businessName": "도화갈비 인천점",
+    "showBookingItemName": false,
+    "bookingItemName": "",
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "interior_cool",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+        "iconCode": "couch_and_lamp",
+        "name": "인테리어가 멋져요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "name": "친절해요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "store_clean",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/sparkles20220119222028.png",
+        "iconCode": "sparkles",
+        "name": "매장이 청결해요"
+      }
+    ],
+    "userIdno": "1VZ5e",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a8fb477fb9471992cd69f84/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a8fb477fb9471992cd69f84"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a8fb477fb9471992cd69f84"
+    },
+    "nickname": "",
+    "showPaymentInfo": true,
+    "visitCategories": [
+      {
+        "__typename": "VisitCategory",
+        "code": "v_enter_immediately",
+        "name": "대기 시간",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "바로 입장",
+            "name": "바로 입장"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_social_bonding",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "친목",
+            "name": "친목"
+          }
+        ]
+      },
+      {
+        "__typename": "VisitCategory",
+        "code": "v_significant_other",
+        "name": "",
+        "keywords": [
+          {
+            "__typename": "VisitCategoryKeyword",
+            "code": "연인・배우자",
+            "name": "연인・배우자"
+          }
+        ]
+      }
+    ],
+    "representativeVisitDateTime": "2026-08-27T03:49:31.000Z",
+    "showRepresentativeVisitDateTime": true
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a92589cca68c7c99e1847a4",
+    "cursor": "WVdLejlMTlRxOVN3dlQ5aHVlVXBaR0I0c08wNXZjQ1FPRkliMmVJUkdORGtpRWpGcHV3enFxS1NCdXlHZHgvbUVZVCt2cjhGVm9aNGJVdlhBSk0vajJwK0dnQjFQcUl4VTlnZlJPRnVWWVhua1B1TjJoSk4wLzhjNUpKbnpwM0hoR2UwTG5ZdnREdGtkaEQrV2dSQ1c1SWhBaHVwSHpZPQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:U10j"
+    },
+    "visitCount": 1,
+    "visited": "8.29.토",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a92589cca68c7c99e1847a4",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": null,
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": null,
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "interior_cool",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+        "iconCode": "couch_and_lamp",
+        "displayName": null,
+        "name": "인테리어가 멋져요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "displayName": null,
+        "name": "매장이 넓어요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "U10j",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a92589cca68c7c99e1847a4/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a92589cca68c7c99e1847a4"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a92589cca68c7c99e1847a4"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a9024e568e2d2c605881bda",
+    "cursor": "Y1pOL01ZWkREMTZuQXFkVFhWWVQrc1dWaXlVdUlUZ0Vnc1RGQkFEUFFxOGdMQ3B6UEJlaGM2ZVhDRStnTlp2ZUNSMkpTNDcxVVFybDNiSDZZNWp6elZnb0tjbklTZzlPWWZhWE9WQjk3NXE1TUNTOWZxOVppT3dkUFVGdDFmR3NObzU3d2x6WXdGYzE2cEYzN0RSVy91RVdsOFZUbXZrPQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:2vj1W"
+    },
+    "visitCount": 1,
+    "visited": "8.27.목",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a9024e568e2d2c605881bda",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": null,
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "interior_cool",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+        "iconCode": "couch_and_lamp",
+        "displayName": null,
+        "name": "인테리어가 멋져요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "parking_easy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/park_sign20220119222222.png",
+        "iconCode": "park_sign",
+        "displayName": null,
+        "name": "주차하기 편해요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "2vj1W",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a9024e568e2d2c605881bda/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a9024e568e2d2c605881bda"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a9024e568e2d2c605881bda"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a8fd4b69e2c9d74287779fc",
+    "cursor": "NndjOWF3Y3o0VzlhVllvOXNQbUtuWFhEelEwYkpWN3l6bEFMeEd1ejV4SG8vYTA4S2RUR093RWFYOWFRcGRVekIxeDlWZ2pkR0s2ZWRwVTdUQVo0QTd6Qm1ZbDJITlRBdThEMUx1amt0VnFoa2pnY2dRWjRNRzNBVDM2anBjdTE5ZjNxeUVOdW53V0tzMjY5bVNEVmUvcnNiam5EOWNFPQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:lsmQ"
+    },
+    "visitCount": 3,
+    "visited": "8.27.목",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a8fd4b69e2c9d74287779fc",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "price_cheap",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/coin20220119222025.png",
+        "iconCode": "coin",
+        "displayName": null,
+        "name": "가성비가 좋아요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "lsmQ",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a8fd4b69e2c9d74287779fc/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a8fd4b69e2c9d74287779fc"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a8fd4b69e2c9d74287779fc"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a8c0e439b06ae9913e479bb",
+    "cursor": "UEV0T2Z3cnM4YlFtRjdnMDRPZlczL0xIVUd6d1hZKytVckNEUy8wU241Ky9VTERqK2pSVEwwQlJkRmh3cjlNYXBBck9HTDBNbU42bnFBYU9maERJYVpObHpPTXdXeWJYTi9lVjBibHVOeUdYek1Yem9DU0ZTb0xaa25rMUszRXVIdHNiTlV5MXZ1Smg5Rld6ZG1FUm1zQVhwck5UVHd3PQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:3fVqB"
+    },
+    "visitCount": 1,
+    "visited": "8.24.월",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a8c0e439b06ae9913e479bb",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "3fVqB",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a8c0e439b06ae9913e479bb/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a8c0e439b06ae9913e479bb"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a8c0e439b06ae9913e479bb"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a89199ba5596ea1cd62bb4f",
+    "cursor": "K3Nwc0ZVMk9mRnRCaVNnUG04KzdjZ2NYenRrQ1hzVGpMdHNlMml0Z0xxMkVOcUNpOFp1Q29SbkY3RHA3K3F5bXdkeG1YSUhnbFhpOUVLN09FamxRZGUyeUlBdHptUDZHcHJNZkhKam4wNHp3VDJMYSttNlBaQUpEMXF6RGh1a0FVU0dSaE84VjEwUHNEcTh4Wjh0dzdCSEd1Q1EzM0lZPQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:eGy5"
+    },
+    "visitCount": 1,
+    "visited": "8.22.토",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a89199ba5596ea1cd62bb4f",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": null,
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": null,
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "special_menu",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/cook20220119222024.png",
+        "iconCode": "cook",
+        "displayName": null,
+        "name": "특별한 메뉴가 있어요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "eGy5",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a89199ba5596ea1cd62bb4f/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a89199ba5596ea1cd62bb4f"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a89199ba5596ea1cd62bb4f"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a87e2235b8906b783a1a252",
+    "cursor": "RFREY1lJbDQ2OTI3V2pFanhINmNxZHlFelRhSXVZa1R4dDVkczBpS1VnNzdOWnJDREZwSkJid1FSbGZna2hXMjllbGJjSmFIbitlZG1qMEFHb3N2M1pNL3BTWDlYSmJFZlZCVDBNRENVeDR2a2dHM091VTQ5eHpSSDFVTVNhQnZlczJwdi93OE9nYUFKOG4vRWFiQnlvZjhTR2dmbE1BPQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:1Lynx"
+    },
+    "visitCount": 1,
+    "visited": "8.21.금",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a87e2235b8906b783a1a252",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": null,
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": null,
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "large",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/steamed_rice20220119222024.png",
+        "iconCode": "steamed_rice",
+        "displayName": null,
+        "name": "양이 많아요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "1Lynx",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a87e2235b8906b783a1a252/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a87e2235b8906b783a1a252"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a87e2235b8906b783a1a252"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a855441f8dfb3ac273cf189",
+    "cursor": "Q3Q5WHJ2QkhEcE9LQVFDUmoxTy9XMUx6cHF0U2xWRmFiOWJRNXM0VGMxanROYXh1bnhFN0FIcUhqNGorcnEvbWNKMGllWndtVzRQV25Xb3lsQytuUmhRamF5OEtqVzRQb3hoeSt4MlRDd2J5M0VkcmpKUE93MjZ4UG1FMTQwRWFndjltYXFOdDIzN2JKTE85MUhnbDUrQk5Fb0ZxN0lrPQ==",
+    "rating": 4,
+    "author": {
+      "__ref": "VisitorReviewAuthor:2Ix2W"
+    },
+    "visitCount": 1,
+    "visited": "8.19.수",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a855441f8dfb3ac273cf189",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": null,
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "displayName": null,
+        "name": "매장이 넓어요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "2Ix2W",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a855441f8dfb3ac273cf189/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a855441f8dfb3ac273cf189"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a855441f8dfb3ac273cf189"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a813d5c13dd00263617c28c",
+    "cursor": "NlJhK1VaRER5Si9TV1lINWpIWjNzRkc3RXUzQXFXNDlNUk5xbkE2MWU3M3NFTlMwN3FPVVZQWXBJWWJMQjhQU29kS1R2QVFRNU9FTXhZODZCUmVlWVZLUDdoeUxOanNVK0UzZHk5R3ZYNkV3VTk2MFMzUEo2UUVLdTVEWkV2Zm5YNUtycVNlb0tkNkV0bmdGTDVZblozUnJIdVh4cjdVPQ==",
+    "rating": 3,
+    "author": {
+      "__ref": "VisitorReviewAuthor:3Nhv9"
+    },
+    "visitCount": 1,
+    "visited": "8.16.일",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a813d5c13dd00263617c28c",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": null,
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "interior_cool",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+        "iconCode": "couch_and_lamp",
+        "displayName": null,
+        "name": "인테리어가 멋져요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "3Nhv9",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a813d5c13dd00263617c28c/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a813d5c13dd00263617c28c"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a813d5c13dd00263617c28c"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a7fee15dc573efd1f89dad3",
+    "cursor": "SDYrTmZGY2JVMGxMSzQrb29PcDBZcC9scFloa2FicmZNT1loRXQyVll0WkR1SUs0T1BndG5lZjhNT3pYS1lSUzFiQVk2bHZPcWN3VWRudWF1MEpVR1dSN0FFOERENlpyU3dCWkJmODB1aUJ3U1Y5STVnWGlWOUNyaHU4aTZ0MDE4SWJHTmVGMHhIS2lSNU9TTnpMWmlEUXFZT1RYSGg4PQ==",
+    "rating": 4.5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:4uIk3"
+    },
+    "visitCount": 1,
+    "visited": "8.15.토",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a7fee15dc573efd1f89dad3",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": null,
+        "name": "음식이 맛있어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": null,
+        "name": "고기 질이 좋아요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "displayName": null,
+        "name": "매장이 넓어요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "displayName": null,
+        "name": "친절해요"
+      },
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "parking_easy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/park_sign20220119222222.png",
+        "iconCode": "park_sign",
+        "displayName": null,
+        "name": "주차하기 편해요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "4uIk3",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a7fee15dc573efd1f89dad3/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a7fee15dc573efd1f89dad3"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a7fee15dc573efd1f89dad3"
+    },
+    "nickname": ""
+  },
+  {
+    "__typename": "VisitorReview",
+    "id": "6a7fecd16b763aac0766afbc",
+    "cursor": "SDVLZW4wV2R0cFR5aGU1SlBhc2NSTnlnVW1SUElLSXhqMHYzV2k0L0tYSW52Z3Zucnl6UlpOKzZJQnlTOGNreERsMWJLNXQzbGNTL0F3ZUdGU0JJWkRHVFBFRk5yYWRjWVlwaGd6dnlrdTJJWjdhbUJnRkpKQm11V2FFNno4c2NXY3dBY3JxYmMrQkNxMHFZcU9nVUh6MzVQS2M2L0g0PQ==",
+    "rating": 5,
+    "author": {
+      "__ref": "VisitorReviewAuthor:ehOmf"
+    },
+    "visitCount": 1,
+    "visited": "8.15.토",
+    "originType": "영수증",
+    "reply": {
+      "__typename": "VisitorReviewReply",
+      "editUrl": "https://new-m.smartplace.naver.com/bizes/place-id/2083311596/reviews/6a7fecd16b763aac0766afbc",
+      "body": null,
+      "editedBy": null,
+      "created": null,
+      "date": null,
+      "replyTitle": null,
+      "isReported": false,
+      "isSuspended": false,
+      "status": null
+    },
+    "votedKeywords": [
+      {
+        "__typename": "VisitorReviewVotedKeyword",
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": null,
+        "name": "고기 질이 좋아요"
+      }
+    ],
+    "businessName": "도화갈비 인천점",
+    "status": "ACTIVE",
+    "userIdno": "ehOmf",
+    "loginIdno": "",
+    "receiptInfoUrl": "https://m.place.naver.com/my/review/6a7fecd16b763aac0766afbc/paymentInfo",
+    "reactionStat": {
+      "__ref": "ReactionStat:6a7fecd16b763aac0766afbc"
+    },
+    "hasViewerReacted": {
+      "__ref": "HasViewerReacted:6a7fecd16b763aac0766afbc"
+    },
+    "nickname": ""
+  }
+]

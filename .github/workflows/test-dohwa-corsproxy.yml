@@ -1,0 +1,32 @@
+name: Test Dohwa CORS Proxy
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/test-dohwa-corsproxy.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test proxy
+        run: |
+          node - <<'NODE'
+          const id='2083311596',type='restaurant'; const ua='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1';
+          const pageUrl=`https://m.place.naver.com/${type}/${id}/review/visitor?reviewSort=recent`;
+          function state(html){const m='window.__APOLLO_STATE__',idx=html.indexOf(m),eq=html.indexOf('=',idx);let s=html.indexOf('{',eq),d=0,q=false,e=false,end=-1;for(let i=s;i<html.length;i++){const c=html[i];if(q){if(e)e=false;else if(c==='\\')e=true;else if(c==='"')q=false;continue;}if(c==='"'){q=true;continue;}if(c==='{')d++;else if(c==='}'&&--d===0){end=i+1;break;}}return JSON.parse(html.slice(s,end))}
+          const query=`query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { items { id cursor rating author { nickname } body visitCount visited created reply { body } originType votedKeywords { code name } } total } }`;
+          (async()=>{
+            const h=await (await fetch(pageUrl,{headers:{'user-agent':ua}})).text(),st=state(h),root=st.ROOT_QUERY||{};
+            const key=Object.keys(root).find(k=>k.startsWith('visitorReviews(')&&k.includes('includeContent')&&k.includes('true'));
+            const arr=root[key].items.map(x=>st[x.__ref]); const after=arr.at(-1).cursor; console.log('after',after,'first ids',arr.map(x=>x.id));
+            const input={businessId:id,businessType:type,item:'0',bookingBusinessId:null,size:10,isPhotoUsed:false,sort:'recent',includeContent:true,getUserStats:true,includeReceiptPhotos:true,cidList:['220036','220037','220075','220733'],getReactions:true,getTrailer:true,after};
+            const payload={operationName:'getVisitorReviews',variables:{input,id},query};
+            for(const target of ['https://api.place.naver.com/graphql','https://pcmap-api.place.naver.com/place/graphql']){
+              const proxy='https://corsproxy.io/?url='+encodeURIComponent(target);
+              const r=await fetch(proxy,{method:'POST',headers:{'content-type':'application/json','accept':'application/json','user-agent':ua,'x-requested-with':'XMLHttpRequest'},body:JSON.stringify(payload)}); const t=await r.text(); console.log('target',target,'status',r.status,'len',t.length,t.slice(0,5000));
+              await new Promise(r=>setTimeout(r,2000));
+            }
+          })().catch(e=>{console.error(e);process.exit(1)})
+          NODE

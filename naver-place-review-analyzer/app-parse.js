@@ -35,6 +35,12 @@ function rowsToReviews(rows){
 }
 
 async function parseExcel(buffer){
+ if(window.XLSX){
+   const wb=XLSX.read(buffer,{type:'array',cellDates:true});
+   const sheetName=wb.SheetNames.find(n=>n==='고객리뷰')||wb.SheetNames.find(n=>/리뷰/i.test(n))||wb.SheetNames[0];
+   if(!sheetName)throw new Error('읽을 수 있는 워크시트가 없습니다.');
+   return rowsToReviews(XLSX.utils.sheet_to_json(wb.Sheets[sheetName],{header:1,raw:false,defval:''}));
+ }
  if(!window.ExcelJS)throw new Error('엑셀 모듈을 불러오지 못했습니다. 인터넷 연결을 확인하세요.');
  const wb=new ExcelJS.Workbook();await wb.xlsx.load(buffer);
  const ws=wb.getWorksheet('고객리뷰')||wb.worksheets.find(s=>/리뷰/i.test(s.name))||wb.worksheets[0];if(!ws)throw new Error('읽을 수 있는 워크시트가 없습니다.');

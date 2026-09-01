@@ -1,0 +1,127 @@
+name: Scrape Nangman Naver Reviews
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/scrape-nangman.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch Naver visitor reviews
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          const placeId = '1731676306';
+          const placeName = '낭만식탁';
+          const sourceUrl = 'https://naver.me/xDJdkulM';
+          const types = ['restaurant', 'place', 'cafe'];
+          const sleep = ms => new Promise(r => setTimeout(r, ms));
+          const wtm = (id, type) => Buffer.from(JSON.stringify({arg:id,type,source:'place'}), 'utf8').toString('base64');
+          const query = 'query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { total items { id rating body created visited visitCount viewCount author { id nickname } reply { body } media { thumbnail } } } }';
+
+          async function request(type, page) {
+            const body = [{
+              operationName: 'getVisitorReviews',
+              variables: {
+                input: {
+                  businessId: placeId,
+                  businessType: type,
+                  page,
+                  size: 50,
+                  isPhotoUsed: false,
+                  includeContent: true,
+                  getAuthorInfo: true,
+                  item: '0'
+                },
+                id: placeId
+              },
+              query
+            }];
+            const res = await fetch('https://api.place.naver.com/graphql', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json, text/plain, */*',
+                'accept-language': 'ko-KR,ko;q=0.9',
+                'origin': 'https://m.place.naver.com',
+                'referer': `https://m.place.naver.com/${type}/${placeId}/review/visitor`,
+                'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1',
+                'x-wtm-graphql': wtm(placeId, type)
+              },
+              body: JSON.stringify(body)
+            });
+            const text = await res.text();
+            if (!res.ok) throw new Error(`${type} page ${page}: HTTP ${res.status} ${text.slice(0,200)}`);
+            let json;
+            try { json = JSON.parse(text); } catch (e) { throw new Error(`Invalid JSON: ${text.slice(0,300)}`); }
+            const root = Array.isArray(json) ? json[0] : json;
+            if (root?.errors?.length) throw new Error(JSON.stringify(root.errors).slice(0,500));
+            const vr = root?.data?.visitorReviews;
+            if (!vr) throw new Error(`visitorReviews missing: ${text.slice(0,500)}`);
+            return vr;
+          }
+
+          (async () => {
+            let selectedType = null;
+            let all = [];
+            let total = 0;
+            const attempts = [];
+            for (const type of types) {
+              try {
+                const first = await request(type, 1);
+                selectedType = type;
+                total = Number(first.total || 0);
+                all.push(...(first.items || []));
+                const pages = Math.max(1, Math.min(10, Math.ceil(total / 50)));
+                for (let p = 2; p <= pages; p++) {
+                  await sleep(700);
+                  const part = await request(type, p);
+                  all.push(...(part.items || []));
+                }
+                break;
+              } catch (e) {
+                attempts.push({type, error: String(e.message || e)});
+              }
+            }
+            if (!selectedType) {
+              console.error(JSON.stringify(attempts, null, 2));
+              process.exit(1);
+            }
+            const seen = new Set();
+            all = all.filter(r => {
+              const key = r?.id || `${r?.created || ''}|${r?.body || ''}|${r?.author?.id || ''}`;
+              if (seen.has(key)) return false;
+              seen.add(key); return true;
+            });
+            const out = {
+              placeId, placeName, sourceUrl, businessType: selectedType,
+              naverTotal: total, fetchedCount: all.length,
+              textReviewCount: all.filter(x => (x.body || '').trim()).length,
+              fetchedAt: new Date().toISOString(), attempts, reviews: all
+            };
+            fs.mkdirSync('naver-place-nangman', {recursive:true});
+            fs.writeFileSync('naver-place-nangman/reviews.json', JSON.stringify(out, null, 2), 'utf8');
+            console.log(`Fetched ${all.length}/${total} visitor reviews (${out.textReviewCount} with text), type=${selectedType}`);
+          })().catch(e => { console.error(e); process.exit(1); });
+          NODE
+
+      - name: Commit crawl result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add naver-place-nangman/reviews.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Add 낭만식탁 Naver review crawl data [skip scrape]"
+          git push

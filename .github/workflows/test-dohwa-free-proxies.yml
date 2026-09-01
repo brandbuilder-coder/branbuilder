@@ -1,0 +1,87 @@
+name: Test Dohwa Rotating Proxies
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/test-dohwa-free-proxies.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test proxy pool
+        shell: bash
+        run: |
+          python - <<'PY'
+          import requests, json, re, base64, concurrent.futures, time, os
+          ID='2083311596'; TYPE='restaurant'; PAGE=f'https://m.place.naver.com/{TYPE}/{ID}/review/visitor?reviewSort=recent'
+          UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1'
+          h=requests.get(PAGE,headers={'User-Agent':UA,'Accept-Language':'ko-KR,ko;q=0.9'},timeout=15).text
+          marker='window.__APOLLO_STATE__'; i=h.find(marker); eq=h.find('=',i); s=h.find('{',eq); dep=0; ins=False; esc=False; end=-1
+          for p in range(s,len(h)):
+              c=h[p]
+              if ins:
+                  if esc: esc=False
+                  elif c=='\\\\': esc=True
+                  elif c=='"': ins=False
+                  continue
+              if c=='"': ins=True; continue
+              if c=='{': dep+=1
+              elif c=='}':
+                  dep-=1
+                  if dep==0: end=p+1; break
+          st=json.loads(h[s:end]); root=st.get('ROOT_QUERY',{})
+          key=next(k for k in root if k.startswith('visitorReviews(') and 'includeContent' in k and 'true' in k)
+          arr=[st[x['__ref']] for x in root[key]['items']]; after=arr[-1]['cursor']
+          q='query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { items { id cursor rating author { nickname } body visitCount visited created reply { body } originType votedKeywords { code name } } total } }'
+          inp={'businessId':ID,'businessType':TYPE,'item':'0','bookingBusinessId':None,'size':10,'isPhotoUsed':False,'sort':'recent','includeContent':True,'getUserStats':True,'includeReceiptPhotos':True,'cidList':['220036','220037','220075','220733'],'getReactions':True,'getTrailer':True,'after':after}
+          payload={'operationName':'getVisitorReviews','variables':{'input':inp,'id':ID},'query':q}
+          target='https://pcmap-api.place.naver.com/place/graphql'
+          sources=[
+            'https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/http/data.txt',
+            'https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt',
+            'https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt'
+          ]
+          proxies=[]
+          for src in sources:
+              try:
+                  t=requests.get(src,timeout=15).text
+                  for line in t.splitlines():
+                      line=line.strip().replace('http://','').replace('https://','')
+                      if re.match(r'^\d{1,3}(?:\.\d{1,3}){3}:\d+$',line) and line not in proxies: proxies.append(line)
+              except Exception as e: print('source err',src,e)
+          proxies=proxies[:450]
+          print('proxy candidates',len(proxies),'after',after[:20])
+          headers={'User-Agent':UA,'Accept':'application/json, text/plain, */*','Accept-Language':'ko-KR,ko;q=0.9','Content-Type':'application/json','Origin':'https://pcmap.place.naver.com','Referer':PAGE}
+          def test(px):
+              ps={'http':'http://'+px,'https':'http://'+px}
+              try:
+                  r=requests.post(target,headers=headers,json=payload,proxies=ps,timeout=5,verify=False)
+                  if r.status_code==200 and 'visitorReviews' in r.text:
+                      j=r.json(); items=(j.get('data') or {}).get('visitorReviews',{}).get('items') or []
+                      if items: return {'proxy':px,'status':200,'items':items,'text':r.text[:1000]}
+                  return None
+              except: return None
+          requests.packages.urllib3.disable_warnings()
+          winner=None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=45) as ex:
+              futs={ex.submit(test,p):p for p in proxies}
+              for fut in concurrent.futures.as_completed(futs):
+                  r=fut.result()
+                  if r:
+                      winner=r; print('WINNER',r['proxy'],'items',len(r['items']),'first',r['items'][0].get('id')); break
+              for f in futs: f.cancel()
+          os.makedirs('naver-place-dohwa',exist_ok=True)
+          with open('naver-place-dohwa/proxy_test_result.json','w') as f: json.dump({'winner':winner and winner['proxy'],'sample':winner},f,ensure_ascii=False,indent=2)
+          if not winner: print('NO_WORKING_PROXY')
+          PY
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add naver-place-dohwa/proxy_test_result.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Record Dohwa proxy test [skip proxy]"
+          git push

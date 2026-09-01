@@ -1,0 +1,22 @@
+name: Package Dohwa Full Dataset
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/package-dohwa-full.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dohwa-full-dataset
+          path: |
+            naver-place-dohwa/reviews_full.json
+            naver-place-dohwa/reviews_full.csv
+            naver-place-dohwa/meta_full.json
+          if-no-files-found: error
+          retention-days: 1

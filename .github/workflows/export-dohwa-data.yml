@@ -1,0 +1,21 @@
+name: Export Dohwa Full Review Dataset
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/export-dohwa-data.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload review dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: dohwa-full-reviews
+          path: |
+            naver-place-dohwa-full/reviews.ndjson
+            naver-place-dohwa-full/meta.json
+          retention-days: 7

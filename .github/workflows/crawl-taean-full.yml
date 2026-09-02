@@ -6,12 +6,17 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: crawl-taean-full-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   crawl:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Crawl all review feeds with cursor pagination
         run: |
           python - <<'PY'
@@ -159,4 +164,14 @@ jobs:
           git add naver-place-taean/
           git diff --cached --quiet && exit 0
           git commit -m "Add complete Taean clam soup Naver review history"
-          git push
+          for attempt in 1 2 3; do
+            git fetch origin main:refs/remotes/origin/main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push raced with another main update; retrying ($attempt/3)"
+            sleep $((attempt * 2))
+          done
+          echo "Unable to push the collected dataset after 3 attempts"
+          exit 1

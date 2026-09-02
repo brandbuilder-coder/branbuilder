@@ -1,0 +1,20 @@
+name: Package Taean Full Dataset
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/package-taean-full.yml"]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: taean-full-dataset-ready
+          path: |
+            naver-place-taean/reviews_full.json
+            naver-place-taean/reviews_full.csv
+            naver-place-taean/meta_full.json
+          retention-days: 1

@@ -1,0 +1,195 @@
+name: Crawl Taean Full Reviews
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/crawl-taean-full.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crawl all review feeds with cursor pagination
+        run: |
+          python - <<'PY'
+          import requests, json, re, concurrent.futures, os, time, csv
+          from datetime import datetime, timezone
+          requests.packages.urllib3.disable_warnings()
+          ID='1199941102'; TYPE='restaurant'
+          PAGE=f'https://m.place.naver.com/{TYPE}/{ID}/review/visitor?reviewSort=recent'
+          TARGET='https://pcmap-api.place.naver.com/place/graphql'
+          UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1'
+          HEAD={'User-Agent':UA,'Accept':'application/json, text/plain, */*','Accept-Language':'ko-KR,ko;q=0.9','Content-Type':'application/json','Origin':'https://pcmap.place.naver.com','Referer':PAGE}
+
+          def state(html):
+              m='window.__APOLLO_STATE__'; idx=html.find(m); eq=html.find('=',idx); s=html.find('{',eq)
+              if idx<0 or s<0: raise RuntimeError('APOLLO state missing')
+              d=0; q=False; esc=False; end=-1
+              for i in range(s,len(html)):
+                  c=html[i]
+                  if q:
+                      if esc: esc=False
+                      elif c=='\\': esc=True
+                      elif c=='"': q=False
+                      continue
+                  if c=='"': q=True; continue
+                  if c=='{': d+=1
+                  elif c=='}':
+                      d-=1
+                      if d==0: end=i+1; break
+              return json.loads(html[s:end])
+
+          rr=requests.get(PAGE,headers={'User-Agent':UA,'Accept-Language':'ko-KR,ko;q=0.9'},timeout=25)
+          print('SSR',rr.status_code,len(rr.text),rr.url,flush=True)
+          st=state(rr.text); root=st.get('ROOT_QUERY',{})
+          feeds=[]
+          for k,v in root.items():
+              if not k.startswith('visitorReviews(') or not isinstance(v,dict) or not isinstance(v.get('items'),list): continue
+              try: inp=json.loads(k[len('visitorReviews('):-1]).get('input',{})
+              except: continue
+              refs=[x.get('__ref') for x in v['items'] if isinstance(x,dict) and x.get('__ref')]
+              items=[st[r] for r in refs if r in st]
+              total=int(v.get('total') or 0)
+              if total>0: feeds.append({'input':inp,'items':items,'total':total})
+          # de-duplicate same total/includeContent feed signatures
+          uniq=[]; sig=set()
+          for f in sorted(feeds,key=lambda x:x['total'],reverse=True):
+              key=(f['total'],f['input'].get('includeContent'),f['input'].get('item'),f['input'].get('sort'))
+              if key in sig: continue
+              sig.add(key); uniq.append(f)
+          feeds=uniq[:3]
+          print('FEEDS',[(f['total'],f['input'].get('includeContent'),len(f['items']),f['input'].get('sort')) for f in feeds],flush=True)
+          if not feeds: raise RuntimeError('Naver visitor review feeds not found')
+
+          sources=[
+            'https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/http/data.txt',
+            'https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt',
+            'https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt'
+          ]
+          pool=[]
+          for src in sources:
+              try:
+                  txt=requests.get(src,timeout=15).text
+                  for p in txt.splitlines():
+                      p=p.strip().replace('http://','').replace('https://','')
+                      if re.match(r'^\d{1,3}(?:\.\d{1,3}){3}:\d+$',p) and p not in pool: pool.append(p)
+              except Exception as e: print('proxy source',e)
+          pool=pool[:800]
+          working=['34.134.231.117:3129']
+          print('PROXY POOL',len(pool),flush=True)
+
+          query='query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { items { id cursor reviewId rating author { id nickname } body visitCount visited created reply { body created } originType votedKeywords { code name } } total } }'
+
+          def post(px,payload,timeout=8):
+              try:
+                  pr={'http':'http://'+px,'https':'http://'+px}
+                  r=requests.post(TARGET,headers=HEAD,json=payload,proxies=pr,timeout=timeout,verify=False)
+                  if r.status_code!=200: return None
+                  j=r.json(); vr=(j.get('data') or {}).get('visitorReviews')
+                  if isinstance(vr,dict) and isinstance(vr.get('items'),list): return vr
+              except: pass
+              return None
+
+          def discover(payload,limit=10):
+              found=[]; candidates=[p for p in pool if p not in working]
+              with concurrent.futures.ThreadPoolExecutor(max_workers=60) as ex:
+                  futs={ex.submit(post,p,payload,5):p for p in candidates[:750]}
+                  for fut in concurrent.futures.as_completed(futs):
+                      vr=fut.result()
+                      if vr is not None and vr.get('items'):
+                          p=futs[fut]; found.append(p); print('NEW PROXY',p,flush=True)
+                          if len(found)>=limit: break
+                  for f in futs: f.cancel()
+              for p in found:
+                  if p not in working: working.append(p)
+              return found
+
+          def fetch_more(base,after):
+              inp=dict(base); inp['after']=after; inp['size']=10
+              payload={'operationName':'getVisitorReviews','variables':{'input':inp,'id':ID},'query':query}
+              for px in list(working):
+                  vr=post(px,payload,10)
+                  if vr is not None: return vr,px
+                  if px in working: working.remove(px)
+              discover(payload,12)
+              for px in list(working):
+                  vr=post(px,payload,10)
+                  if vr is not None: return vr,px
+              raise RuntimeError('unable to fetch page through proxy pool')
+
+          crawled=[]
+          for fi,f in enumerate(feeds):
+              rows=[]; seen=set()
+              def add(x):
+                  rid=x.get('id') or x.get('reviewId')
+                  if rid and rid not in seen: seen.add(rid); rows.append(x)
+              for x in f['items']: add(x)
+              loops=0
+              while len(rows)<f['total'] and loops<160:
+                  loops+=1; after=rows[-1].get('cursor')
+                  if not after: raise RuntimeError(f'feed {fi} has no cursor at {len(rows)}')
+                  vr,px=fetch_more(f['input'],after); incoming=vr.get('items') or []; before=len(rows)
+                  for x in incoming: add(x)
+                  print('FEED',fi,'PAGE',loops+1,'PROXY',px,'RETURN',len(incoming),'NEW',len(rows)-before,'TOTAL',len(rows),'/',f['total'],flush=True)
+                  if len(rows)==before: raise RuntimeError(f'feed {fi} cursor stalled at {len(rows)}')
+                  time.sleep(.35)
+              crawled.append({'total':f['total'],'includeContent':f['input'].get('includeContent'),'items':rows})
+              print('FEED DONE',fi,len(rows),'/',f['total'],flush=True)
+
+          merged=[]; seen=set()
+          for f in crawled:
+              form='텍스트·콘텐츠형' if f['includeContent'] else '키워드·별점형'
+              for x in f['items']:
+                  rid=x.get('id') or x.get('reviewId')
+                  if not rid or rid in seen: continue
+                  seen.add(rid); y=dict(x); y['reviewForm']=form; merged.append(y)
+
+          def iso_date(txt):
+              if not txt: return ''
+              m=re.match(r'\s*(\d{1,2})\.(\d{1,2})\.',str(txt))
+              return f'2026-{int(m.group(1)):02d}-{int(m.group(2)):02d}' if m else str(txt)
+
+          rows=[]
+          for i,x in enumerate(merged,1):
+              a=x.get('author') or {}; rep=x.get('reply') or {}
+              voted=[v.get('name') or v.get('code') for v in (x.get('votedKeywords') or []) if isinstance(v,dict) and (v.get('name') or v.get('code'))]
+              rid=x.get('id') or x.get('reviewId') or ''
+              rows.append({'no':i,'reviewId':rid,'reviewForm':x.get('reviewForm'),'rating':x.get('rating'),'body':x.get('body') or '',
+                           'reviewDate':iso_date(x.get('created')),'visitDate':iso_date(x.get('visited')),'createdRaw':x.get('created') or '',
+                           'visitedRaw':x.get('visited') or '','visitCount':x.get('visitCount'),'reviewer':a.get('nickname') or '',
+                           'originType':x.get('originType') or '','votedKeywords':voted,'reply':rep.get('body') or '','replyCreated':rep.get('created') or ''})
+
+          vrstats=st.get('VisitorReviewStatsResult:'+ID) or next((v for k,v in st.items() if k.startswith('VisitorReviewStatsResult:')),{})
+          base=st.get('PlaceDetailBase:'+ID) or next((v for k,v in st.items() if k.startswith('PlaceDetailBase:')),{})
+          rev=(vrstats or {}).get('review') or {}
+          analysis=(vrstats or {}).get('analysis') or {}
+          meta={'placeId':ID,'placeName':(base or {}).get('name') or '태안바지락해장국','sourceUrl':'https://naver.me/FnV8nOmy','scrapedAt':datetime.now(timezone.utc).isoformat(),
+                'feedTotals':[f['total'] for f in crawled],'expectedTotal':sum(f['total'] for f in crawled),'uniqueTotal':len(rows),
+                'textBodyCount':sum(bool(r['body'].strip()) for r in rows),'avgRating':rev.get('avgRating'),'starDistribution':rev.get('starDistribution'),
+                'imageReviewCount':rev.get('imageReviewCount'),'authorCount':rev.get('authorCount'),'visitorReviewsTotal':(base or {}).get('visitorReviewsTotal'),
+                'visitorReviewsTextReviewTotal':(base or {}).get('visitorReviewsTextReviewTotal'),
+                'votedKeyword':analysis.get('votedKeyword'),'themes':analysis.get('themes'),'menus':analysis.get('menus'),
+                'address':(base or {}).get('roadAddress') or (base or {}).get('address'),'phone':(base or {}).get('phone'),
+                'oldestReviewDate':min((r['reviewDate'] for r in rows if re.match(r'^\d{4}-',r['reviewDate'])),default=''),
+                'newestReviewDate':max((r['reviewDate'] for r in rows if re.match(r'^\d{4}-',r['reviewDate'])),default='')}
+          print('FINAL META',json.dumps({k:meta[k] for k in ['placeId','placeName','feedTotals','expectedTotal','uniqueTotal','textBodyCount','avgRating','visitorReviewsTotal','visitorReviewsTextReviewTotal','oldestReviewDate','newestReviewDate']},ensure_ascii=False),flush=True)
+
+          out='naver-place-taean'; os.makedirs(out,exist_ok=True)
+          json.dump(rows,open(out+'/reviews_full.json','w',encoding='utf-8'),ensure_ascii=False,indent=2)
+          json.dump(meta,open(out+'/meta_full.json','w',encoding='utf-8'),ensure_ascii=False,indent=2)
+          with open(out+'/reviews_full.csv','w',encoding='utf-8-sig',newline='') as f:
+              cols=list(rows[0]); w=csv.DictWriter(f,fieldnames=cols); w.writeheader()
+              for r in rows:
+                  z=dict(r); z['votedKeywords']=' | '.join(z['votedKeywords']); w.writerow(z)
+          PY
+      - name: Commit complete dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add naver-place-taean/
+          git diff --cached --quiet && exit 0
+          git commit -m "Add complete Taean clam soup Naver review history"
+          git push

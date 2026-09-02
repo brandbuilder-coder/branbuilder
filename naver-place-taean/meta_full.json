@@ -1,0 +1,948 @@
+{
+  "placeId": "1199941102",
+  "placeName": "íìë°ì§ë½í´ì¥êµ­",
+  "sourceUrl": "https://naver.me/FnV8nOmy",
+  "scrapedAt": "2026-09-02T00:09:53.625367+00:00",
+  "feedTotals": [
+    1564,
+    87
+  ],
+  "expectedTotal": 1651,
+  "uniqueTotal": 1651,
+  "textBodyCount": 1476,
+  "avgRating": 4.77,
+  "starDistribution": [
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 2,
+      "score": "0.5"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 1,
+      "score": "1.0"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 0,
+      "score": "1.5"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 1,
+      "score": "2.0"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 3,
+      "score": "2.5"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 4,
+      "score": "3.0"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 9,
+      "score": "3.5"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 22,
+      "score": "4.0"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 107,
+      "score": "4.5"
+    },
+    {
+      "__typename": "VisitorReviewScore",
+      "count": 376,
+      "score": "5.0"
+    }
+  ],
+  "imageReviewCount": 1278,
+  "authorCount": 517,
+  "visitorReviewsTotal": 1651,
+  "visitorReviewsTextReviewTotal": 1476,
+  "votedKeyword": {
+    "__typename": "VisitorReviewStatsAnalysisVoteKeyword",
+    "totalCount": 6607,
+    "reviewCount": 1644,
+    "userCount": 1555,
+    "details": [
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "food_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
+        "iconCode": "face_savoring_food",
+        "displayName": "ììì´ ë§ìì´ì",
+        "count": 1590,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "fresh",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/leaf20220119222023.png",
+        "iconCode": "leaf",
+        "displayName": "ì¬ë£ê° ì ì í´ì",
+        "count": 969,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "large",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/steamed_rice20220119222024.png",
+        "iconCode": "steamed_rice",
+        "displayName": "ìì´ ë§ìì",
+        "count": 814,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "special_menu",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/cook20220119222024.png",
+        "iconCode": "cook",
+        "displayName": "í¹ë³í ë©ë´ê° ìì´ì",
+        "count": 662,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "spacious",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
+        "iconCode": "eyes",
+        "displayName": "ë§¤ì¥ì´ ëì´ì",
+        "count": 596,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "kind",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/beating_heart20220119222223.png",
+        "iconCode": "beating_heart",
+        "displayName": "ì¹ì í´ì",
+        "count": 465,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "store_clean",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/sparkles20220119222028.png",
+        "iconCode": "sparkles",
+        "displayName": "ë§¤ì¥ì´ ì²­ê²°í´ì",
+        "count": 396,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "parking_easy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/park_sign20220119222222.png",
+        "iconCode": "park_sign",
+        "displayName": "ì£¼ì°¨íê¸° í¸í´ì",
+        "count": 235,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "interior_cool",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+        "iconCode": "couch_and_lamp",
+        "displayName": "ì¸íë¦¬ì´ê° ë©ì ¸ì",
+        "count": 230,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "price_cheap",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/coin20220119222025.png",
+        "iconCode": "coin",
+        "displayName": "ê°ì±ë¹ê° ì¢ìì",
+        "count": 151,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "eat_alone",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/rice_ball20220119222026.png",
+        "iconCode": "rice_ball",
+        "displayName": "í¼ë°¥íê¸° ì¢ìì",
+        "count": 74,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "together",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/busts_in_silhouette20220119222027.png",
+        "iconCode": "busts_in_silhouette",
+        "displayName": "ë¨ì²´ëª¨ì íê¸° ì¢ìì",
+        "count": 69,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "menu_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/green_heart20220119222224.png",
+        "iconCode": "green_heart",
+        "displayName": "ë©ë´ êµ¬ì±ì´ ìì°¨ì",
+        "count": 66,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "sidedish_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/bento_box20220119222224.png",
+        "iconCode": "bento_box",
+        "displayName": "ë°ì°¬ì´ ì ëìì",
+        "count": 64,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "taste_healthy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/leaf20220119222023.png",
+        "iconCode": "leaf",
+        "displayName": "ê±´ê°í ë§ì´ìì",
+        "count": 57,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "toilet_clean",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/restroom20220119222222.png",
+        "iconCode": "restroom",
+        "displayName": "íì¥ì¤ì´ ê¹¨ëí´ì",
+        "count": 31,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "local_taste",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_with_thumbsup20220119222236.png",
+        "iconCode": "face_with_thumbsup",
+        "displayName": "íì§ ë§ì ê°ê¹ìì",
+        "count": 26,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "less_smell",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/nose20220325175453.png",
+        "iconCode": "nose",
+        "displayName": "ì¡ë´ê° ì ì´ì",
+        "count": 23,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "food_fast",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/stopwatch20220119222225.png",
+        "iconCode": "stopwatch",
+        "displayName": "ììì´ ë¹¨ë¦¬ ëìì",
+        "count": 16,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "atmosphere_calm",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_relieved20220119222233.png",
+        "iconCode": "face_relieved",
+        "displayName": "ì°¨ë¶í ë¶ìê¸°ìì",
+        "count": 11,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "view_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/framed_picture20220119222027.png",
+        "iconCode": "framed_picture",
+        "displayName": "ë·°ê° ì¢ìì",
+        "count": 9,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "price_worthy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/gem_stone20220119222239.png",
+        "iconCode": "gem_stone",
+        "displayName": "ë¹ì¼ ë§í¼ ê°ì¹ìì´ì",
+        "count": 8,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "coffee_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/coffee20220119222225.png",
+        "iconCode": "coffee",
+        "displayName": "ì»¤í¼ê° ë§ìì´ì",
+        "count": 7,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "music_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/musical_note20220119222233.png",
+        "iconCode": "musical_note",
+        "displayName": "ììì´ ì¢ìì",
+        "count": 5,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "kid_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/baby_face20220119224307.png",
+        "iconCode": "baby_face",
+        "displayName": "ìì´ì ê°ê¸° ì¢ìì",
+        "count": 4,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "meat_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/meat_cut20220119224257.png",
+        "iconCode": "meat_cut",
+        "displayName": "ê³ ê¸° ì§ì´ ì¢ìì",
+        "count": 4,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "dessert_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/cake20220119222226.png",
+        "iconCode": "cake",
+        "displayName": "ëì í¸ê° ë§ìì´ì",
+        "count": 3,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "special_day",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/bouquet20220119222223.png",
+        "iconCode": "bouquet",
+        "displayName": "í¹ë³í ë  ê°ê¸° ì¢ìì",
+        "count": 3,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "comfy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/couch20220119222228.png",
+        "iconCode": "couch",
+        "displayName": "ì¢ìì´ í¸í´ì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "concept_unique",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/light_bulb20220119222315.png",
+        "iconCode": "light_bulb",
+        "displayName": "ì»¨ìì´ ëí¹í´ì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "cozy",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_smiling20220119222244.png",
+        "iconCode": "face_smiling",
+        "displayName": "ìëí´ì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "drink_alone",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/whisky.png",
+        "iconCode": "whisky",
+        "displayName": "í¼ì íê¸° ì¢ìì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "drink_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/juice20220119222226.png",
+        "iconCode": "juice",
+        "displayName": "ìë£ê° ë§ìì´ì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "snack_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/corn_cheese20220119222231.png",
+        "iconCode": "corn_cheese",
+        "displayName": "ê¸°ë³¸ ìì£¼ê° ì¢ìì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "talk_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/speaking_head20220119222227.png",
+        "iconCode": "speaking_head",
+        "displayName": "ëííê¸° ì¢ìì",
+        "count": 2,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "alcohol_var",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/cocktail20220119222232.png",
+        "iconCode": "cocktail",
+        "displayName": "ì ì´ ë¤ìí´ì",
+        "count": 1,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "course_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/artist_palette20220119222240.png",
+        "iconCode": "artist_palette",
+        "displayName": "ì½ì¤ìë¦¬ê° ìì°¨ì",
+        "count": 1,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "spice_weak",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/nose20220325175453.png",
+        "iconCode": "nose",
+        "displayName": "í¥ì ë£ê° ê°íì§ ììì",
+        "count": 1,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "study_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/laptop20220119222228.png",
+        "iconCode": "laptop",
+        "displayName": "ì§ì¤íê¸° ì¢ìì",
+        "count": 1,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
+        "code": "ventilation_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/wind20220325175453.png",
+        "iconCode": "wind",
+        "displayName": "íê¸°ê° ì ë¼ì",
+        "count": 1,
+        "previousRank": null
+      }
+    ]
+  },
+  "themes": [
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "taste",
+      "label": "ë§",
+      "count": 1274
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "total",
+      "label": "ë§ì¡±ë",
+      "count": 787
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "service",
+      "label": "ìë¹ì¤",
+      "count": 205
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "amount",
+      "label": "ììë",
+      "count": 151
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "purpose",
+      "label": "ëª©ì ",
+      "count": 35
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "cleanliness",
+      "label": "ì²­ê²°ë",
+      "count": 34
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "parking",
+      "label": "ì£¼ì°¨",
+      "count": 22
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "waitingtime",
+      "label": "ëê¸°ìê°",
+      "count": 14
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "mood",
+      "label": "ë¶ìê¸°",
+      "count": 13
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "location",
+      "label": "ìì¹",
+      "count": 10
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "menu",
+      "label": "ë©ë´",
+      "count": 10
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "price",
+      "label": "ê°ê²©",
+      "count": 4
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "delivery",
+      "label": "ë°°ë¬",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "naver",
+      "label": "ìì½",
+      "count": 1
+    }
+  ],
+  "menus": [
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë°ì§ë½",
+      "label": "ë°ì§ë½",
+      "count": 582
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "í´ì¥êµ­",
+      "label": "í´ì¥êµ­",
+      "count": 506
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê³ ê¸°",
+      "label": "ê³ ê¸°",
+      "count": 145
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìëê¸°",
+      "label": "ìëê¸°",
+      "count": 142
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë¯¸í¸ë³¼",
+      "label": "ë¯¸í¸ë³¼",
+      "count": 131
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìëê¸°ë°¥",
+      "label": "ìëê¸°ë°¥",
+      "count": 122
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ëì§",
+      "label": "ëì§",
+      "count": 28
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì»¤í¼",
+      "label": "ì»¤í¼",
+      "count": 17
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê³¤ëë ëë¬¼ë°¥",
+      "label": "ê³¤ëë ëë¬¼ë°¥",
+      "count": 16
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¡°ê°",
+      "label": "ì¡°ê°",
+      "count": 16
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê³±ì°½",
+      "label": "ê³±ì°½",
+      "count": 11
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¥ìì°",
+      "label": "ì¥ìì°",
+      "count": 11
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¹¼êµ­ì",
+      "label": "ì¹¼êµ­ì",
+      "count": 10
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê²êµ­ì§",
+      "label": "ê²êµ­ì§",
+      "count": 6
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "êµ­ë°¥",
+      "label": "êµ­ë°¥",
+      "count": 5
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë°ì§ë½ì¹¼êµ­ì",
+      "label": "ë°ì§ë½ì¹¼êµ­ì",
+      "count": 5
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê°ìí",
+      "label": "ê°ìí",
+      "count": 4
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê¹ëê¸°",
+      "label": "ê¹ëê¸°",
+      "count": 4
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê²ì¥",
+      "label": "ê²ì¥",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ëê¹ì¤",
+      "label": "ëê¹ì¤",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ëê·¸ëë¡",
+      "label": "ëê·¸ëë¡",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë°ì§ë½í",
+      "label": "ë°ì§ë½í",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¡ê°ì¥",
+      "label": "ì¡ê°ì¥",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì§¬ë½",
+      "label": "ì§¬ë½",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "í¼í´",
+      "label": "í¼í´",
+      "count": 3
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê»ë°ê¸°",
+      "label": "ê»ë°ê¸°",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê½ê²ì¥",
+      "label": "ê½ê²ì¥",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë§¤ì´í",
+      "label": "ë§¤ì´í",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë¹ë¹ë°¥",
+      "label": "ë¹ë¹ë°¥",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë¼ë¤ê·í´ì¥êµ­",
+      "label": "ë¼ë¤ê·í´ì¥êµ­",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìëë¶",
+      "label": "ìëë¶",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìë©ë¦¬ì¹´ë¸",
+      "label": "ìë©ë¦¬ì¹´ë¸",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¤ì§ì´",
+      "label": "ì¤ì§ì´",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¤ì§ì´ì ",
+      "label": "ì¤ì§ì´ì ",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¡ì ",
+      "label": "ì¡ì ",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì°ê°",
+      "label": "ì°ê°",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "íê¹",
+      "label": "íê¹",
+      "count": 2
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê³±ì°½ì ê³¨",
+      "label": "ê³±ì°½ì ê³¨",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê³¼ì¼",
+      "label": "ê³¼ì¼",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ê½ê²",
+      "label": "ê½ê²",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë´ì¥í",
+      "label": "ë´ì¥í",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ëë©´",
+      "label": "ëë©´",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë¡ê°ë¹",
+      "label": "ë¡ê°ë¹",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë§ê±¸ë¦¬",
+      "label": "ë§ê±¸ë¦¬",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë§ì¡°ê°",
+      "label": "ë§ì¡°ê°",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë§¥ì£¼",
+      "label": "ë§¥ì£¼",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ë°±ê¹ì¹",
+      "label": "ë°±ê¹ì¹",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì ì§í´ì¥êµ­",
+      "label": "ì ì§í´ì¥êµ­",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìë",
+      "label": "ìë",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìëë¶ì°ê°",
+      "label": "ìëë¶ì°ê°",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìë½êµ­",
+      "label": "ìë½êµ­",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ìì¤íë ì",
+      "label": "ìì¤íë ì",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì°ê±°ì§í´ì¥êµ­",
+      "label": "ì°ê±°ì§í´ì¥êµ­",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì°ì ",
+      "label": "ì°ì ",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì ê³¨",
+      "label": "ì ê³¨",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¡°ê°êµ¬ì´",
+      "label": "ì¡°ê°êµ¬ì´",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "ì¥í¬",
+      "label": "ì¥í¬",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "íìëë©´",
+      "label": "íìëë©´",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "í¼ì",
+      "label": "í¼ì",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "íì°",
+      "label": "íì°",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "í´ë¬¼ì§¬ë½",
+      "label": "í´ë¬¼ì§¬ë½",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "í©í",
+      "label": "í©í",
+      "count": 1
+    },
+    {
+      "__typename": "VisitorReviewStatsAnalysisThemes",
+      "code": "í©íí´ì¥êµ­",
+      "label": "í©íí´ì¥êµ­",
+      "count": 1
+    }
+  ],
+  "address": "ì¶©ë¨ íìêµ° íìì ìí´ë¡ 1952-5 1ì¸µ",
+  "phone": null,
+  "oldestReviewDate": "2026-01-01",
+  "newestReviewDate": "2026-25-12"
+}

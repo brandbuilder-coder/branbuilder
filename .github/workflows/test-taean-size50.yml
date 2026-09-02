@@ -1,0 +1,41 @@
+name: Test Taean Size50
+on:
+  push:
+    branches: ["main"]
+    paths: [".github/workflows/test-taean-size50.yml"]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test size 50 cursor page
+        run: |
+          python - <<'PY'
+          import requests,json,re
+          requests.packages.urllib3.disable_warnings()
+          ID='1199941102';TYPE='restaurant';PAGE=f'https://m.place.naver.com/{TYPE}/{ID}/review/visitor?reviewSort=recent';UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1'
+          h=requests.get(PAGE,headers={'User-Agent':UA},timeout=20).text
+          idx=h.find('window.__APOLLO_STATE__');eq=h.find('=',idx);s=h.find('{',eq);d=0;q=False;esc=False;end=-1
+          for i in range(s,len(h)):
+              c=h[i]
+              if q:
+                  if esc:esc=False
+                  elif c=='\\':esc=True
+                  elif c=='"':q=False
+                  continue
+              if c=='"':q=True;continue
+              if c=='{':d+=1
+              elif c=='}':
+                  d-=1
+                  if d==0:end=i+1;break
+          st=json.loads(h[s:end]);root=st['ROOT_QUERY']; key=next(k for k in root if k.startswith('visitorReviews(') and 'includeContent' in k and 'true' in k)
+          inp=json.loads(key[len('visitorReviews('):-1])['input']; arr=[st[x['__ref']] for x in root[key]['items']]; after=arr[-1]['cursor']; inp['after']=after; inp['size']=50
+          query='query getVisitorReviews($input: VisitorReviewsInput) { visitorReviews(input: $input) { items { id cursor rating body created visited votedKeywords { name } } total } }'
+          payload={'operationName':'getVisitorReviews','variables':{'input':inp,'id':ID},'query':query}
+          px='34.134.231.117:3129'; pr={'http':'http://'+px,'https':'http://'+px}
+          r=requests.post('https://pcmap-api.place.naver.com/place/graphql',headers={'User-Agent':UA,'Accept':'application/json','Content-Type':'application/json','Origin':'https://pcmap.place.naver.com','Referer':PAGE},json=payload,proxies=pr,timeout=20,verify=False)
+          print('status',r.status_code,'len',len(r.text)); print(r.text[:1000]);
+          if r.status_code==200:
+              j=r.json(); items=(j.get('data') or {}).get('visitorReviews',{}).get('items') or [];print('ITEMS',len(items),'TOTAL',(j.get('data') or {}).get('visitorReviews',{}).get('total'))
+          PY

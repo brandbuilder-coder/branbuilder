@@ -2,14 +2,14 @@
   "placeId": "1199941102",
   "placeName": "íìë°ì§ë½í´ì¥êµ­",
   "sourceUrl": "https://naver.me/FnV8nOmy",
-  "scrapedAt": "2026-09-02T00:09:53.625367+00:00",
+  "scrapedAt": "2026-09-02T10:36:34.195644+00:00",
   "feedTotals": [
-    1564,
+    1565,
     87
   ],
-  "expectedTotal": 1651,
-  "uniqueTotal": 1651,
-  "textBodyCount": 1476,
+  "expectedTotal": 1652,
+  "uniqueTotal": 1652,
+  "textBodyCount": 1477,
   "avgRating": 4.77,
   "starDistribution": [
     {
@@ -59,19 +59,19 @@
     },
     {
       "__typename": "VisitorReviewScore",
-      "count": 376,
+      "count": 377,
       "score": "5.0"
     }
   ],
   "imageReviewCount": 1278,
-  "authorCount": 517,
-  "visitorReviewsTotal": 1651,
-  "visitorReviewsTextReviewTotal": 1476,
+  "authorCount": 518,
+  "visitorReviewsTotal": 1652,
+  "visitorReviewsTextReviewTotal": 1477,
   "votedKeyword": {
     "__typename": "VisitorReviewStatsAnalysisVoteKeyword",
-    "totalCount": 6607,
-    "reviewCount": 1644,
-    "userCount": 1555,
+    "totalCount": 6621,
+    "reviewCount": 1647,
+    "userCount": 1558,
     "details": [
       {
         "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
@@ -80,7 +80,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/face_savoring_food20220119222022.png",
         "iconCode": "face_savoring_food",
         "displayName": "ììì´ ë§ìì´ì",
-        "count": 1590,
+        "count": 1592,
         "previousRank": null
       },
       {
@@ -90,7 +90,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/leaf20220119222023.png",
         "iconCode": "leaf",
         "displayName": "ì¬ë£ê° ì ì í´ì",
-        "count": 969,
+        "count": 971,
         "previousRank": null
       },
       {
@@ -100,7 +100,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/steamed_rice20220119222024.png",
         "iconCode": "steamed_rice",
         "displayName": "ìì´ ë§ìì",
-        "count": 814,
+        "count": 816,
         "previousRank": null
       },
       {
@@ -110,7 +110,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/cook20220119222024.png",
         "iconCode": "cook",
         "displayName": "í¹ë³í ë©ë´ê° ìì´ì",
-        "count": 662,
+        "count": 664,
         "previousRank": null
       },
       {
@@ -120,7 +120,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/eyes20220119222026.png",
         "iconCode": "eyes",
         "displayName": "ë§¤ì¥ì´ ëì´ì",
-        "count": 596,
+        "count": 597,
         "previousRank": null
       },
       {
@@ -150,7 +150,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/park_sign20220119222222.png",
         "iconCode": "park_sign",
         "displayName": "ì£¼ì°¨íê¸° í¸í´ì",
-        "count": 235,
+        "count": 236,
         "previousRank": null
       },
       {
@@ -170,7 +170,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/coin20220119222025.png",
         "iconCode": "coin",
         "displayName": "ê°ì±ë¹ê° ì¢ìì",
-        "count": 151,
+        "count": 152,
         "previousRank": null
       },
       {
@@ -180,7 +180,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/rice_ball20220119222026.png",
         "iconCode": "rice_ball",
         "displayName": "í¼ë°¥íê¸° ì¢ìì",
-        "count": 74,
+        "count": 75,
         "previousRank": null
       },
       {
@@ -260,7 +260,7 @@
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/stopwatch20220119222225.png",
         "iconCode": "stopwatch",
         "displayName": "ììì´ ë¹¨ë¦¬ ëìì",
-        "count": 16,
+        "count": 17,
         "previousRank": null
       },
       {
@@ -446,6 +446,16 @@
       {
         "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
         "category": null,
+        "code": "photo_good",
+        "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/camera_with_flash20220119222227.png",
+        "iconCode": "camera_with_flash",
+        "displayName": "ì¬ì§ì´ ì ëìì",
+        "count": 1,
+        "previousRank": null
+      },
+      {
+        "__typename": "VisitorReviewStatsAnalysisVoteKeywordDetail",
+        "category": null,
         "code": "spice_weak",
         "iconUrl": "https://ssl.pstatic.net/static/pup/emoji/nose20220325175453.png",
         "iconCode": "nose",
@@ -480,13 +490,13 @@
       "__typename": "VisitorReviewStatsAnalysisThemes",
       "code": "taste",
       "label": "ë§",
-      "count": 1274
+      "count": 1275
     },
     {
       "__typename": "VisitorReviewStatsAnalysisThemes",
       "code": "total",
       "label": "ë§ì¡±ë",
-      "count": 787
+      "count": 788
     },
     {
       "__typename": "VisitorReviewStatsAnalysisThemes",

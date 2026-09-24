@@ -1486,7 +1486,7 @@ async function makeScoreImage() {
   x.fillText('-by Brandbuilder-   ·   ' + d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0'), S / 2, H2 - 70);
   return c;
 }
-let shotUrl = null;
+let shotUrl = null, shotBlob = null;
 async function saveScore() {
   if (state === 'ready' || state === 'playing') pauseGame();
   if (!G) { toast('게임을 시작한 뒤 저장할 수 있어요.'); return; }
@@ -1496,6 +1496,7 @@ async function saveScore() {
   const safe = save.name.replace(/[^0-9A-Za-z가-힣_-]+/g, '_');
   const fname = 'BB-BLOC_' + safe + '_S' + G.stage + '_' + G.score.toString().slice(0, 20) + '.png';
   let url;
+  shotBlob = blob;
   if (blob) { shotUrl = URL.createObjectURL(blob); url = shotUrl; } else { url = c.toDataURL('image/png'); }
   $('shotImg').src = url;
   const dl = $('shotDl'); dl.href = url; dl.download = fname;
@@ -1579,7 +1580,26 @@ bind('bMute', toggleMute);
 bind('bMuteSw', toggleMute);
 ['bShot', 'bShotP', 'bShotC', 'bShotO'].forEach(id => bind(id, saveScore));
 bind('shotClose', () => show('ovShot', false));
-$('shotDl').addEventListener('click', e => { e.stopPropagation(); if ($('shotDl').getAttribute('href') === '#') e.preventDefault(); else toast('PNG 저장을 시작했어요.'); });
+// Inside a sandboxed viewer (claude.ai artifact) plain downloads are blocked, so route through the host's downloads capability when present.
+let dlCap = null;
+try { if (window.claude && typeof window.claude.use === 'function') window.claude.use('downloads').then(d => { dlCap = d; }, () => {}); } catch (e) {}
+$('shotDl').addEventListener('click', async e => {
+  e.stopPropagation();
+  const dl = $('shotDl');
+  if (dl.getAttribute('href') === '#') { e.preventDefault(); return; }
+  if (!dlCap) { toast('PNG 저장을 시작했어요.'); return; }
+  e.preventDefault();
+  try {
+    let data = shotBlob;
+    if (!data) { const b64 = dl.href.split(',')[1] || ''; const bin = atob(b64); data = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) data[i] = bin.charCodeAt(i); }
+    await dlCap.save({ filename: dl.download || 'BB-BLOC.png', data });
+    toast('PNG를 저장했어요.');
+  } catch (err) {
+    const code = err && err.code;
+    if (code === 'declined') toast('저장을 취소했어요.');
+    else toast('이 화면에서는 다운로드가 막혀 있어요. 이미지를 길게 눌러 저장하세요.');
+  }
+});
 for (const t of document.querySelectorAll('.tab')) t.addEventListener('click', () => { shopTab = t.dataset.tab; SFX.click(); renderShop(); });
 $('volMusic').addEventListener('input', e => { A.init(); save.audio.music = clampInt(e.target.value, 0, 100, 70); $('oMusic').textContent = save.audio.music; A.apply(); persistSoon(); });
 $('volSfx').addEventListener('input', e => { A.init(); save.audio.sfx = clampInt(e.target.value, 0, 100, 80); $('oSfx').textContent = save.audio.sfx; A.apply(); persistSoon(); });

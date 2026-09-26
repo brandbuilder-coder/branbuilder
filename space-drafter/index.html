@@ -1308,9 +1308,9 @@ $('#frames').addEventListener('click', e => { const b = e.target.closest('button
 /* =====================================================================
    13. analysis with Claude
    ===================================================================== */
-function buildPrompt(nImages, tiled) {
+function buildPrompt(nImages, tiled, textOnly) {
   const brief = { project_name: $('#pname').value.trim() || null, space_type_hint: $('#ptype').value, area_hint: $('#parea').value.trim() || null, notes: $('#pnote').value.trim() || null };
-  return `You are a senior interior designer with 20+ years of practice and an architectural draftsman. The ${nImages} attached image(s) are ${tiled ? 'contact sheets of numbered ' : ''}frames, in time order, from a walk-through video of ONE interior space (often a phone screen recording: ignore app UI, captions, icons, the presenter; use caption text only as hints about the space).
+  return `You are a senior interior designer with 20+ years of practice and an architectural draftsman. ${textOnly ? 'No images are available in this session. Reconstruct ONE interior space from the USER BRIEF below (project name, space type, area, notes) and from typical Korean layouts for that type and size; mark every room you cannot confirm from the brief as "inferred": true, set project.confidence to "low", and say in project.source_note_ko that the drawing was made from the text brief without video frames.' : `The ${nImages} attached image(s) are ${tiled ? 'contact sheets of numbered ' : ''}frames, in time order, from a walk-through video of ONE interior space (often a phone screen recording: ignore app UI, captions, icons, the presenter; use caption text only as hints about the space).`}
 Reconstruct the space as an approximate plan whose proportions are plausible, then write a professional analysis. Dimensions may be estimated from proportions and standard sizes.
 
 USER BRIEF: ${JSON.stringify(brief)}
@@ -1348,28 +1348,42 @@ async function tileFrames(frames, per) {
 let ctl = null;
 $('#go').addEventListener('click', async () => {
   const frames = state.frames.filter(f => f.on);
-  if (!frames.length) { note('분석할 프레임을 하나 이상 선택해 주세요.', true); return; }
+  if (!frames.length && !(sample && ($('#parea').value.trim() || $('#pnote').value.trim()))) { note('분석할 프레임을 하나 이상 선택하거나, 브리프에 면적·추가 정보를 입력해 주세요.', true); return; }
   if (!sample) { showClaudeCard(true); return; }
   const lim = await sample.limits().catch(() => null);
-  if (!lim?.images) { note('이 화면에서는 이미지 분석이 지원되지 않습니다. 최신 Claude 앱이나 웹에서 열어 주세요.', true); return; }
+  // lim === null: this viewer did not report limits -> try images anyway; lim without images -> text brief mode
+  let textOnly = !!lim && !lim.images;
+  const hasBrief = () => !!($('#parea').value.trim() || $('#pnote').value.trim() || $('#ptype').value !== 'auto');
+  if (textOnly && !hasBrief()) { note('지금 열린 Claude 화면은 이미지를 보낼 수 없어 브리프 글로 분석합니다. ‘브리프’의 공간 유형·면적·추가 정보를 채운 뒤 다시 눌러 주세요. (PC 웹 claude.ai에서 열면 영상 프레임까지 분석됩니다.)', true); $('#parea').focus(); return; }
   $('#go').disabled = true; $('#stop').hidden = false; note('');
   setStage('ai', 'run', '준비 중'); setStage('draw', ''); setStage('report', '');
   const t0 = Date.now(); const timer = setInterval(() => { const el = document.querySelector('.stage[data-s="ai"] em'); if (el && !el.dataset.kb) el.textContent = Math.round((Date.now() - t0) / 1000) + 's'; }, 1000);
   ctl = new AbortController();
   try {
-    const max = Math.max(1, lim.images.maxCount || 1);
-    let blobs, tiled = false;
-    if (frames.length <= max) blobs = frames.map(f => f.blob); else { const per = Math.ceil(frames.length / max); blobs = await tileFrames(frames, Math.min(4, Math.max(2, per))); if (blobs.length > max) blobs = blobs.slice(0, max); tiled = true; }
-    const data = await sample.json(buildPrompt(blobs.length, tiled), {
-      images: blobs, modelTier: $('#tier').value, signal: ctl.signal, cache: false,
-      onText: ({ text }) => { const el = document.querySelector('.stage[data-s="ai"] em'); el.dataset.kb = 1; el.textContent = `${Math.round((Date.now() - t0) / 1000)}s · ${(text.length / 1024).toFixed(1)}KB`; }
-    });
+    const onText = ({ text }) => { const el = document.querySelector('.stage[data-s="ai"] em'); el.dataset.kb = 1; el.textContent = `${Math.round((Date.now() - t0) / 1000)}s · ${(text.length / 1024).toFixed(1)}KB`; };
+    let data = null;
+    if (!textOnly) {
+      const max = Math.max(1, lim?.images?.maxCount || 4);
+      let blobs, tiled = false;
+      if (frames.length <= max) blobs = frames.map(f => f.blob); else { const per = Math.ceil(frames.length / max); blobs = await tileFrames(frames, Math.min(4, Math.max(2, per))); if (blobs.length > max) blobs = blobs.slice(0, max); tiled = true; }
+      try {
+        data = await sample.json(buildPrompt(blobs.length, tiled, false), { images: blobs, modelTier: $('#tier').value, signal: ctl.signal, cache: false, onText });
+      } catch (e) {
+        if (e?.code !== 'images_unavailable') throw e;
+        textOnly = true;
+        if (!hasBrief()) { clearInterval(timer); setStage('ai', ''); note('지금 열린 Claude 화면은 이미지를 보낼 수 없어 브리프 글로 분석합니다. ‘브리프’의 공간 유형·면적·추가 정보를 채운 뒤 다시 눌러 주세요. (PC 웹 claude.ai에서 열면 영상 프레임까지 분석됩니다.)', true); return; }
+      }
+    }
+    if (textOnly) {
+      note('이 화면은 이미지 전송을 지원하지 않아 브리프 글을 바탕으로 분석합니다. 영상 프레임까지 반영하려면 PC 웹 claude.ai에서 열어 주세요.');
+      data = await sample.json(buildPrompt(0, false, true), { modelTier: $('#tier').value, signal: ctl.signal, cache: false, onText });
+    }
     clearInterval(timer); setStage('ai', 'done', Math.round((Date.now() - t0) / 1000) + 's');
     setStage('draw', 'run'); await new Promise(r => setTimeout(r, 30));
     await renderAll(data, false);
     setStage('draw', 'done'); setStage('report', 'done', state.pages.length + 'p');
     document.querySelector('.tabs button[data-t="sheets"]').click();
-    note('분석이 끝났습니다. 도면은 추정 치수입니다. Data 탭에서 좌표나 재질을 고친 뒤 다시 그릴 수 있어요.');
+    note(textOnly ? '브리프 기반 분석이 끝났습니다. 영상 없이 글로 추정한 도면이므로 Data 탭에서 실제와 다른 부분을 고쳐 다시 그려 주세요.' : '분석이 끝났습니다. 도면은 추정 치수입니다. Data 탭에서 좌표나 재질을 고친 뒤 다시 그릴 수 있어요.');
   } catch (e) {
     clearInterval(timer);
     const code = e?.code;

@@ -275,13 +275,12 @@ main,.side{min-width:0}
         </div>
       </section>
 
-      <section id="aiCard" hidden>
-        <div class="group-h"><h2>AI 연결</h2><i id="aiState">미연결</i></div>
+      <section id="claudeCard" hidden>
+        <div class="group-h"><h2>Claude 계정 연결</h2><i>로그인 필요</i></div>
         <div class="card">
-          <div class="row stack"><label for="apikey">Anthropic API 키</label><input class="field" id="apikey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-로 시작하는 키를 붙여넣기"></div>
-          <div class="row"><label for="keepKey">이 브라우저에 기억하기</label><input type="checkbox" id="keepKey" checked style="justify-self:end;width:20px;height:20px;accent-color:#FEC200"></div>
-          <div style="display:flex;gap:8px;padding:4px 16px 12px"><button class="btn brand" id="keySave" type="button">연결하기</button><button class="btn" id="keyClear" type="button" hidden>연결 해제</button></div>
-          <p class="hint">키는 서버를 거치지 않고 이 브라우저에서 Anthropic으로 바로 전송되며, 사용 요금은 키 소유 계정에 청구됩니다. 키 발급: console.anthropic.com → API Keys</p>
+          <div style="padding:16px 16px 6px;font-size:14px;line-height:1.6;color:var(--label)">영상 AI 분석은 <b>본인의 Claude 계정</b>으로 실행됩니다. 아래 버튼을 누르고 claude.ai에 로그인하면 같은 화면에서 바로 분석할 수 있어요.</div>
+          <div style="padding:8px 16px 12px"><a class="btn brand" id="openClaude" href="https://claude.ai/artifact/LABCyRxqAf3DaUG9rsV5pp" target="_blank" rel="noopener" style="width:100%;min-height:46px;text-decoration:none;box-sizing:border-box">Claude 계정으로 분석하기 ↗</a></div>
+          <p class="hint">분석 사용량은 로그인한 본인 계정의 Claude 사용 한도에서 차감됩니다. 처음 분석할 때 사용 허용 여부를 한 번 묻습니다.</p>
         </div>
       </section>
 
@@ -1209,119 +1208,10 @@ const toBlob = (c, type = 'image/png', q) => new Promise(r => c.toBlob(r, type, 
    ===================================================================== */
 const state = { model: null, raw: null, frames: [], isSample: true, sheets: null, imgs: null, files: [] };
 let downloads = null, sample = null;
-
-/* ---- standalone AI engine (Anthropic API, bring-your-own-key) ---- */
-const API = 'https://api.anthropic.com/v1';
-const KEY_LS = 'sd_anthropic_key';
-const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
-const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
-const apiHeaders = key => ({ 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' });
-function apiErr(code, message) { const e = new Error(message || code); e.code = code; return e; }
-function codeFor(status, type, msg) {
-  msg = msg || '';
-  if (status === 401 || type === 'authentication_error') return 'bad_key';
-  if (status === 403 || type === 'permission_error') return 'no_permission';
-  if (status === 429 || type === 'rate_limit_error') return 'rate_limited';
-  if (status === 529 || type === 'overloaded_error') return 'overloaded';
-  if (/credit balance/i.test(msg)) return 'no_credit';
-  if (status === 404 || type === 'not_found_error') return 'model_missing';
-  if (status === 413 || type === 'request_too_large') return 'too_large';
-  return 'api_error';
-}
-async function listModels(key) {
-  const r = await fetch(API + '/models?limit=100', { headers: apiHeaders(key) });
-  if (!r.ok) { let j = null; try { j = await r.json(); } catch (e) {} throw apiErr(codeFor(r.status, j?.error?.type, j?.error?.message), j?.error?.message); }
-  const j = await r.json(); return (j.data || []).map(m => m.id);
-}
-const PREF = {
-  complex: [/opus-5/, /opus-4-[5-9]/, /opus/, /sonnet-5/, /sonnet/],
-  default: [/sonnet-5/, /sonnet-4-[5-9]/, /sonnet/, /opus/, /haiku/]
-};
-function pickModels(ids, tier) {
-  const out = []; for (const rx of PREF[tier] || PREF.default) for (const id of ids) if (rx.test(id) && !out.includes(id)) out.push(id);
-  return out.length ? out : ids.slice(0, 3);
-}
-const blobToB64 = b => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(b); });
-function parseJsonText(t) {
-  let x = t.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '');
-  const a = x.indexOf('{'), z = x.lastIndexOf('}');
-  if (a < 0 || z <= a) throw apiErr('invalid_json');
-  try { return JSON.parse(x.slice(a, z + 1)); } catch (e) { throw apiErr('invalid_json', e.message); }
-}
-async function streamOnce(key, model, content, signal, onText) {
-  let r;
-  try {
-    r = await fetch(API + '/messages', { method: 'POST', signal, headers: apiHeaders(key),
-      body: JSON.stringify({ model, max_tokens: 16000, stream: true, messages: [{ role: 'user', content }] }) });
-  } catch (e) { if (e?.name === 'AbortError') throw apiErr('cancelled'); throw apiErr('network', e?.message); }
-  if (!r.ok) { let j = null; try { j = await r.json(); } catch (e) {} throw apiErr(codeFor(r.status, j?.error?.type, j?.error?.message), j?.error?.message); }
-  const rd = r.body.getReader(), dec = new TextDecoder(); let buf = '', text = '', stop = null;
-  try {
-    for (;;) {
-      const { value, done } = await rd.read(); if (done) break;
-      buf += dec.decode(value, { stream: true });
-      let i; while ((i = buf.indexOf('\n')) >= 0) {
-        const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1);
-        if (!line.startsWith('data:')) continue;
-        let ev; try { ev = JSON.parse(line.slice(5)); } catch (e) { continue; }
-        if (ev.type === 'content_block_delta' && ev.delta?.type === 'text_delta') { text += ev.delta.text; onText?.({ text, delta: ev.delta.text }); }
-        else if (ev.type === 'message_delta') stop = ev.delta?.stop_reason || stop;
-        else if (ev.type === 'error') throw apiErr(codeFor(0, ev.error?.type, ev.error?.message), ev.error?.message);
-      }
-    }
-  } catch (e) { if (e?.name === 'AbortError') throw apiErr('cancelled'); throw e; }
-  if (stop === 'refusal') throw apiErr('refused');
-  return { text, truncated: stop === 'max_tokens' };
-}
-function makeApiSample(key, ids) {
-  const run = async (input, opts = {}) => {
-    const content = [];
-    for (const b of (opts.images || [])) content.push({ type: 'image', source: { type: 'base64', media_type: b.type || 'image/jpeg', data: await blobToB64(b) } });
-    content.push({ type: 'text', text: String(input) });
-    const models = pickModels(ids, opts.modelTier); let last;
-    for (const m of models) {
-      try { return await streamOnce(key, m, content, opts.signal, opts.onText); }
-      catch (e) { last = e; if (e.code !== 'model_missing') throw e; }
-    }
-    throw last || apiErr('model_missing');
-  };
-  const fn = run;
-  fn.json = async (input, opts) => { const r = await run(input, opts); return parseJsonText(r.text); };
-  fn.limits = async () => ({ images: { maxCount: 20 } });
-  fn.byok = true;
-  return fn;
-}
-async function connectKey(key, remember) {
-  $('#aiState').textContent = '확인 중…'; $('#keySave').disabled = true;
-  try {
-    const ids = await listModels(key);
-    sample = makeApiSample(key, ids);
-    lsSet(KEY_LS, remember ? key : null);
-    $('#aiState').textContent = '연결됨'; $('#apikey').value = ''; $('#apikey').placeholder = '연결됨 · sk-ant-…' + key.slice(-4);
-    $('#keyClear').hidden = false; $('#keySave').textContent = '키 변경';
-    return true;
-  } catch (e) {
-    sample = null; $('#aiState').textContent = '미연결';
-    const m = { bad_key: 'API 키가 올바르지 않습니다. 키를 다시 확인해 주세요.', no_permission: '이 키에는 모델 사용 권한이 없습니다.', network: 'Anthropic 서버에 연결하지 못했습니다. 인터넷 연결을 확인해 주세요.' };
-    note(m[e.code] || ('키 확인 중 문제가 생겼습니다' + (e.message ? ` (${esc(e.message)})` : '') + '.'), true);
-    return false;
-  } finally { $('#keySave').disabled = false; }
-}
-function initByok() {
-  $('#aiCard').hidden = false;
-  $('#keySave').addEventListener('click', async () => {
-    const k = $('#apikey').value.trim();
-    if (!k) { note('Anthropic API 키를 입력해 주세요.', true); $('#apikey').focus(); return; }
-    if (await connectKey(k, $('#keepKey').checked)) note('AI가 연결되었습니다. 영상을 올리고 ‘공간 분석 시작’을 눌러 주세요.');
-  });
-  $('#apikey').addEventListener('keydown', e => { if (e.key === 'Enter') $('#keySave').click(); });
-  $('#keyClear').addEventListener('click', () => {
-    sample = null; lsSet(KEY_LS, null); $('#aiState').textContent = '미연결'; $('#apikey').placeholder = 'sk-ant-로 시작하는 키를 붙여넣기';
-    $('#keyClear').hidden = true; $('#keySave').textContent = '연결하기'; note('AI 연결을 해제했습니다. 저장된 키도 이 브라우저에서 지웠습니다.');
-  });
-  const saved = lsGet(KEY_LS);
-  if (saved) connectKey(saved, true);
-  else note('영상 분석을 쓰려면 왼쪽 ‘AI 연결’에 Anthropic API 키를 입력해 주세요. 지금은 예시 도면과 Data 편집, 파일 저장을 바로 이용할 수 있어요.');
+function showClaudeCard(fromGo) {
+  $('#claudeCard').hidden = false;
+  note(fromGo ? '영상 분석은 Claude 계정으로 로그인한 화면에서 실행됩니다. ‘Claude 계정으로 분석하기’를 눌러 claude.ai에서 열어 주세요.' : '영상 분석은 ‘Claude 계정으로 분석하기’를 눌러 로그인한 뒤 이용할 수 있어요. 지금 이 화면에서는 예시 도면 확인과 Data 편집, 파일 저장을 바로 쓸 수 있습니다.', !!fromGo);
+  if (fromGo) { $('#claudeCard').scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => $('#openClaude').focus(), 400); }
 }
 
 async function renderAll(raw, isSample) {
@@ -1459,7 +1349,7 @@ let ctl = null;
 $('#go').addEventListener('click', async () => {
   const frames = state.frames.filter(f => f.on);
   if (!frames.length) { note('분석할 프레임을 하나 이상 선택해 주세요.', true); return; }
-  if (!sample) { $('#aiCard').hidden = false; note('영상 분석을 하려면 먼저 ‘AI 연결’에 Anthropic API 키를 입력하고 연결해 주세요.', true); $('#aiCard').scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => $('#apikey').focus(), 400); return; }
+  if (!sample) { showClaudeCard(true); return; }
   const lim = await sample.limits().catch(() => null);
   if (!lim?.images) { note('이 화면에서는 이미지 분석이 지원되지 않습니다. 최신 Claude 앱이나 웹에서 열어 주세요.', true); return; }
   $('#go').disabled = true; $('#stop').hidden = false; note('');
@@ -1483,7 +1373,7 @@ $('#go').addEventListener('click', async () => {
   } catch (e) {
     clearInterval(timer);
     const code = e?.code;
-    const map = { cancelled: '분석을 중지했습니다.', not_granted: 'Claude 사용 권한이 허용되지 않아 분석할 수 없습니다.', rate_limited: '요청이 많거나 사용 한도에 도달했습니다. 잠시 후 다시 시도해 주세요.', invalid_json: '응답을 도면 데이터로 읽지 못했습니다. 프레임 수를 줄이거나 다시 시도해 주세요.', image_rejected: '이미지를 처리하지 못했습니다. 프레임을 다시 추출해 주세요.', refused: '이 입력은 분석할 수 없습니다. 다른 영상으로 시도해 주세요.', session_expired: '로그인이 만료되었습니다. 다시 로그인해 주세요.', bad_key: 'API 키가 올바르지 않습니다. ‘AI 연결’에서 키를 다시 입력해 주세요.', no_permission: '이 API 키로는 모델을 사용할 수 없습니다.', no_credit: 'API 계정의 크레딧이 부족합니다. console.anthropic.com에서 충전해 주세요.', overloaded: 'AI 서버가 혼잡합니다. 잠시 후 다시 시도해 주세요.', model_missing: '이 키로 사용할 수 있는 분석 모델을 찾지 못했습니다.', too_large: '이미지 용량이 너무 큽니다. 프레임 수를 줄여 다시 시도해 주세요.', network: '네트워크 연결이 끊겼습니다. 다시 시도해 주세요.', api_error: 'AI 요청이 처리되지 않았습니다. 다시 시도해 주세요.' };
+    const map = { cancelled: '분석을 중지했습니다.', not_granted: 'Claude 사용을 허용하지 않아 분석하지 못했습니다. 다시 누르고 사용 허용을 선택해 주세요.', rate_limited: '요청이 많거나 사용 한도에 도달했습니다. 잠시 후 다시 시도해 주세요.', invalid_json: '응답을 도면 데이터로 읽지 못했습니다. 프레임 수를 줄이거나 다시 시도해 주세요.', image_rejected: '이미지를 처리하지 못했습니다. 프레임을 다시 추출해 주세요.', refused: '이 입력은 분석할 수 없습니다. 다른 영상으로 시도해 주세요.', session_expired: '로그인이 만료되었습니다. 다시 로그인해 주세요.' };
     setStage('ai', code === 'cancelled' ? '' : 'err');
     note(map[code] || ('분석 중 문제가 생겼습니다' + (e?.message && !code ? ` (${esc(e.message)})` : '') + '. 다시 시도해 주세요.'), code !== 'cancelled');
     if (!code && state.model) { /* drawing error keeps previous */ }
@@ -1614,9 +1504,9 @@ document.querySelectorAll('#tierSeg button').forEach(b => b.addEventListener('cl
 $('#navNew').addEventListener('click', () => { $('#input').scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(() => $('#drop').focus?.(), 400); });
 renderAll(SAMPLE, true).catch(e => note('예시 도면을 그리지 못했습니다: ' + esc(e.message), true));
 if (window.claude?.use) {
-  window.claude.use('sample').then(s => { sample = s; if (!s) initByok(); });
+  window.claude.use('sample').then(s => { sample = s; if (!s) showClaudeCard(false); });
   window.claude.use('downloads').then(d => { downloads = d; });
-} else initByok();
+} else showClaudeCard(false);
 })();
 </script>
 

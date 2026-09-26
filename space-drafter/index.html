@@ -1308,12 +1308,15 @@ $('#frames').addEventListener('click', e => { const b = e.target.closest('button
 /* =====================================================================
    13. analysis with Claude
    ===================================================================== */
-function buildPrompt(nImages, tiled, textOnly) {
+function buildPrompt(nImages, tiled, textOnly, cues) {
   const brief = { project_name: $('#pname').value.trim() || null, space_type_hint: $('#ptype').value, area_hint: $('#parea').value.trim() || null, notes: $('#pnote').value.trim() || null };
-  return `You are a senior interior designer with 20+ years of practice and an architectural draftsman. ${textOnly ? 'No images are available in this session. Reconstruct ONE interior space from the USER BRIEF below (project name, space type, area, notes) and from typical Korean layouts for that type and size; mark every room you cannot confirm from the brief as "inferred": true, set project.confidence to "low", and say in project.source_note_ko that the drawing was made from the text brief without video frames.' : `The ${nImages} attached image(s) are ${tiled ? 'contact sheets of numbered ' : ''}frames, in time order, from a walk-through video of ONE interior space (often a phone screen recording: ignore app UI, captions, icons, the presenter; use caption text only as hints about the space).`}
+  return `You are a senior interior designer with 20+ years of practice and an architectural draftsman. ${textOnly ? 'Images cannot be attached in this session, so the page analysed the walk-through video frames on-device and converted them to the VISUAL CUES text below (per frame, in time order: colour palette and brightness of the ceiling = top third, walls = middle third and floor = bottom third of the frame, lighting warmth, edge structure), plus the video file name and duration. Reconstruct ONE interior space from these cues, the USER BRIEF and typical Korean layouts for the implied space type and size: infer the space type from the file name, brief and cues when the brief says auto; derive floor/wall/ceiling finishes and colours, lighting mood and furniture materials from the cue palettes; use the frame sequence as the walk-through order when laying out rooms. Mark rooms you cannot confirm as "inferred": true, set project.confidence to "low" or "mid", and say in project.source_note_ko that the drawing was reconstructed from on-device colour/structure cues of the video frames, not from the images themselves.' : `The ${nImages} attached image(s) are ${tiled ? 'contact sheets of numbered ' : ''}frames, in time order, from a walk-through video of ONE interior space (often a phone screen recording: ignore app UI, captions, icons, the presenter; use caption text only as hints about the space).`}
 Reconstruct the space as an approximate plan whose proportions are plausible, then write a professional analysis. Dimensions may be estimated from proportions and standard sizes.
 
-USER BRIEF: ${JSON.stringify(brief)}
+USER BRIEF: ${JSON.stringify(brief)}${textOnly && cues ? `
+
+VISUAL CUES (auto-extracted on-device from the video frames)
+${cues}` : ''}
 
 RULES
 - Units: millimetres. Plan origin (0,0) = top-left corner of the footprint; x grows right, y grows down. Put the main entrance on the bottom edge (largest y) when possible. N/E/S/W mean plan top/right/bottom/left (not compass).
@@ -1345,6 +1348,51 @@ async function tileFrames(frames, per) {
     out.push(await toBlob(c, 'image/jpeg', 0.85));
   } return out;
 }
+/* ---- on-device visual cues (used when this Claude view cannot receive images) ---- */
+function rgb2hsl(r, g, b) { r /= 255; g /= 255; b /= 255; const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2; let h = 0, s = 0; if (mx !== mn) { const d = mx - mn; s = l > .5 ? d / (2 - mx - mn) : d / (mx + mn); h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h *= 60; } return [h, s, l]; }
+function colorKo(r, g, b) {
+  const [h, s, l] = rgb2hsl(r, g, b);
+  if (s < 0.13 || (l > 0.9 && s < 0.3)) return l > 0.9 ? '화이트' : l > 0.75 ? '오프화이트' : l > 0.55 ? '라이트 그레이' : l > 0.3 ? '그레이' : l > 0.14 ? '차콜' : '블랙';
+  if (h >= 15 && h < 50) return l < 0.3 ? '다크 브라운(월넛·짙은 목재)' : l < 0.55 ? '미디엄 우드 톤(오크·티크)' : l < 0.75 ? '라이트 우드·베이지' : '아이보리·크림';
+  if (h >= 50 && h < 70) return l < 0.5 ? '올리브·카키' : '옐로우·머스타드';
+  if (h >= 70 && h < 170) return l < 0.35 ? '딥 그린' : '그린·세이지';
+  if (h >= 170 && h < 250) return l < 0.35 ? '네이비' : l > 0.7 ? '라이트 블루' : '블루 그레이';
+  if (h >= 250 && h < 330) return l > 0.7 ? '핑크·라벤더' : '퍼플·버건디';
+  return l < 0.35 ? '레드 브라운·벽돌' : l > 0.7 ? '살구·로즈' : '테라코타·레드';
+}
+function zoneCue(d, w, y0, y1) {
+  const bins = new Map(); let n = 0, L = 0, warm = 0;
+  for (let y = y0; y < y1; y++) for (let x = 0; x < w; x++) {
+    const i = (y * w + x) * 4, r = d[i], g = d[i + 1], b = d[i + 2]; n++; L += (r + g + b) / 3; warm += r - b;
+    const k = (r >> 5) + '_' + (g >> 5) + '_' + (b >> 5); const e = bins.get(k) || { c: 0, r: 0, g: 0, b: 0 }; e.c++; e.r += r; e.g += g; e.b += b; bins.set(k, e);
+  }
+  const named = new Map();
+  for (const e of bins.values()) { const nm = colorKo(e.r / e.c, e.g / e.c, e.b / e.c); named.set(nm, (named.get(nm) || 0) + e.c); }
+  const top = [...named.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).filter(t => t[1] / n >= 0.08).map(t => `${t[0]} ${Math.round(t[1] / n * 100)}%`);
+  return { txt: top.join(', '), L: L / n / 255, warm: warm / n };
+}
+function frameCue(f, idx) {
+  return new Promise(res => {
+    const im = new Image();
+    im.onload = () => {
+      const w = 64, h = Math.max(24, Math.round(64 * im.height / im.width)); const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(im, 0, 0, w, h);
+      const d = x.getImageData(0, 0, w, h).data; const t3 = Math.round(h / 3);
+      const top = zoneCue(d, w, 0, t3), mid = zoneCue(d, w, t3, 2 * t3), bot = zoneCue(d, w, 2 * t3, h), all = zoneCue(d, w, 0, h);
+      let vx = 0, hz = 0; for (let y = 1; y < h - 1; y++) for (let xx = 1; xx < w - 1; xx++) { const g = i => (d[i] + d[i + 1] + d[i + 2]) / 3; const i = (y * w + xx) * 4; if (Math.abs(g(i + 4) - g(i - 4)) > 40) vx++; if (Math.abs(g(i + w * 4) - g(i - w * 4)) > 40) hz++; }
+      const area = (w - 2) * (h - 2); const bright = all.L > 0.7 ? '매우 밝음' : all.L > 0.5 ? '밝음' : all.L > 0.3 ? '중간' : '어두움';
+      const tone = all.warm > 18 ? '웜톤' : all.warm < -6 ? '쿨톤' : '뉴트럴';
+      const struct = vx / area > 0.12 && vx > hz * 1.3 ? '수직선 많음(문·기둥·수납장·창살 가능성)' : hz / area > 0.12 && hz > vx * 1.3 ? '수평선 많음(카운터·선반·몰딩 가능성)' : (vx + hz) / area < 0.06 ? '단순한 면(넓은 벽·바닥 위주, 개방감)' : '복합 구조(가구·집기 다수)';
+      res(`F${String(idx + 1).padStart(2, '0')}${f.t ? ` (${f.t.toFixed(1)}s)` : ''}${im.height > im.width ? ' 세로' : ' 가로'}: 천장·상부=${top.txt || '-'} | 벽·중앙=${mid.txt || '-'} | 바닥·하부=${bot.txt || '-'} | 조명 ${bright}·${tone} | ${struct}`);
+    };
+    im.onerror = () => res(`F${String(idx + 1).padStart(2, '0')}: 분석 불가`); im.src = f.url;
+  });
+}
+async function frameCues(frames) {
+  const lines = []; for (let i = 0; i < frames.length; i++) lines.push(await frameCue(frames[i], i));
+  const vid = state.files.find(f => f.type.startsWith('video')); const last = frames.reduce((m, f) => Math.max(m, f.t || 0), 0);
+  const head = `SOURCE: ${state.files.map(f => f.name).join(', ')}${vid && last ? ` · 영상 길이 약 ${Math.round(last + 1)}초 · ${frames.length}컷 균등 추출` : ` · 이미지 ${frames.length}장`}`;
+  return [head, ...lines].join('\n');
+}
 let ctl = null;
 $('#go').addEventListener('click', async () => {
   const frames = state.frames.filter(f => f.on);
@@ -1353,8 +1401,6 @@ $('#go').addEventListener('click', async () => {
   const lim = await sample.limits().catch(() => null);
   // lim === null: this viewer did not report limits -> try images anyway; lim without images -> text brief mode
   let textOnly = !!lim && !lim.images;
-  const hasBrief = () => !!($('#parea').value.trim() || $('#pnote').value.trim() || $('#ptype').value !== 'auto');
-  if (textOnly && !hasBrief()) { note('지금 열린 Claude 화면은 이미지를 보낼 수 없어 브리프 글로 분석합니다. ‘브리프’의 공간 유형·면적·추가 정보를 채운 뒤 다시 눌러 주세요. (PC 웹 claude.ai에서 열면 영상 프레임까지 분석됩니다.)', true); $('#parea').focus(); return; }
   $('#go').disabled = true; $('#stop').hidden = false; note('');
   setStage('ai', 'run', '준비 중'); setStage('draw', ''); setStage('report', '');
   const t0 = Date.now(); const timer = setInterval(() => { const el = document.querySelector('.stage[data-s="ai"] em'); if (el && !el.dataset.kb) el.textContent = Math.round((Date.now() - t0) / 1000) + 's'; }, 1000);
@@ -1371,19 +1417,19 @@ $('#go').addEventListener('click', async () => {
       } catch (e) {
         if (e?.code !== 'images_unavailable') throw e;
         textOnly = true;
-        if (!hasBrief()) { clearInterval(timer); setStage('ai', ''); note('지금 열린 Claude 화면은 이미지를 보낼 수 없어 브리프 글로 분석합니다. ‘브리프’의 공간 유형·면적·추가 정보를 채운 뒤 다시 눌러 주세요. (PC 웹 claude.ai에서 열면 영상 프레임까지 분석됩니다.)', true); return; }
       }
     }
     if (textOnly) {
-      note('이 화면은 이미지 전송을 지원하지 않아 브리프 글을 바탕으로 분석합니다. 영상 프레임까지 반영하려면 PC 웹 claude.ai에서 열어 주세요.');
-      data = await sample.json(buildPrompt(0, false, true), { modelTier: $('#tier').value, signal: ctl.signal, cache: false, onText });
+      setStage('ai', 'run', '프레임 판독');
+      const cues = await frameCues(frames);
+      data = await sample.json(buildPrompt(0, false, true, cues), { modelTier: $('#tier').value, signal: ctl.signal, cache: false, onText });
     }
     clearInterval(timer); setStage('ai', 'done', Math.round((Date.now() - t0) / 1000) + 's');
     setStage('draw', 'run'); await new Promise(r => setTimeout(r, 30));
     await renderAll(data, false);
     setStage('draw', 'done'); setStage('report', 'done', state.pages.length + 'p');
     document.querySelector('.tabs button[data-t="sheets"]').click();
-    note(textOnly ? '브리프 기반 분석이 끝났습니다. 영상 없이 글로 추정한 도면이므로 Data 탭에서 실제와 다른 부분을 고쳐 다시 그려 주세요.' : '분석이 끝났습니다. 도면은 추정 치수입니다. Data 탭에서 좌표나 재질을 고친 뒤 다시 그릴 수 있어요.');
+    note(textOnly ? '분석이 끝났습니다. 이 화면은 이미지 전송이 제한돼, 영상 프레임의 색·밝기·구조를 화면 안에서 판독해 도면을 그렸습니다. 치수와 배치는 추정값이니 Data 탭에서 고쳐 다시 그릴 수 있어요.' : '분석이 끝났습니다. 도면은 추정 치수입니다. Data 탭에서 좌표나 재질을 고친 뒤 다시 그릴 수 있어요.');
   } catch (e) {
     clearInterval(timer);
     const code = e?.code;

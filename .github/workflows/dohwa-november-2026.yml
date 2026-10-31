@@ -1,0 +1,79 @@
+name: Dohwa November 2026 Review Snapshot
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/dohwa-november-2026.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Capture live Naver Place SSR review state
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,re,requests,datetime,os,collections
+          ID='2083311596'
+          url=f'https://m.place.naver.com/restaurant/{ID}/review/visitor?reviewSort=recent'
+          headers={'user-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1','accept-language':'ko-KR,ko;q=0.9'}
+          r=requests.get(url,headers=headers,timeout=30)
+          print('HTTP',r.status_code,'HTML LENGTH',len(r.text),'AT',datetime.datetime.now(datetime.timezone.utc).isoformat(),flush=True)
+          r.raise_for_status()
+          html=r.text
+          marker='window.__APOLLO_STATE__'; ix=html.find(marker)
+          if ix<0: raise RuntimeError('Apollo state marker not present')
+          s=html.find('{',html.find('=',ix));level=0;instr=False;escape=False;end=0
+          for i in range(s,len(html)):
+              ch=html[i]
+              if instr:
+                  if escape: escape=False
+                  elif ch=='\\': escape=True
+                  elif ch=='"': instr=False
+              elif ch=='"': instr=True
+              elif ch=='{': level+=1
+              elif ch=='}':
+                  level-=1
+                  if level==0: end=i+1; break
+          state=json.loads(html[s:end]);root=state.get('ROOT_QUERY',{})
+          stats=state.get('VisitorReviewStatsResult:'+ID) or next((v for k,v in state.items() if k.startswith('VisitorReviewStatsResult:')),{})
+          base=state.get('PlaceDetailBase:'+ID) or next((v for k,v in state.items() if k.startswith('PlaceDetailBase:')),{})
+          review=(stats or {}).get('review') or {}
+          feeds=[]
+          for k,v in root.items():
+              if k.startswith('visitorReviews(') and isinstance(v,dict) and isinstance(v.get('items'),list):
+                  try: inp=json.loads(k[len('visitorReviews('):-1]).get('input',{})
+                  except: inp={}
+                  items=[state.get(q.get('__ref'),{}) for q in v['items'] if isinstance(q,dict)]
+                  feeds.append({'total':v.get('total'),'includeContent':inp.get('includeContent'),'queryInput':inp,'items':items})
+          latest=[];seen=set()
+          for feed in feeds:
+              for a in feed['items']:
+                  rid=a.get('reviewId') or a.get('id')
+                  if not rid or rid in seen: continue
+                  seen.add(rid)
+                  author=a.get('author') or {}
+                  latest.append({'id':rid,'created':a.get('created'),'visited':a.get('visited'),'rating':a.get('rating'),'body':a.get('body') or '', 'reviewer':author.get('nickname'), 'votedKeywords':[x.get('name') or x.get('displayName') or x.get('code') for x in (a.get('votedKeywords') or []) if isinstance(x,dict)], 'cursor':a.get('cursor'),'visitCount':a.get('visitCount'),'originType':a.get('originType')})
+          keyword_candidates={}
+          for k,v in state.items():
+              if any(q in k.lower() for q in ['keyword','visitorreviewstats','voted']) and len(str(v)) < 100000:
+                  keyword_candidates[k]=v
+          meta={'placeId':ID,'placeName':'도화갈비 인천점','sourceUrl':url,'scrapedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+             'avgRating':review.get('avgRating'),'starDistribution':review.get('starDistribution'),
+             'imageReviewCount':review.get('imageReviewCount'),'authorCount':review.get('authorCount'),
+             'visitorReviewsTotal':base.get('visitorReviewsTotal'),'visitorReviewsTextReviewTotal':base.get('visitorReviewsTextReviewTotal'),
+             'feeds':[{'total':v['total'],'includeContent':v['includeContent'],'initialItems':len(v['items'])} for v in feeds],
+             'latestUniqueCount':len(latest),'rawReviewStats':review}
+          os.makedirs('dohwa-november-2026',exist_ok=True)
+          for name,obj in [('meta.json',meta),('recent_reviews.json',latest),('keyword_candidates.json',keyword_candidates)]:
+              with open('dohwa-november-2026/'+name,'w',encoding='utf-8') as f:json.dump(obj,f,ensure_ascii=False,indent=2)
+          print('META',json.dumps({k:v for k,v in meta.items() if k!='rawReviewStats'},ensure_ascii=False),flush=True)
+          print('SAMPLE',json.dumps(latest[:2],ensure_ascii=False)[:1600],flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dohwa-november-2026-snapshot
+          path: dohwa-november-2026/
+          retention-days: 7

@@ -1,0 +1,37 @@
+name: Crawl Dohwa November 2026 Full Review Archive
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/dohwa-november-full.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reuse verified cursor crawler, extend to current review count
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          source=Path('.github/workflows/crawl-dohwa-full.yml').read_text()
+          marker="          python - <<'PY'\n"
+          body=source.split(marker,1)[1].split("\n          PY",1)[0]
+          body="\n".join(line[10:] if line.startswith("          ") else line for line in body.splitlines())
+          body=body.replace("loops<45","loops<125").replace("time.sleep(.5)","time.sleep(.12)")
+          body=body.replace("2026-{int(m.group(1)):02d}", "2026-{int(m.group(1)):02d}")
+          exec(compile(body,'crawl.py','exec'))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dohwa-november-2026-full-reviews
+          path: |
+            naver-place-dohwa/reviews_full.json
+            naver-place-dohwa/reviews_full.csv
+            naver-place-dohwa/meta_full.json
+          retention-days: 7
+          if-no-files-found: ignore

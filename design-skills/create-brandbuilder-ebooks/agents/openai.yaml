@@ -1,0 +1,4 @@
+interface:
+  display_name: "브랜드빌더 전자책 제작"
+  short_description: "강점 기반 브랜딩 관점과 브랜드빌더 편집 디자인을 적용한 전자책 제작"
+  default_prompt: "Use $create-brandbuilder-ebooks to create a Korean branding ebook with -by Brandbuilder- attribution."

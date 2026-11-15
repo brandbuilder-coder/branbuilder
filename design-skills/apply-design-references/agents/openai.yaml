@@ -1,0 +1,14 @@
+interface:
+  display_name: 브랜드빌더 디자인 레퍼런스
+  short_description: 13개 레퍼런스 사이트의 조형 원리를 브랜드 디자인과 촬영에 적용
+  default_prompt: $apply-design-references 레퍼런스에서 레이아웃·여백·색·빛의 원리를 추출해 우리 브랜드 작업에
+    적용해줘.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

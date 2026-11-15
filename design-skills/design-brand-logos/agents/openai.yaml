@@ -1,0 +1,13 @@
+interface:
+  display_name: 브랜드빌더 로고디자인
+  short_description: 영문·한글 로고의 스타일 선택, 조형 설계, 시안 제작과 검증
+  default_prompt: $design-brand-logos 스킬로 브랜드의 강점에 맞는 영문·한글 로고 스타일을 선택하고 디자인해줘.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
